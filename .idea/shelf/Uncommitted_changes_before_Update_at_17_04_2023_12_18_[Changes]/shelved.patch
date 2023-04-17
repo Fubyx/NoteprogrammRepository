@@ -1,0 +1,307 @@
+Index: src/main/java/project/notizprogrammrepository/model/Types/entries/Entry.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package project.notizprogrammrepository.model.Types.entries;\r\n\r\nimport java.util.Date;\r\n\r\npublic abstract class Entry {\r\n    private String title;\r\n    private String text;\r\n    private Date date;\r\n    private double id;\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/project/notizprogrammrepository/model/Types/entries/Entry.java b/src/main/java/project/notizprogrammrepository/model/Types/entries/Entry.java
+--- a/src/main/java/project/notizprogrammrepository/model/Types/entries/Entry.java	(revision 389c295e54fc9a0760ff081043af0f86a489b95a)
++++ b/src/main/java/project/notizprogrammrepository/model/Types/entries/Entry.java	(date 1681724805592)
+@@ -7,4 +7,29 @@
+     private String text;
+     private Date date;
+     private double id;
++
++    public String getTitle() {
++        return title;
++    }
++    public void setTitle(String title) {
++        this.title = title;
++    }
++    public String getText() {
++        return text;
++    }
++    public void setText(String text) {
++        this.text = text;
++    }
++    public Date getDate() {
++        return date;
++    }
++    public void setDate(Date date) {
++        this.date = date;
++    }
++    public double getId() {
++        return id;
++    }
++    public void setId(double id) {
++        this.id = id;
++    }
+ }
+Index: src/main/java/project/notizprogrammrepository/model/Types/entries/TodoEntry.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package project.notizprogrammrepository.model.Types.entries;\r\n\r\npublic class TodoEntry extends Entry{\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/project/notizprogrammrepository/model/Types/entries/TodoEntry.java b/src/main/java/project/notizprogrammrepository/model/Types/entries/TodoEntry.java
+--- a/src/main/java/project/notizprogrammrepository/model/Types/entries/TodoEntry.java	(revision 389c295e54fc9a0760ff081043af0f86a489b95a)
++++ b/src/main/java/project/notizprogrammrepository/model/Types/entries/TodoEntry.java	(date 1681725554472)
+@@ -1,4 +1,5 @@
+ package project.notizprogrammrepository.model.Types.entries;
+ 
+ public class TodoEntry extends Entry{
++    private int priority;//0 - 10
+ }
+Index: src/main/java/project/notizprogrammrepository/model/Types/entries/CalendarEntry.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package project.notizprogrammrepository.model.Types.entries;\r\n\r\npublic class CalendarEntry extends Entry{\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/project/notizprogrammrepository/model/Types/entries/CalendarEntry.java b/src/main/java/project/notizprogrammrepository/model/Types/entries/CalendarEntry.java
+--- a/src/main/java/project/notizprogrammrepository/model/Types/entries/CalendarEntry.java	(revision 389c295e54fc9a0760ff081043af0f86a489b95a)
++++ b/src/main/java/project/notizprogrammrepository/model/Types/entries/CalendarEntry.java	(date 1681725434326)
+@@ -1,4 +1,7 @@
+ package project.notizprogrammrepository.model.Types.entries;
+ 
++import java.util.Date;
++
+ public class CalendarEntry extends Entry{
++    private Date reminderDate;
+ }
+Index: src/main/java/project/notizprogrammrepository/model/Types/entries/Note.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package project.notizprogrammrepository.model.Types.entries;\r\n\r\npublic class Note extends Entry{\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/project/notizprogrammrepository/model/Types/entries/Note.java b/src/main/java/project/notizprogrammrepository/model/Types/entries/Note.java
+--- a/src/main/java/project/notizprogrammrepository/model/Types/entries/Note.java	(revision 389c295e54fc9a0760ff081043af0f86a489b95a)
++++ b/src/main/java/project/notizprogrammrepository/model/Types/entries/Note.java	(date 1681725403559)
+@@ -1,4 +1,6 @@
+ package project.notizprogrammrepository.model.Types.entries;
+ 
+ public class Note extends Entry{
++    private Subject subject;
++    private boolean collectByTitle;
+ }
+Index: src/main/java/project/notizprogrammrepository/model/Types/segments/NoteSegment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package project.notizprogrammrepository.model.Types.segments;\r\n\r\npublic class NoteSegment extends CalendarSegment{\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/project/notizprogrammrepository/model/Types/segments/NoteSegment.java b/src/main/java/project/notizprogrammrepository/model/Types/segments/NoteSegment.java
+--- a/src/main/java/project/notizprogrammrepository/model/Types/segments/NoteSegment.java	(revision 389c295e54fc9a0760ff081043af0f86a489b95a)
++++ b/src/main/java/project/notizprogrammrepository/model/Types/segments/NoteSegment.java	(date 1681726610975)
+@@ -1,4 +1,15 @@
+ package project.notizprogrammrepository.model.Types.segments;
+ 
++import project.notizprogrammrepository.model.Types.NoteCollection;
++import project.notizprogrammrepository.model.Types.entries.Note;
++
++import java.util.List;
++
+ public class NoteSegment extends CalendarSegment{
++    private List<NoteCollection> collections;
++    public void removeAll(Day day){}
++    public void collectBySubject(Note note){}
++    public void collectByTitle(Note note){
++
++    }
+ }
+Index: src/main/java/project/notizprogrammrepository/model/Types/segments/CalendarSegment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package project.notizprogrammrepository.model.Types.segments;\r\n\r\npublic class CalendarSegment extends Segment{\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/project/notizprogrammrepository/model/Types/segments/CalendarSegment.java b/src/main/java/project/notizprogrammrepository/model/Types/segments/CalendarSegment.java
+--- a/src/main/java/project/notizprogrammrepository/model/Types/segments/CalendarSegment.java	(revision 389c295e54fc9a0760ff081043af0f86a489b95a)
++++ b/src/main/java/project/notizprogrammrepository/model/Types/segments/CalendarSegment.java	(date 1681726291998)
+@@ -1,4 +1,23 @@
+ package project.notizprogrammrepository.model.Types.segments;
+ 
++import project.notizprogrammrepository.model.Types.entries.Entry;
++
+ public class CalendarSegment extends Segment{
++    private boolean weekViewActive;
++    @Override
++    public void addEntry(Entry entry) {
++
++    }
++
++    @Override
++    public boolean removeEntry(Entry entry) {
++        return false;
++    }
++
++    @Override
++    public void editEntry(Entry entry) {
++
++    }
++
++    public void switchView(){}
+ }
+Index: src/main/java/project/notizprogrammrepository/model/Types/segments/Segment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package project.notizprogrammrepository.model.Types.segments;\r\n\r\nimport project.notizprogrammrepository.model.Types.entries.Entry;\r\n\r\npublic abstract class Segment {\r\n    public abstract void add(Entry e);\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/project/notizprogrammrepository/model/Types/segments/Segment.java b/src/main/java/project/notizprogrammrepository/model/Types/segments/Segment.java
+--- a/src/main/java/project/notizprogrammrepository/model/Types/segments/Segment.java	(revision 389c295e54fc9a0760ff081043af0f86a489b95a)
++++ b/src/main/java/project/notizprogrammrepository/model/Types/segments/Segment.java	(date 1681726089948)
+@@ -2,6 +2,12 @@
+ 
+ import project.notizprogrammrepository.model.Types.entries.Entry;
+ 
++import java.util.List;
++
+ public abstract class Segment {
+-    public abstract void add(Entry e);
++   private List<Entry> entries;
++   private double nextEmptyId;
++   public abstract void addEntry(Entry entry);
++   public abstract boolean removeEntry(Entry entry);
++   public abstract void editEntry(Entry entry);
+ }
+Index: src/main/java/project/notizprogrammrepository/model/Types/NoteCollection.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package project.notizprogrammrepository.model.Types;\r\n\r\npublic class NoteCollection {\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/project/notizprogrammrepository/model/Types/NoteCollection.java b/src/main/java/project/notizprogrammrepository/model/Types/NoteCollection.java
+--- a/src/main/java/project/notizprogrammrepository/model/Types/NoteCollection.java	(revision 389c295e54fc9a0760ff081043af0f86a489b95a)
++++ b/src/main/java/project/notizprogrammrepository/model/Types/NoteCollection.java	(date 1681726681911)
+@@ -1,4 +1,9 @@
+ package project.notizprogrammrepository.model.Types;
+ 
++import project.notizprogrammrepository.model.Types.entries.Note;
++
++import java.util.List;
++
+ public class NoteCollection {
++    private List<Note> notes;
+ }
+Index: src/main/java/project/notizprogrammrepository/model/Types/segments/TodoSegment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package project.notizprogrammrepository.model.Types.segments;\r\n\r\nimport project.notizprogrammrepository.model.Types.entries.Entry;\r\n\r\npublic class TodoSegment extends Segment{\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/project/notizprogrammrepository/model/Types/segments/TodoSegment.java b/src/main/java/project/notizprogrammrepository/model/Types/segments/TodoSegment.java
+--- a/src/main/java/project/notizprogrammrepository/model/Types/segments/TodoSegment.java	(revision 389c295e54fc9a0760ff081043af0f86a489b95a)
++++ b/src/main/java/project/notizprogrammrepository/model/Types/segments/TodoSegment.java	(date 1681726251467)
+@@ -4,4 +4,18 @@
+ 
+ public class TodoSegment extends Segment{
+ 
++    @Override
++    public void addEntry(Entry entry) {
++
++    }
++
++    @Override
++    public boolean removeEntry(Entry entry) {
++        return false;
++    }
++
++    @Override
++    public void editEntry(Entry entry) {
++
++    }
+ }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"6502bfbe-216c-46b9-afe6-28e7a06cce3d\" name=\"Changes\" comment=\"initial classes v2\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/CalendarSegment.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/CalendarSegment.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/NoteSegment.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/NoteSegment.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/Segment.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/Segment.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/TodoSegment.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/TodoSegment.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2OJlnwxQq87Pp0E7kqaYTv7XNLg\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;\r\n  }\r\n}</component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"6502bfbe-216c-46b9-afe6-28e7a06cce3d\" name=\"Changes\" comment=\"\" />\r\n      <created>1681286424218</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1681286424218</updated>\r\n      <workItem from=\"1681286426138\" duration=\"2000\" />\r\n      <workItem from=\"1681286737386\" duration=\"299000\" />\r\n      <workItem from=\"1681291651490\" duration=\"6000\" />\r\n      <workItem from=\"1681401936624\" duration=\"30000\" />\r\n      <workItem from=\"1681642954891\" duration=\"1726000\" />\r\n      <workItem from=\"1681669614151\" duration=\"340000\" />\r\n      <workItem from=\"1681723961770\" duration=\"500000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"initial classes\">\r\n      <created>1681652549881</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1681652549881</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"initial classes v2\">\r\n      <created>1681669676092</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1681669676093</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"initial classes\" />\r\n    <MESSAGE value=\"initial classes v2\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"initial classes v2\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 389c295e54fc9a0760ff081043af0f86a489b95a)
++++ b/.idea/workspace.xml	(date 1681726439268)
+@@ -4,8 +4,13 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="6502bfbe-216c-46b9-afe6-28e7a06cce3d" name="Changes" comment="initial classes v2">
++    <list default="true" id="6502bfbe-216c-46b9-afe6-28e7a06cce3d" name="Changes" comment="few fixes to initial commit">
++      <change afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/Subject.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/CalendarEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/CalendarEntry.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/Entry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/Entry.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/Note.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/Note.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/TodoEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/TodoEntry.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/CalendarSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/CalendarSegment.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/NoteSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/NoteSegment.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/Segment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/Segment.java" afterDir="false" />
+@@ -20,6 +25,7 @@
+     <option name="RECENT_TEMPLATES">
+       <list>
+         <option value="Class" />
++        <option value="Enum" />
+       </list>
+     </option>
+   </component>
+@@ -59,7 +65,7 @@
+       <workItem from="1681401936624" duration="30000" />
+       <workItem from="1681642954891" duration="1726000" />
+       <workItem from="1681669614151" duration="340000" />
+-      <workItem from="1681723961770" duration="500000" />
++      <workItem from="1681723961770" duration="2464000" />
+     </task>
+     <task id="LOCAL-00001" summary="initial classes">
+       <created>1681652549881</created>
+@@ -75,7 +81,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1681669676093</updated>
+     </task>
+-    <option name="localTasksCounter" value="3" />
++    <task id="LOCAL-00003" summary="few fixes to initial commit">
++      <created>1681724699458</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1681724699458</updated>
++    </task>
++    <option name="localTasksCounter" value="4" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -95,6 +108,7 @@
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="initial classes" />
+     <MESSAGE value="initial classes v2" />
+-    <option name="LAST_COMMIT_MESSAGE" value="initial classes v2" />
++    <MESSAGE value="few fixes to initial commit" />
++    <option name="LAST_COMMIT_MESSAGE" value="few fixes to initial commit" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/main/java/project/notizprogrammrepository/model/Types/entries/Subject.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/project/notizprogrammrepository/model/Types/entries/Subject.java b/src/main/java/project/notizprogrammrepository/model/Types/entries/Subject.java
+new file mode 100644
+--- /dev/null	(date 1681725033407)
++++ b/src/main/java/project/notizprogrammrepository/model/Types/entries/Subject.java	(date 1681725033407)
+@@ -0,0 +1,5 @@
++package project.notizprogrammrepository.model.Types.entries;
++
++public enum Subject {
++    MATH, ENGLISH, GERMAN, NONE
++}
