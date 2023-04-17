@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6502bfbe-216c-46b9-afe6-28e7a06cce3d" name="Changes" comment="initial classes v2">
+    <list default="true" id="6502bfbe-216c-46b9-afe6-28e7a06cce3d" name="Changes" comment="initial classes">
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/Dates/Day.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/Dates/Month.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/Dates/Year.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/CalendarSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/CalendarSegment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/NoteSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/NoteSegment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/Segment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/Segment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/TodoSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/TodoSegment.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,8 +57,6 @@
       <workItem from="1681291651490" duration="6000" />
       <workItem from="1681401936624" duration="30000" />
       <workItem from="1681642954891" duration="1726000" />
-      <workItem from="1681669614151" duration="340000" />
-      <workItem from="1681723961770" duration="500000" />
     </task>
     <task id="LOCAL-00001" summary="initial classes">
       <created>1681652549881</created>
@@ -68,14 +65,7 @@
       <option name="project" value="LOCAL" />
       <updated>1681652549881</updated>
     </task>
-    <task id="LOCAL-00002" summary="initial classes v2">
-      <created>1681669676092</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1681669676093</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -94,7 +84,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial classes" />
-    <MESSAGE value="initial classes v2" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial classes v2" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial classes" />
   </component>
 </project>
