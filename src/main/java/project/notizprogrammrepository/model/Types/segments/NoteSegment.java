@@ -1,4 +1,4 @@
 package project.notizprogrammrepository.model.Types.segments;
 
-public class NoteSegment extends Segment{
+public class NoteSegment extends CalendarSegment{
 }
