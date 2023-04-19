@@ -8,10 +8,6 @@ public abstract class Entry {
     private Date date;
     private double id;
 
-    public Entry(String title, double id) {
-        this.title = title;
-        this.id = id;
-    }
     public Entry(String title, Date date, double id) {
         this.title = title;
         this.date = date;

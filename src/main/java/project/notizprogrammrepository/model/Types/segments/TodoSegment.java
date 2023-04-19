@@ -1,6 +1,9 @@
 package project.notizprogrammrepository.model.Types.segments;
 
 import project.notizprogrammrepository.model.Types.entries.Entry;
+import project.notizprogrammrepository.model.Types.entries.Note;
+
+import java.util.List;
 
 public class TodoSegment extends Segment{
 
@@ -18,4 +21,10 @@ public class TodoSegment extends Segment{
     public void editEntry(Entry entry) {
 
     }
+
+    @Override
+    public Note getNote(int id) {
+        return null;
+    }
+
 }

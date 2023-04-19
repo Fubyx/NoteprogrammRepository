@@ -1,6 +1,9 @@
 package project.notizprogrammrepository.model.Types.segments;
 
 import project.notizprogrammrepository.model.Types.entries.Entry;
+import project.notizprogrammrepository.model.Types.entries.Note;
+
+import java.util.List;
 
 public class CalendarSegment extends Segment{
     private boolean weekViewActive;
@@ -17,6 +20,11 @@ public class CalendarSegment extends Segment{
     @Override
     public void editEntry(Entry entry) {
 
+    }
+
+    @Override
+    public Note getNote(int id) {
+        return null;
     }
 
     public void switchView(){}
