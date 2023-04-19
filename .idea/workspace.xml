@@ -4,21 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6502bfbe-216c-46b9-afe6-28e7a06cce3d" name="Changes" comment="Fix to the JUnit Testing --&gt; Solved by removing dependency's, imports and libraries (project structure) connected to JUnit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/TestMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/test/project/notizprogrammrepository/model/Types/Dates/DayTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/test/project/notizprogrammrepository/model/Types/segments/NoteSegmentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/TempMain.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/Dates/Day.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/Dates/Day.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/NoteCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/NoteCollection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/Entry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/Entry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/TodoEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/TodoEntry.java" afterDir="false" />
+    <list default="true" id="6502bfbe-216c-46b9-afe6-28e7a06cce3d" name="Changes" comment="Changes indicated above class names by 19.04.2023">
       <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/CalendarSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/CalendarSegment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/NoteSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/NoteSegment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/Segment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/Segment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/TodoSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/TodoSegment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/project/notizprogrammrepository/model/Types/NoteCollectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/project/notizprogrammrepository/model/Types/NoteCollectionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +175,7 @@
       <workItem from="1681810220726" duration="1537000" />
       <workItem from="1681818014126" duration="85000" />
       <workItem from="1681841600857" duration="2209000" />
-      <workItem from="1681883675640" duration="6205000" />
+      <workItem from="1681883675640" duration="7124000" />
     </task>
     <task id="LOCAL-00001" summary="initial classes">
       <created>1681652549881</created>
@@ -229,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681883833060</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Changes indicated above class names by 19.04.2023">
+      <created>1681890289317</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1681890289317</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,6 +250,7 @@
     <MESSAGE value="Attributes and methods from class diagramm" />
     <MESSAGE value="Test-folder" />
     <MESSAGE value="Fix to the JUnit Testing --&gt; Solved by removing dependency's, imports and libraries (project structure) connected to JUnit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix to the JUnit Testing --&gt; Solved by removing dependency's, imports and libraries (project structure) connected to JUnit" />
+    <MESSAGE value="Changes indicated above class names by 19.04.2023" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes indicated above class names by 19.04.2023" />
   </component>
 </project>

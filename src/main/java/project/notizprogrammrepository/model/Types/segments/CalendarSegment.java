@@ -23,7 +23,7 @@ public class CalendarSegment extends Segment{
     }
 
     @Override
-    public Note getNote(int id) {
+    public Note getNote(double id) {
         return null;
     }
 

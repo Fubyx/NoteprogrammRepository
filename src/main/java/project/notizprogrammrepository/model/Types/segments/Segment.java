@@ -16,7 +16,7 @@ public abstract class Segment {
    public abstract void addEntry(Entry entry);
    public abstract boolean removeEntry(Entry entry);
    public abstract void editEntry(Entry entry);
-   public abstract Note getNote(int id);
+   public abstract Note getNote(double id);
    public List<Entry> getEntries(){
       return entries;
    }
