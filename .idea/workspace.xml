@@ -4,15 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6502bfbe-216c-46b9-afe6-28e7a06cce3d" name="Changes" comment="Attributes and methods from class diagramm">
-      <change afterPath="$PROJECT_DIR$/src/tests/java/project/notizprogrammrepository/model/ApplicationTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tests/java/project/notizprogrammrepository/model/Types/NoteCollectionTest.java" afterDir="false" />
+    <list default="true" id="6502bfbe-216c-46b9-afe6-28e7a06cce3d" name="Changes" comment="Test-folder">
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/TempMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/test/project/notizprogrammrepository/model/Types/NoteCollectionTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/Dates/Day.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/Dates/Day.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/Dates/Month.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/Dates/Month.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/Dates/Year.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/Dates/Year.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/NoteCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/NoteCollection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/CalendarEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/CalendarEntry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/Entry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/Entry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/Note.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/Note.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/TodoEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/TodoEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/NoteSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/NoteSegment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/java/project/notizprogrammrepository/model/ApplicationTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/java/project/notizprogrammrepository/model/Types/NoteCollectionTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +25,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="module-info" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -46,12 +51,117 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_directory_selection": "C:/Users/Fabian/Desktop/Oberschule/4AT/Informatik/Projekt/Info/Repository/NotizprogrammRepository/src/main/tests/project",
     "last_opened_file_path": "C:/Users/Fabian/Desktop/Oberschule/4AT/Informatik/Projekt/Info/Repository/NotizprogrammRepository/src/tests",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.37356323"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Fabian\Desktop\Oberschule\4AT\Informatik\Projekt\Info\Repository\NotizprogrammRepository\src\tests" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Fabian\Desktop\Oberschule\4AT\Informatik\Projekt\Info\Repository\NotizprogrammRepository\src\main" />
+      <recent name="C:\Users\Fabian\Desktop\Oberschule\4AT\Informatik\Projekt\Info\Repository\NotizprogrammRepository" />
+      <recent name="C:\Users\Fabian\Desktop\Oberschule\4AT\Informatik\Projekt\Info\Repository\NotizprogrammRepository\src" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="project.notizprogrammrepository.model.Types" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.NoteCollectionTest.test">
+    <configuration name="TempMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="project.notizprogrammrepository.TempMain" />
+      <module name="NotizprogrammRepository" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.notizprogrammrepository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NoteCollectionTest (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NotizprogrammRepository" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.notizprogrammrepository.model.Types.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="project.notizprogrammrepository.model.Types" />
+      <option name="MAIN_CLASS_NAME" value="project.notizprogrammrepository.model.Types.NoteCollectionTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NoteCollectionTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NotizprogrammRepository" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.notizprogrammrepository.model.Types.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="project.notizprogrammrepository.model.Types" />
+      <option name="MAIN_CLASS_NAME" value="project.notizprogrammrepository.model.Types.NoteCollectionTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test.test (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NotizprogrammRepository" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.notizprogrammrepository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="project.notizprogrammrepository" />
+      <option name="MAIN_CLASS_NAME" value="project.notizprogrammrepository.Test" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Testing" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NotizprogrammRepository" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.notizprogrammrepository.model.Types.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="project.notizprogrammrepository.model.Types" />
+      <option name="MAIN_CLASS_NAME" value="project.notizprogrammrepository.model.Types.Testing" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.NoteCollectionTest.test" />
+        <item itemvalue="Application.TempMain" />
+        <item itemvalue="JUnit.Testing" />
+        <item itemvalue="JUnit.NoteCollectionTest (2)" />
+        <item itemvalue="JUnit.Test.test (2)" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -67,7 +177,11 @@
       <workItem from="1681642954891" duration="1726000" />
       <workItem from="1681669614151" duration="340000" />
       <workItem from="1681723961770" duration="2464000" />
-      <workItem from="1681737007724" duration="3276000" />
+      <workItem from="1681737007724" duration="5362000" />
+      <workItem from="1681763566369" duration="3000" />
+      <workItem from="1681810220726" duration="1537000" />
+      <workItem from="1681818014126" duration="85000" />
+      <workItem from="1681841600857" duration="2209000" />
     </task>
     <task id="LOCAL-00001" summary="initial classes">
       <created>1681652549881</created>
@@ -97,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681737513995</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Test-folder">
+      <created>1681740310878</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1681740310878</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,6 +240,7 @@
     <MESSAGE value="initial classes v2" />
     <MESSAGE value="few fixes to initial commit" />
     <MESSAGE value="Attributes and methods from class diagramm" />
-    <option name="LAST_COMMIT_MESSAGE" value="Attributes and methods from class diagramm" />
+    <MESSAGE value="Test-folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test-folder" />
   </component>
 </project>

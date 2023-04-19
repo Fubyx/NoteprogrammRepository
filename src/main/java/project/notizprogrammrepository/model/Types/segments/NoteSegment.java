@@ -1,5 +1,6 @@
 package project.notizprogrammrepository.model.Types.segments;
 
+import project.notizprogrammrepository.model.Types.Dates.Day;
 import project.notizprogrammrepository.model.Types.NoteCollection;
 import project.notizprogrammrepository.model.Types.entries.Note;
 

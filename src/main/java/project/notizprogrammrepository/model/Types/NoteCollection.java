@@ -26,6 +26,15 @@ public class NoteCollection {
         this.subject = subject;
         this.title = subject.toString();
     }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public Subject getSubject() {
+        return subject;
+    }
+
     public void add(Note note){
         notes.put(note.getDate(), note);
     }
