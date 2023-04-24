@@ -50,4 +50,16 @@ public class NoteCollection {
         return notes.remove(note.getDate()) != null;
     }
 
+    @Override
+    public String toString() {
+        String s = title;
+        s = s.concat("\n");
+        for (Date d:notes.keySet()) {
+            s = s.concat(notes.get(d).getText() + "\n\n");
+        }
+        return s;
+    }
+    public boolean isEmpty(){
+        return notes.isEmpty();
+    }
 }

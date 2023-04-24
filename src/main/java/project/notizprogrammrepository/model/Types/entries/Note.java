@@ -4,11 +4,14 @@ import java.util.Date;
 import java.util.Objects;
 
 //17.04.2023 Fabian: Override equals
+//24.04.2023 Fabian: Fix to constructor
 public class Note extends Entry{
     private Subject subject;
     private boolean collectByTitle;
-    public Note(String title, String text, Date date, double id) {
+    public Note(String title, String text, Date date, double id, boolean collectByTitle) {
         super(title, text, date, id);
+        this.subject = Subject.NONE;
+        this.collectByTitle = collectByTitle;
     }
     public Subject getSubject() {
         return subject;

@@ -6,6 +6,7 @@ import project.notizprogrammrepository.model.Types.entries.Subject;
 
 import java.util.Date;
 
+//19.04.2023 Fabian: Test for constructor, changing of title and subject, adding and getting notes
 import static org.junit.jupiter.api.Assertions.*;
 class NoteCollectionTest {
     @Test
@@ -29,7 +30,7 @@ class NoteCollectionTest {
         assertEquals("New", n.getTitle());
 
         //Test adding a note and getting all Notes
-        Note n1 = new Note("Test", "Hallo", new Date(), 1);
+        Note n1 = new Note("Test", "Hallo", new Date(), 1, true);
         n.add(n1);
         assertTrue(n.getNotes().containsValue(n1));
     }
