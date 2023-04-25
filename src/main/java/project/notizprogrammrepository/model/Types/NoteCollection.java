@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.TreeMap;
 
 //17.04.2023 Fabian: Sorting by date + constructors
-//18.04.2023 Fabian: Added changing to Title and Subject, remove
+//18.04.2023 Fabian: Added changing to Title and Subject, remove, toString
 public class NoteCollection {
     private TreeMap<Date, Note> notes = new TreeMap<>(Date::compareTo);;
     private String title;

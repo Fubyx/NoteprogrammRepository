@@ -30,7 +30,7 @@ class NoteCollectionTest {
         assertEquals("New", n.getTitle());
 
         //Test adding a note and getting all Notes
-        Note n1 = new Note("Test", "Hallo", new Date(), 1, true);
+        Note n1 = new Note("Test", "Hallo", new Date(),  true);
         n.add(n1);
         assertTrue(n.getNotes().containsValue(n1));
     }

@@ -5,11 +5,11 @@ import java.util.Date;
 public class TodoEntry extends Entry{
     private int priority;//0 - 10
 
-    public TodoEntry(String title, Date date, double id) {
-        super(title, date, id);
+    public TodoEntry(String title, Date date) {
+        super(title, date);
     }
 
-    public TodoEntry(String title, String text, Date date, double id) {
-        super(title, text, date, id);
+    public TodoEntry(String title, String text, Date date) {
+        super(title, text, date);
     }
 }

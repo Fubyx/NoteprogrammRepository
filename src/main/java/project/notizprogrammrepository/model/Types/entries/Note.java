@@ -5,11 +5,12 @@ import java.util.Objects;
 
 //17.04.2023 Fabian: Override equals
 //24.04.2023 Fabian: Fix to constructor
+//25.04.2023 Fabian: removed id, changed equals to compare date
 public class Note extends Entry{
     private Subject subject;
     private boolean collectByTitle;
-    public Note(String title, String text, Date date, double id, boolean collectByTitle) {
-        super(title, text, date, id);
+    public Note(String title, String text, Date date, boolean collectByTitle) {
+        super(title, text, date);
         this.subject = Subject.NONE;
         this.collectByTitle = collectByTitle;
     }
@@ -26,12 +27,12 @@ public class Note extends Entry{
         this.collectByTitle = collectByTitle;
     }
     /**
-     * Compares the 2 Notes. Returns true only if the id of obj matches the id of the Note
+     * Compares the 2 Notes. Returns true only if the Date of obj matches the Date of the Note
      * @param obj The Note to compare to
-     * @return Returns whether the ids of the 2 Notes are equal.
+     * @return Returns whether the Dates of the 2 Notes are equal.
      */
     @Override
     public boolean equals(Object obj){
-        return ((obj instanceof Note) && (((Note) obj).getId() == this.getId()));
+        return ((obj instanceof Note) && (((Note) obj).getDate().equals(this.getDate())));
     }
 }
