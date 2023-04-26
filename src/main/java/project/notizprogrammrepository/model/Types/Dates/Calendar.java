@@ -13,7 +13,7 @@ If Month-view is switched, new month gets generated, old month gets deleted, if 
 //25.04.2023 Fabian: constructor, shiftCalendar, addEntry, remove, getEntry
 public class Calendar {
     private LinkedList<Month> months = new LinkedList<>();
-    private int currentMonthIndex = 1;
+    private int currentMonthIndex = 1; //the index of the month that is currently displayed
 
     public Calendar (Date date){
         int year = date.getYear() + 1900;
@@ -36,6 +36,7 @@ public class Calendar {
         return currentMonthIndex;
     }
 
+    //shifts the current month to the right or left
     public void shiftCalendar(boolean rightShift){
         if(rightShift){
             try{

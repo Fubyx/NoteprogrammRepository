@@ -22,6 +22,7 @@ public class CalendarSegment extends Segment{
         return calendar;
     }
 
+    //switches 1 month to the left or right
     public void shiftView(boolean rightShift){
         if(weekViewActive){
             if(rightShift){
@@ -45,6 +46,7 @@ public class CalendarSegment extends Segment{
             calendar.shiftCalendar(rightShift);
         }
     }
+    //wechselt von Tagesansicht in Wochenansicht
     public void switchView(){
         weekViewActive = !weekViewActive;
         currentWeek = 1;
