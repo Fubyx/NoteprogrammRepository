@@ -7,6 +7,9 @@ public abstract class Entry {
     private String text;
     private Date date;
 
+    public Entry(String title){
+        this.title = title;
+    }
     public Entry(String title, Date date) {
         this.title = title;
         this.date = date;
