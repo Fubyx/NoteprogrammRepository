@@ -4,11 +4,8 @@ import project.notizprogrammrepository.model.Types.Dates.Calendar;
 import project.notizprogrammrepository.model.Types.Dates.Day;
 import project.notizprogrammrepository.model.Types.Dates.Month;
 import project.notizprogrammrepository.model.Types.entries.CalendarEntry;
-import project.notizprogrammrepository.model.Types.entries.Entry;
-import project.notizprogrammrepository.model.Types.entries.Note;
 
 import java.util.Date;
-import java.util.List;
 
 //25.04.2023 Fabian: calendar, weekViewActive, currentWeek, constructor, getCalendar, shiftView, switchView, getCurrentWeek, getMonth
 public class CalendarSegment extends Segment{
@@ -56,6 +53,26 @@ public class CalendarSegment extends Segment{
     }
     public Month getMonth(){
         return calendar.getMonth();
+    }
+
+
+
+    // 26.04.2023 Miguel: removeCalendarEntry ( remove the Entry from Calendar), addCalendarEntry ( add an Entry to Calendar ) , editCalendarEntry ( edit an Entry in Calendar )
+    public void addCalendarEntry(CalendarEntry calendarEntry){
+        this.getCalendar().addEntry(calendarEntry);
+    }
+    public void removeCalendarEntry(CalendarEntry calendarEntry){
+        this.getCalendar().remove(calendarEntry);
+    }
+    public void editCalendarEntry(CalendarEntry calendarEntry){
+        CalendarEntry oldcalendarEntry = this.getCalendarEntry(calendarEntry.getDate());
+        if(oldcalendarEntry == null)
+            return;
+        oldcalendarEntry.setTitle(calendarEntry.getTitle());
+        oldcalendarEntry.setText(calendarEntry.getText());
+    }
+    public CalendarEntry getCalendarEntry(Date date){
+        return (CalendarEntry)getCalendar().getEntry(date);
     }
 
 }
