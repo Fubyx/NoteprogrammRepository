@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6502bfbe-216c-46b9-afe6-28e7a06cce3d" name="Changes" comment="a few comments">
-      <change afterPath="$PROJECT_DIR$/src/main/test/project/notizprogrammrepository/model/Types/segments/TodoSegmentTest.java" afterDir="false" />
+    <list default="true" id="6502bfbe-216c-46b9-afe6-28e7a06cce3d" name="Changes" comment="zwischenstand todo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/Entry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/Entry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/TodoEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/TodoEntry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/TodoSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/TodoSegment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/test/project/notizprogrammrepository/model/Types/segments/TodoSegmentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/project/notizprogrammrepository/model/Types/segments/TodoSegmentTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -267,7 +265,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682489619200</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="zwischenstand todo">
+      <created>1682670897835</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1682670897835</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -295,6 +300,7 @@
     <MESSAGE value="NoteSegment: getCollection, editEntry, removeFromCollections, collectByTitle, collectBySubject. Fixes to removeEntry, addEntry, removeAll&#10;Note: Fix to constructor&#10;NoteCollection: Added changing to Title and Subject, remove&#10;Testing for the above" />
     <MESSAGE value="Month: constructor, monthNumber, year, hasEntries, addEntry, remove, getEntry, getDay, getWeek&#10;Entry: removed id&#10;Note: changed equals to compare date&#10;Segment: removed entries&#10;CalendarSegment: calendar, weekViewActive, currentWeek, constructor, getCalendar, shiftView, switchView, getCurrentWeek, getMonth&#10;NoteSegment: Updated all methods to use the calendar instead of entries and not to use id&#10;TodoSegment: Added List of entries&#10;Day: addEntry, amountOfEntries, remove, removeAll, getEntry, getEntries&#10;DateUtils: moved the getDayOfWeek in here and made it static&#10;Calendar: constructor, shiftCalendar, addEntry, remove, getEntry, getDay, getWeek, getMonth" />
     <MESSAGE value="a few comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="a few comments" />
+    <MESSAGE value="zwischenstand todo" />
+    <option name="LAST_COMMIT_MESSAGE" value="zwischenstand todo" />
   </component>
 </project>
