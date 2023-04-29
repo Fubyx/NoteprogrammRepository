@@ -6,18 +6,18 @@ public abstract class Entry {
     private String title;
     private String text;
     private Date date;
-    private double id;
 
-    public Entry(String title, Date date, double id) {
+    public Entry(String title){
+        this.title = title;
+    }
+    public Entry(String title, Date date) {
         this.title = title;
         this.date = date;
-        this.id = id;
     }
-    public Entry(String title, String text, Date date, double id) {
+    public Entry(String title, String text, Date date) {
         this.title = title;
         this.text = text;
         this.date = date;
-        this.id = id;
     }
     public String getTitle() {
         return title;
@@ -36,11 +36,5 @@ public abstract class Entry {
     }
     public void setDate(Date date) {
         this.date = date;
-    }
-    public double getId() {
-        return id;
-    }
-    public void setId(double id) {
-        this.id = id;
     }
 }

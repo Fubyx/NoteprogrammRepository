@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6502bfbe-216c-46b9-afe6-28e7a06cce3d" name="Changes" comment="MainApplication and KalenderView modified1">
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/MainApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/KalenderView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_04_2023_12_18_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_04_2023_12_18__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/TestMain.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/ApplicationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/ApplicationView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Types/entries/CalendarEntryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Types/entries/CalendarEntryView.java" afterDir="false" />
+    <list default="true" id="6502bfbe-216c-46b9-afe6-28e7a06cce3d" name="Changes" comment="Changes indicated above class names by 19.04.2023">
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/CalendarSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/CalendarSegment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/NoteSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/NoteSegment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/Segment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/Segment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/TodoSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/TodoSegment.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +18,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="module-info" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -34,7 +31,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2OJlnwxQq87Pp0E7kqaYTv7XNLg" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -43,41 +42,116 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Schule_4AT/Info/Java/Projekt/NoteprogrammRepository&quot;
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/Fabian/Desktop/Oberschule/4AT/Informatik/Projekt/Info/Repository/NotizprogrammRepository/src/main/tests/project&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Fabian/Desktop/Oberschule/4AT/Informatik/Projekt/Info/Repository/NotizprogrammRepository/src/tests&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.37356323&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.MainApplication">
-    <configuration name="KalenderView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="project.notizprogrammrepository.view.KalenderView" />
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Fabian\Desktop\Oberschule\4AT\Informatik\Projekt\Info\Repository\NotizprogrammRepository\src\tests" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Fabian\Desktop\Oberschule\4AT\Informatik\Projekt\Info\Repository\NotizprogrammRepository\src\main" />
+      <recent name="C:\Users\Fabian\Desktop\Oberschule\4AT\Informatik\Projekt\Info\Repository\NotizprogrammRepository" />
+      <recent name="C:\Users\Fabian\Desktop\Oberschule\4AT\Informatik\Projekt\Info\Repository\NotizprogrammRepository\src" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="project.notizprogrammrepository" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="project.notizprogrammrepository.model.Types.segments" />
+      <recent name="project.notizprogrammrepository.model.Types.Dates" />
+      <recent name="project.notizprogrammrepository.model.Types" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.NoteSegmentTest.removeAllTest">
+    <configuration name="TestMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="project.notizprogrammrepository.TestMain" />
       <module name="NotizprogrammRepository" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="project.notizprogrammrepository.view.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="project.notizprogrammrepository.MainApplication" />
+    <configuration name="DayTest.dayComparingTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="NotizprogrammRepository" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="project.notizprogrammrepository.*" />
+          <option name="PATTERN" value="project.notizprogrammrepository.model.Types.Dates.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="project.notizprogrammrepository.model.Types.Dates" />
+      <option name="MAIN_CLASS_NAME" value="project.notizprogrammrepository.model.Types.Dates.DayTest" />
+      <option name="METHOD_NAME" value="dayComparingTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NoteCollectionTest (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NotizprogrammRepository" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.notizprogrammrepository.model.Types.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="project.notizprogrammrepository.model.Types" />
+      <option name="MAIN_CLASS_NAME" value="project.notizprogrammrepository.model.Types.NoteCollectionTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NoteCollectionTest.testNoteCollection" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NotizprogrammRepository" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.notizprogrammrepository.model.Types.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="project.notizprogrammrepository.model.Types" />
+      <option name="MAIN_CLASS_NAME" value="project.notizprogrammrepository.model.Types.NoteCollectionTest" />
+      <option name="METHOD_NAME" value="testNoteCollection" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NoteSegmentTest.removeAllTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NotizprogrammRepository" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.notizprogrammrepository.model.Types.segments.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="project.notizprogrammrepository.model.Types.segments" />
+      <option name="MAIN_CLASS_NAME" value="project.notizprogrammrepository.model.Types.segments.NoteSegmentTest" />
+      <option name="METHOD_NAME" value="removeAllTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MainApplication" />
-        <item itemvalue="Application.KalenderView" />
+        <item itemvalue="JUnit.NoteSegmentTest.removeAllTest" />
+        <item itemvalue="JUnit.DayTest.dayComparingTest" />
+        <item itemvalue="JUnit.NoteCollectionTest.testNoteCollection" />
+        <item itemvalue="Application.TestMain" />
+        <item itemvalue="JUnit.NoteCollectionTest (2)" />
       </list>
     </recent_temporary>
   </component>
@@ -91,10 +165,68 @@
       <updated>1681286424218</updated>
       <workItem from="1681286426138" duration="2000" />
       <workItem from="1681286737386" duration="299000" />
-      <workItem from="1682411409887" duration="43000" />
-      <workItem from="1682488690422" duration="2889000" />
-      <workItem from="1682667524635" duration="5474000" />
+      <workItem from="1681291651490" duration="6000" />
+      <workItem from="1681401936624" duration="30000" />
+      <workItem from="1681642954891" duration="1726000" />
+      <workItem from="1681669614151" duration="340000" />
+      <workItem from="1681723961770" duration="2464000" />
+      <workItem from="1681737007724" duration="5362000" />
+      <workItem from="1681763566369" duration="3000" />
+      <workItem from="1681810220726" duration="1537000" />
+      <workItem from="1681818014126" duration="85000" />
+      <workItem from="1681841600857" duration="2209000" />
+      <workItem from="1681883675640" duration="7124000" />
     </task>
+    <task id="LOCAL-00001" summary="initial classes">
+      <created>1681652549881</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1681652549881</updated>
+    </task>
+    <task id="LOCAL-00002" summary="initial classes v2">
+      <created>1681669676092</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1681669676093</updated>
+    </task>
+    <task id="LOCAL-00003" summary="few fixes to initial commit">
+      <created>1681724699458</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1681724699458</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Attributes and methods from class diagramm">
+      <created>1681737513995</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1681737513995</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Test-folder">
+      <created>1681740310878</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1681740310878</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Fix to the JUnit Testing --&gt; Solved by removing dependency's, imports and libraries (project structure) connected to JUnit">
+      <created>1681883833059</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1681883833060</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Changes indicated above class names by 19.04.2023">
+      <created>1681890289317</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1681890289317</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -110,5 +242,15 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initial classes" />
+    <MESSAGE value="initial classes v2" />
+    <MESSAGE value="few fixes to initial commit" />
+    <MESSAGE value="Attributes and methods from class diagramm" />
+    <MESSAGE value="Test-folder" />
+    <MESSAGE value="Fix to the JUnit Testing --&gt; Solved by removing dependency's, imports and libraries (project structure) connected to JUnit" />
+    <MESSAGE value="Changes indicated above class names by 19.04.2023" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes indicated above class names by 19.04.2023" />
   </component>
 </project>
