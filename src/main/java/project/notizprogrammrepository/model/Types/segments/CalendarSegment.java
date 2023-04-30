@@ -8,12 +8,16 @@ import project.notizprogrammrepository.model.Types.entries.CalendarEntry;
 import java.util.Date;
 
 //25.04.2023 Fabian: calendar, weekViewActive, currentWeek, constructor, getCalendar, shiftView, switchView, getCurrentWeek, getMonth
+//29.04.2023 Fabian: set default value of currentWeek fixing an error with getCurrentWeek
+//26.04.2023 Miguel: removeCalendarEntry ( remove the Entry from Calendar), addCalendarEntry ( add an Entry to Calendar ) , editCalendarEntry ( edit an Entry in Calendar )
+//30.04.2023 Fabian: added reminderDate to editCalendarEntry
 public class CalendarSegment extends Segment{
     private Calendar calendar;
     private boolean weekViewActive = false;
     private int currentWeek;
     public CalendarSegment (Date date){
         calendar = new Calendar(date);
+        currentWeek = 1;
     }
     public Calendar getCalendar() {
         return calendar;
@@ -43,7 +47,7 @@ public class CalendarSegment extends Segment{
             calendar.shiftCalendar(rightShift);
         }
     }
-    //wechselt von Tagesansicht in Wochenansicht
+    //switches between weekView and monthView
     public void switchView(){
         weekViewActive = !weekViewActive;
         currentWeek = 1;
@@ -55,9 +59,6 @@ public class CalendarSegment extends Segment{
         return calendar.getMonth();
     }
 
-
-
-    // 26.04.2023 Miguel: removeCalendarEntry ( remove the Entry from Calendar), addCalendarEntry ( add an Entry to Calendar ) , editCalendarEntry ( edit an Entry in Calendar )
     public void addCalendarEntry(CalendarEntry calendarEntry){
         this.getCalendar().addEntry(calendarEntry);
     }
@@ -70,6 +71,7 @@ public class CalendarSegment extends Segment{
             return;
         oldcalendarEntry.setTitle(calendarEntry.getTitle());
         oldcalendarEntry.setText(calendarEntry.getText());
+        oldcalendarEntry.setReminderDate(calendarEntry.getReminderDate());
     }
     public CalendarEntry getCalendarEntry(Date date){
         return (CalendarEntry)getCalendar().getEntry(date);

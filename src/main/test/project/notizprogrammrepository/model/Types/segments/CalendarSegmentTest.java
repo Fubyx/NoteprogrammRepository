@@ -9,11 +9,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 //28.04.2023 Miguel: Testing addCalenderEntry, Testing removeCalendarEntry, Testing editCalendarEntry
-public class CaledndarSegmentTest {
+public class CalendarSegmentTest {
 
     @Test
     public void addCalendarEntryTest(){
-        String title = "Tittel";
+        String title = "Title";
         Date date = new Date();
         CalendarEntry calendarEntry = new CalendarEntry(title, date);
         CalendarSegment calendarSegment = new CalendarSegment(date);
