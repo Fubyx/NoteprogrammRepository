@@ -1,5 +1,7 @@
 package project.notizprogrammrepository.model.Types;
 
-public enum Mode {
-    CALENDAR, NOTE, TODO
+import java.io.Serializable;
+
+public enum Mode implements Serializable {
+    CALENDAR, NOTE, TODO, COLLECTIONS
 }

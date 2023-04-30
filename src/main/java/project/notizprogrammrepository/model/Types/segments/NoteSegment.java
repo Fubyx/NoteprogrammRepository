@@ -11,6 +11,7 @@ import java.util.*;
 //19.04.2023 Fabian: Empty constructor, removeAll (remove all notes of a certain day), addEntry
 //24.04.2023 Fabian: getCollection; editEntry; removeEntry (remove from collections); addEntry (add to collections); collectByTitle, collectBySubject, removeAll (remove from collections), removeFromCollections
 //25.04.2023 Fabian: Updated all methods to use the calendar instead of entries and not to use id
+//Todo: editText for collections -> interface
 public class NoteSegment extends CalendarSegment{
     private final TreeMap<String, NoteCollection> collections = new TreeMap<>();
     public NoteSegment(Date date){
@@ -74,8 +75,8 @@ public class NoteSegment extends CalendarSegment{
     public NoteCollection getCollection(Subject subject){
         return collections.get(subject.toString());
     }
-    public Collection<String> getCollectionTitles(){
-        return collections.keySet();
+    public ArrayList<String> getCollectionTitles(){
+        return new ArrayList<>(collections.keySet());
     }
     public void addNote(Note note) {
             this.getCalendar().addEntry(note);

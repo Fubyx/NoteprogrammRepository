@@ -2,6 +2,7 @@ package project.notizprogrammrepository.model.Types.Dates;
 
 import project.notizprogrammrepository.model.Types.entries.Entry;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.LinkedList;
 
@@ -11,7 +12,7 @@ Generate current month + 1 month back + 2 months forward.
 If Month-view is switched, new month gets generated, old month gets deleted, if there is no entries.
  */
 //25.04.2023 Fabian: constructor, shiftCalendar, addEntry, remove, getEntry
-public class Calendar {
+public class Calendar implements Serializable {
     private LinkedList<Month> months = new LinkedList<>();
     private int currentMonthIndex = 1; //the index of the month that is currently displayed
 

@@ -14,6 +14,11 @@ public class Note extends Entry{
         this.subject = Subject.NONE;
         this.collectByTitle = collectByTitle;
     }
+    public Note(String title, String text, Date date, boolean collectByTitle, Subject subject) {
+        super(title, text, date);
+        this.subject = subject;
+        this.collectByTitle = collectByTitle;
+    }
     public Subject getSubject() {
         return subject;
     }

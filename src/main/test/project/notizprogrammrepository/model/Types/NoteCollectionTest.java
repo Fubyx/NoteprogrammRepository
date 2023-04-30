@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 import project.notizprogrammrepository.model.Types.entries.Note;
 import project.notizprogrammrepository.model.Types.entries.Subject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 //19.04.2023 Fabian: Test for constructor, changing of title and subject, adding and getting notes
@@ -33,6 +35,29 @@ class NoteCollectionTest {
         Note n1 = new Note("Test", "Hallo", new Date(),  true);
         n.add(n1);
         assertTrue(n.getNotes().containsValue(n1));
+    }
+
+    @Test
+    public void testEditText() throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy/HH/mm/ss");
+        Note n = new Note("Title", "Auto", sdf.parse("12/04/2023/10/00/00"), true);
+        Note n1 = new Note("Title", "Tttest", sdf.parse("12/04/2023/11/00/00"), true);
+        Note n2 = new Note("Title", "Alex", sdf.parse("12/04/2023/12/00/00"), true);
+        assertEquals(-1, n.getDate().compareTo(n1.getDate()));
+        assertEquals(-1, n1.getDate().compareTo(n2.getDate()));
+        NoteCollection noteCollection = new NoteCollection("Title");
+        noteCollection.add(n);
+        assertEquals("Title\n\nAuto\n\n", noteCollection.toString());
+        noteCollection.add(n1);
+        assertEquals("Title\n\nAuto\n\nTttest\n\n", noteCollection.toString());
+        noteCollection.add(n2);
+        assertEquals("Title\n\nAuto\n\nTttest\n\nAlex\n\n", noteCollection.toString());
+        noteCollection.editText("Title\n\nHallo\n\nTttest\n\nAxel\n\n");
+        assertEquals("Title\n\nHallo\n\nTttest\n\nAxel\n\n", noteCollection.toString());
+        assertEquals("Hallo", n.getText());
+        assertEquals("Tttest", n1.getText());
+        assertEquals("Axel", n2.getText());
+
     }
   
 }

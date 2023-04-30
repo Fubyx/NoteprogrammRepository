@@ -19,7 +19,7 @@ class NoteSegmentTest {
     @Test
     public void removeAllTest() throws ParseException {
 
-        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy hh:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
         NoteSegment noteSegment = new NoteSegment(sdf.parse("04.04.2023 20:45:23"));
         Note n = new Note("tdtwd", "zgaezvaez", sdf.parse("20.04.2023 20:45:23"),  true);
         noteSegment.addNote(new Note("tdtwd", "zgaezvaez", sdf.parse("19.04.2023 20:45:23"),  true));
@@ -30,7 +30,7 @@ class NoteSegmentTest {
         noteSegment.removeAll(sdf.parse("19.04.2023 13:45:23"), true);
 
         assertEquals(n, noteSegment.getNote(n.getDate()));
-        assertEquals("tdtwd\nzgaezvaez\n\n", noteSegment.getCollection(n.getTitle()).toString());
+        assertEquals("tdtwd\n\nzgaezvaez\n\n", noteSegment.getCollection(n.getTitle()).toString());
         noteSegment.deleteCollection(n.getTitle());
         assertNull(noteSegment.getCollection(n.getTitle()));
 
@@ -47,14 +47,14 @@ class NoteSegmentTest {
         noteSegment.addNote(n);
         noteSegment.addNote(new Note("tdtwd", "zgezvaez", sdf.parse("19.04.2023 00:00:00"),  true));
 
-        assertEquals("tdtwd\nzgezvaez\n\nzgaezvez\n\nzgaezaez\n\nzgaezvaez\n\n", noteSegment.getCollection(n.getTitle()).toString());
+        assertEquals("tdtwd\n\nzgezvaez\n\nzgaezvez\n\nzgaezaez\n\nzgaezvaez\n\n", noteSegment.getCollection(n.getTitle()).toString());
         noteSegment.editNote(new Note("tgwfdtwfd", n.getText(), n.getDate(), n.isCollectByTitle()));
-        assertEquals("tdtwd\nzgezvaez\n\nzgaezvez\n\nzgaezaez\n\n", noteSegment.getCollection("tdtwd").toString());
-        assertEquals("tgwfdtwfd\nzgaezvaez\n\n", noteSegment.getCollection(n.getTitle()).toString());
+        assertEquals("tdtwd\n\nzgezvaez\n\nzgaezvez\n\nzgaezaez\n\n", noteSegment.getCollection("tdtwd").toString());
+        assertEquals("tgwfdtwfd\n\nzgaezvaez\n\n", noteSegment.getCollection(n.getTitle()).toString());
         noteSegment.removeNote(n, true);
         assertNull(noteSegment.getCollection(n.getTitle()));
 
-        Set<String> temp = new TreeSet<>();
+        ArrayList<String> temp = new ArrayList<>();
         temp.add("tdtwd");
         assertEquals(temp, noteSegment.getCollectionTitles());
 

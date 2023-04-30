@@ -10,7 +10,6 @@ import java.util.*;
 public class TodoSegment extends Segment{
     private int nextEmptyId = Integer.MIN_VALUE;
     private ArrayList<TodoEntry> entries = new ArrayList<>();
-
     public void addEntry(Entry entry) {
         TodoEntry t = (TodoEntry)entry;
         t.setId(nextEmptyId);

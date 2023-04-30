@@ -1,9 +1,10 @@
 package project.notizprogrammrepository.model.Types.Dates;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class DateUtils {
+public class DateUtils implements Serializable {
 
     // Gibt für das eingegebene Datum den Wochentag aus.
     public static int getDayOfWeek(Date d){

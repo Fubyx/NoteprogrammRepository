@@ -3,12 +3,13 @@ package project.notizprogrammrepository.model.Types.Dates;
 
 import project.notizprogrammrepository.model.Types.entries.Entry;
 
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 //25.04.2023 Fabian: constructor, monthNumber, year, hasEntries, addEntry, remove, getEntry, getDay, getWeek
-public class Month {
+public class Month implements Serializable {
     private Day[][] days = new Day[6][7];
     // 17.04.2023
     // 1.Januar.31 / 2.Februar.28 / 3.März.31 / 4.April.30 / 5.Mai.31 / 6.Juni.30 / 7.Juli.31 / 8.August.31 /

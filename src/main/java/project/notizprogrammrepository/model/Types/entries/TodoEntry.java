@@ -18,21 +18,21 @@ public class TodoEntry extends Entry{
         super(title);
         this.priority = priority;
     }
-    public TodoEntry(String title, Date date) {
-        super(title, date);
+    public TodoEntry(String title, Date dueDate) {
+        super(title, dueDate);
         this.priority = 10;
     }
-    public TodoEntry(String title, Date date, int priority) {
-        super(title, date);
+    public TodoEntry(String title, Date dueDate, int priority) {
+        super(title, dueDate);
         this.priority = priority;
     }
 
-    public TodoEntry(String title, String text, Date date) {
-        super(title, text, date);
+    public TodoEntry(String title, String text, Date dueDate) {
+        super(title, text, dueDate);
         this.priority = 10;
     }
-    public TodoEntry(String title, String text, Date date, int priority) {
-        super(title, text, date);
+    public TodoEntry(String title, String text, Date dueDate, int priority) {
+        super(title, text, dueDate);
         this.priority = priority;
     }
 

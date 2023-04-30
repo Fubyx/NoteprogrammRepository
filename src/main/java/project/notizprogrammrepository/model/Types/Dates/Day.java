@@ -1,6 +1,7 @@
 package project.notizprogrammrepository.model.Types.Dates;
 import project.notizprogrammrepository.model.Types.entries.Entry;
 
+import java.io.Serializable;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -10,7 +11,7 @@ import java.util.Date;
  */
 //19.04.2023 Fabian: Constructor, isOnSameDay
 //25.04.2023 Fabian: addEntry, amountOfEntries
-public class Day {
+public class Day implements Serializable {
     private Date date;
     private ArrayList<Entry> entries = new ArrayList<>();
 

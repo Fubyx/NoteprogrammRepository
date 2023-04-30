@@ -1,8 +1,9 @@
 package project.notizprogrammrepository.model.Types.entries;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public abstract class Entry {
+public abstract class Entry implements Serializable {
     private String title;
     private String text;
     private Date date;

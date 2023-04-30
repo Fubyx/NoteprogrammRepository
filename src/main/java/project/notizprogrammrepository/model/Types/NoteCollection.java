@@ -3,15 +3,19 @@ package project.notizprogrammrepository.model.Types;
 import project.notizprogrammrepository.model.Types.entries.Note;
 import project.notizprogrammrepository.model.Types.entries.Subject;
 
-import java.util.Comparator;
-import java.util.Date;
-import java.util.List;
-import java.util.TreeMap;
+import java.io.Serializable;
+import java.util.*;
 
 //17.04.2023 Fabian: Sorting by date + constructors
 //18.04.2023 Fabian: Added changing to Title and Subject, remove, toString
-public class NoteCollection {
-    private TreeMap<Date, Note> notes = new TreeMap<>(Date::compareTo);;
+//30.04.2023 Fabian: Added editText
+public class NoteCollection implements Serializable {
+    private TreeMap<Date, Note> notes = new TreeMap<>(new Comparator<Date>() {
+        @Override
+        public int compare(Date o1, Date o2) {
+            return o1.compareTo(o2);
+        }
+    });
     private String title;
     private Subject subject;
     public NoteCollection (String title){
@@ -53,13 +57,26 @@ public class NoteCollection {
     @Override
     public String toString() {
         String s = title;
-        s = s.concat("\n");
-        for (Date d:notes.keySet()) {
+        s = s.concat("\n\n");
+        ArrayList<Date> dates = new ArrayList<>(notes.keySet().stream().toList());
+        for (Date d:dates) {
             s = s.concat(notes.get(d).getText() + "\n\n");
         }
         return s;
     }
     public boolean isEmpty(){
         return notes.isEmpty();
+    }
+
+    public void editText(String text){
+        String [] partsNew = text.split("\n\n");
+        String [] partsOld = this.toString().split("\n\n");
+        ArrayList<Date> set = new ArrayList<>(notes.keySet().stream().toList());
+        for(int i = 1; i < partsOld.length; ++i){
+            if(!partsOld[i].equals(partsNew[i])){
+                notes.get(set.get(i - 1)).setText(partsNew[i]);
+            }
+        }
+
     }
 }

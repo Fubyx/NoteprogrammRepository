@@ -12,6 +12,7 @@ import project.notizprogrammrepository.model.Types.segments.NoteSegment;
 import project.notizprogrammrepository.model.Types.segments.Segment;
 import project.notizprogrammrepository.model.Types.segments.TodoSegment;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -23,12 +24,13 @@ add, remove, edit methods for entries -> separation with instanceof
 Switch calendar mode & switch between calendar, note and todomode -> enum
  */
 //29.04.2023 Fabian: constructor, switchMode, getCurrentMode, getWeek, getMonth, getTodoList, getSegment
-public class Application {
+//30.04.2023 Fabian: removeEntry, editEntry
+
+public class Application implements Serializable {
     private final NoteSegment noteSegment;
     private final CalendarSegment calendarSegment;
     private final TodoSegment todoSegment;
     private Mode currentMode;
-
     public Application(){
         this.currentMode = Mode.CALENDAR;
         Date today = new Date();
@@ -59,18 +61,17 @@ public class Application {
     }
     public Segment getSegment(Mode mode){
         switch (mode){
-            case NOTE -> {
-                return noteSegment;
-            }
             case TODO -> {
                 return todoSegment;
             }
-            default -> {
+            case CALENDAR -> {
                 return calendarSegment;
+            }
+            default -> {//NOTE and COLLECTIONS both return the note-segment, as the collections are in the note-segment
+                return noteSegment;
             }
         }
     }
-
     public void addEntry(Entry entry){
         if(entry instanceof CalendarEntry){
             calendarSegment.addCalendarEntry((CalendarEntry) entry);
@@ -78,6 +79,24 @@ public class Application {
             todoSegment.addEntry(entry);
         }else{
             noteSegment.addNote((Note)entry);
+        }
+    }
+    public void removeEntry(Entry entry, boolean absolute){
+        if(entry instanceof CalendarEntry){
+            calendarSegment.removeCalendarEntry((CalendarEntry) entry);
+        }else if(entry instanceof TodoEntry){
+            todoSegment.removeEntry(entry);
+        }else{
+            noteSegment.removeNote((Note)entry, absolute);
+        }
+    }
+    public void editEntry(Entry entry){
+        if(entry instanceof CalendarEntry){
+            calendarSegment.editCalendarEntry((CalendarEntry) entry);
+        }else if(entry instanceof TodoEntry){
+            todoSegment.editEntry(entry);
+        }else{
+            noteSegment.editNote((Note)entry);
         }
     }
 
