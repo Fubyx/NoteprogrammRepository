@@ -52,5 +52,12 @@ public class CalendarSegmentTest {
         assertEquals(newcalendarEntry.getDate(), calendarSegment.getCalendarEntry(date).getDate());
 
     }
+    //03.05.2023 Miguel: throwInfoTest
+    @Test
+    public void throwInfoTest(){
+        Date date = new Date();
+        CalendarSegment cs = new CalendarSegment(date);
+        cs.throwInfo();
+    }
 }
 

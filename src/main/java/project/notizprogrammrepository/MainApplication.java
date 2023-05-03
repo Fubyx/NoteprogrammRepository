@@ -7,7 +7,10 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.application.Application;
+import project.notizprogrammrepository.model.Types.segments.CalendarSegment;
 import project.notizprogrammrepository.view.CalendarView;
+
+import java.util.Date;
 
 import static javafx.application.Application.launch;
 
@@ -98,7 +101,12 @@ public class MainApplication extends Application {
     }
 
     public static void main(String[] args) {
-        launch();
+        //launch();
+
+        //03.05.2023 Miguel: testing the Windows-Notifications
+        Date date = new Date();
+        CalendarSegment cs = new CalendarSegment(date);
+        cs.throwInfo();
     }
 
 
