@@ -8,6 +8,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.application.Application;
 import project.notizprogrammrepository.view.KalenderView;
+import project.notizprogrammrepository.view.Types.segments.TodoSegmentView;
 
 import static javafx.application.Application.launch;
 
@@ -54,6 +55,7 @@ For each Button of a Entry a right click opens a dropdown with for now 1 option 
 public class MainApplication extends Application {
 
     private final KalenderView kalenderView = new KalenderView();
+    private final TodoSegmentView todoSegmentView = new TodoSegmentView();
     private final Group view = new Group();
     private final HBox leftHbox = new HBox();
     private final float width = 800;
@@ -78,7 +80,7 @@ public class MainApplication extends Application {
         leftHbox.getChildren().add(hBoxBackground);
     }
     public void addElements(){
-        view.getChildren().addAll(background, leftHbox, kalenderView.getView());
+        view.getChildren().addAll(background, leftHbox/*kalenderView.getView()*/, todoSegmentView.getTodoView());
     }
 
     @Override
@@ -87,6 +89,10 @@ public class MainApplication extends Application {
         setLeftHbox();
         kalenderView.sethBox();
         kalenderView.setSwitchViewButton();
+
+        todoSegmentView.list();
+        todoSegmentView.display();
+        todoSegmentView.addElements();
 
         kalenderView.addElements();
         addElements();
