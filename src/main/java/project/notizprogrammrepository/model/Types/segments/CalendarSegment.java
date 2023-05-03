@@ -5,6 +5,11 @@ import project.notizprogrammrepository.model.Types.Dates.Day;
 import project.notizprogrammrepository.model.Types.Dates.Month;
 import project.notizprogrammrepository.model.Types.entries.CalendarEntry;
 
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.TrayIcon.MessageType;
+import java.net.MalformedURLException;
+
 import java.util.Date;
 
 //25.04.2023 Fabian: calendar, weekViewActive, currentWeek, constructor, getCalendar, shiftView, switchView, getCurrentWeek, getMonth
@@ -75,6 +80,28 @@ public class CalendarSegment extends Segment{
     }
     public CalendarEntry getCalendarEntry(Date date){
         return (CalendarEntry)getCalendar().getEntry(date);
+    }
+
+// 03.05.2023 Miguel: throwInfo -> displays a Windows-Notification
+    public void throwInfo(){
+        try{
+            SystemTray tray = SystemTray.getSystemTray();
+            Image image = Toolkit.getDefaultToolkit().createImage("some-icon.png");
+
+            TrayIcon trayIcon = new TrayIcon(image, "Java AWT Tray Demo");
+            trayIcon.setImageAutoSize(true);        // let`s the system resize the image if needed
+            trayIcon.setToolTip("System tray icon demo");
+            tray.add(trayIcon);
+
+            // Display info notification:
+            trayIcon.displayMessage("Hello, World", "Java Notification Demo", MessageType.INFO);
+            // Error:
+            // trayIcon.displayMessage("Hello, World", "Java Notification Demo", MessageType.ERROR);
+            // Warning:
+            // trayIcon.displayMessage("Hello, World", "Java Notification Demo", MessageType.WARNING);
+        }catch(Exception ex){
+            System.err.print(ex);
+        }
     }
 
 }

@@ -5,15 +5,14 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
-import project.notizprogrammrepository.MainApplication;
 
-public class KalenderView {
+public class CalendarView {
     private final Group view = new Group();
     private final HBox hBox = new HBox();
-    private final Rectangle hboxBackground = new Rectangle();
+    private final Rectangle hBoxBackground = new Rectangle();
     private final Button switchViewButton = new Button();
-    private final float width = 800;
-    private final float height = 500;
+    private float width = 800;
+    private float height = 500;
 
     public Group getView() {
         return view;
@@ -24,10 +23,10 @@ public class KalenderView {
         hBox.setLayoutX(width / 10);
         hBox.setLayoutY(0);
 
-        hboxBackground.setFill(Paint.valueOf("#2E4053"));
-        hboxBackground.setWidth(width / 6);
-        hboxBackground.setHeight(height);
-        hBox.getChildren().add(hboxBackground);
+        hBoxBackground.setFill(Paint.valueOf("#2E4053"));
+        hBoxBackground.setWidth(width / 6);
+        hBoxBackground.setHeight(height);
+        hBox.getChildren().add(hBoxBackground);
     }
 
     public void setSwitchViewButton(){
