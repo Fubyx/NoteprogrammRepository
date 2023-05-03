@@ -7,7 +7,7 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.application.Application;
-import project.notizprogrammrepository.view.KalenderView;
+import project.notizprogrammrepository.view.CalendarView;
 
 import static javafx.application.Application.launch;
 
@@ -53,11 +53,11 @@ For each Button of a Entry a right click opens a dropdown with for now 1 option 
 
 public class MainApplication extends Application {
 
-    private final KalenderView kalenderView = new KalenderView();
+    private final CalendarView calendarView = new CalendarView();
     private final Group view = new Group();
     private final HBox leftHbox = new HBox();
-    private final float width = 800;
-    private final float height = 500;
+    private float width = 800;
+    private float height = 500;
 
 
     Rectangle background = new Rectangle();
@@ -68,7 +68,7 @@ public class MainApplication extends Application {
         background.setHeight(height);
         background.setWidth(width);
     }
-    public void setLeftHbox(){
+    public void setLeftHBox(){
         leftHbox.prefHeight(height);
         leftHbox.prefWidth(width / 10);
 
@@ -78,17 +78,17 @@ public class MainApplication extends Application {
         leftHbox.getChildren().add(hBoxBackground);
     }
     public void addElements(){
-        view.getChildren().addAll(background, leftHbox, kalenderView.getView());
+        view.getChildren().addAll(background, leftHbox, calendarView.getView());
     }
 
     @Override
     public void start(Stage stage){
         setBackground();
-        setLeftHbox();
-        kalenderView.sethBox();
-        kalenderView.setSwitchViewButton();
+        setLeftHBox();
+        calendarView.sethBox();
+        calendarView.setSwitchViewButton();
 
-        kalenderView.addElements();
+        calendarView.addElements();
         addElements();
 
         Scene scene = new Scene(view, width, height);
