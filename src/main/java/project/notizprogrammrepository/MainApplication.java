@@ -17,7 +17,7 @@ Plan:
 Tray on the left size around 1/10 of the screenWidth -> Icons for Calendar, Note- and TodoMode in that Order from top down.
 
 Rest of Screen:
-groups/panes that will be cycled around depending on the need.
+groups/panes that will be cycled around depending on the need. -> switch of view triggers reload
 1. CalendarSegmentView: Split into a Tray on the left and the display area of the calendar on the right.
     tray: Button for switching between WeekView and MonthView, Label containing the Month and Year currently on display
     display area: cycled around between weekView and monthView
@@ -26,7 +26,7 @@ groups/panes that will be cycled around depending on the need.
     display of the entries: a Button with the first x Words of the title and the hour and minute of the date
 2. NoteSegmentView: same layout as the CalendarView except in the tray there is a additional Button for switching to the CollectionsView //Button could also be added to the tray of the outermost layer --> not yet decided
 3. TodoSegmentView: Split into 2: a list on the left and a display of a TodoEntry on the right
-    list: A list of the names of the todoEntries with a box where a checkmark can be put.
+    list: A list of the names of the todoEntries.
     display: A Editor with a TextField for the Title, a selector for the dueDate, a dropDown for the priority and a second- multi-line-textField for the Text. a save and a cancel button on the bottom
         When a TodoEntry gets selected, its current data gets inserted into the fields, if none is selected the fields will be empty. once the user has inserted data, he can Click save for a new Entry to be created or cancel for the fields to be emptied.
         Cancel will also cancel selection of a entry
@@ -48,6 +48,7 @@ PopUp:
     A Switch for the collectionByTitle.
     A DateSelection for the Date.
     A multi-line-TextField covering the rest of the Screen for the Text.
+For each Button of a Entry a right click opens a dropdown with for now 1 option to delete
  */
 
 public class MainApplication extends Application {
