@@ -6,12 +6,14 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import project.notizprogrammrepository.MainApplication;
 import project.notizprogrammrepository.model.Types.Dates.Day;
 import project.notizprogrammrepository.model.Types.Dates.Month;
@@ -39,9 +41,7 @@ public class MonthView {
     private HBox weekDayNameDisplay;
     private VBox table;
     private ArrayList<DayInMonthView> dMVs = new ArrayList<>();
-
     private Month currentMonth;
-
     private EventHandler<ActionEvent> entryClickHandler;
 
     public MonthView (double x, double y, double width, double height, Month month, EventHandler<ActionEvent> entryClickHandler){
@@ -67,7 +67,6 @@ public class MonthView {
         root.setLayoutX(x);
         root.setLayoutY(y);
         root.setPrefSize(width, height);
-        weekDayNameDisplay.setPrefSize(width, height/7);
         resizeWeekDayLabels();
         resizeTableRows();
     }
@@ -78,7 +77,6 @@ public class MonthView {
         table.getChildren().addAll(getTableRows());
         root.getChildren().add(table);
     }
-
     private ArrayList<Label> getWeekDayLabels(){
         ArrayList<Label> labels = new ArrayList<>();
         Label l = new Label("Mon");
@@ -112,8 +110,10 @@ public class MonthView {
         return labels;
     }
     private void resizeWeekDayLabels(){
+        weekDayNameDisplay.setPrefSize(width, height/7);
         for(Node n : weekDayNameDisplay.getChildren()){
             ((Label)n).setPrefSize(width/7, height/7);
+            ((Label) n).setFont(new Font("Arial", (double) 15 /500 * height));
         }
     }
     private ArrayList<HBox> getTableRows(){
@@ -129,7 +129,7 @@ public class MonthView {
                         box.getChildren().add(new Rectangle(width/7, height/7, Paint.valueOf(MainApplication.backgroundColor)));
                     }else{
                         DayInMonthView dMV = new DayInMonthView(width/7, height/7, d, entryClickHandler);
-                        box.getChildren().add(dMV.getView());
+                        box.getChildren().add(dMV);
                         dMVs.add(dMV);
                     }
                 }

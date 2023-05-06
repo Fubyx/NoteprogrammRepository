@@ -96,12 +96,14 @@ public class Controller {
     }
     public Day[]switchToWeekView(){
         CalendarSegment calendarSegment = (CalendarSegment) application.getSegment(application.getCurrentMode());
-        calendarSegment.switchView();
+        if(!calendarSegment.isWeekViewActive())
+            calendarSegment.switchView();
         return calendarSegment.getCurrentWeek();
     }
     public Month switchToMonthView(){
         CalendarSegment calendarSegment = (CalendarSegment) application.getSegment(application.getCurrentMode());
-        calendarSegment.switchView();
+        if(calendarSegment.isWeekViewActive())
+            calendarSegment.switchView();
         return calendarSegment.getMonth();
     }
     public void changeEntry(Entry oldEntry, Entry newEntry, boolean absolute/*Used for removal of Notes*/){

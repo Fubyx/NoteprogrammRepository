@@ -1,5 +1,7 @@
 package project.notizprogrammrepository;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
@@ -13,7 +15,9 @@ import project.notizprogrammrepository.view.Calendar.CalendarEntryView;
 import project.notizprogrammrepository.view.Calendar.CalendarSegmentView;
 
 import java.util.Date;
-import project.notizprogrammrepository.view.KalenderView;
+import project.notizprogrammrepository.view.Types.segments.TodoSegmentView;
+
+
 
 import static javafx.application.Application.launch;
 
@@ -61,20 +65,13 @@ For each Button of a Entry a right click opens a dropdown with for now 1 option 
 public class MainApplication extends Application {
 
     public static final String backgroundColor = "#283747";
-    private final KalenderView kalenderView = new KalenderView();
-    private final Group view = new Group();
-    private final HBox leftHbox = new HBox();
-    private final float width = 800;
-    private final float height = 500;
-
     private final Controller controller = new Controller();
     private CalendarSegmentView calendarSegmentView;
-    private CalendarEntryView calendarEntryView; //View for the Editor of a CalendarEntry
+    private final TodoSegmentView todoSegmentView = new TodoSegmentView();
     private final Group root = new Group();
     private final VBox leftTrayVbox = new VBox();
     private double width = 800;
     private double height = 500;
-
 
     private Rectangle background = new Rectangle();
     private Rectangle leftTrayBackground = new Rectangle();
@@ -94,7 +91,24 @@ public class MainApplication extends Application {
         leftTrayVbox.getChildren().add(leftTrayBackground);
     }
     public void addElements(){
-        root.getChildren().addAll(background, leftTrayVbox, calendarSegmentView.getView());
+        root.getChildren().addAll(
+                background, leftTrayVbox, //*
+                calendarSegmentView.getView()
+                //*/
+                /*
+                todoSegmentView.getTodoView()
+                //*/
+        );
+    }
+    private void resize(double width, double height){
+        this.width = width;
+        this.height = height;
+        background.setWidth(width);
+        background.setHeight(height);
+        calendarSegmentView.resize(width/10, 0, width - width/10, height);
+        leftTrayVbox.setPrefSize(width/10, height);
+        leftTrayBackground.setWidth(width/10);
+        leftTrayBackground.setHeight(height);
     }
 
     @Override
@@ -103,9 +117,22 @@ public class MainApplication extends Application {
         setBackground();
         setLeftTrayVBox();
 
+        todoSegmentView.list();
+        todoSegmentView.display();
+        todoSegmentView.addElements();
+
         addElements();
 
         Scene scene = new Scene(root, width, height);
+
+        ChangeListener<Number> resizeListener = new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
+                resize(scene.getWidth(), scene.getHeight());
+            }
+        };
+        scene.widthProperty().addListener(resizeListener);
+        scene.heightProperty().addListener(resizeListener);
         stage.setTitle("A");
         stage.setScene(scene);
         stage.show();

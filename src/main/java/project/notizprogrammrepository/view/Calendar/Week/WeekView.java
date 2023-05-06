@@ -11,6 +11,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import project.notizprogrammrepository.MainApplication;
 import project.notizprogrammrepository.model.Types.Dates.Day;
 import project.notizprogrammrepository.model.Types.Dates.Month;
@@ -27,7 +28,6 @@ public class WeekView {
     private HBox days;
     private Day[] currentWeek;
     private EventHandler<ActionEvent> entryClickHandler;
-    private ArrayList<DayInWeekView> dWVs = new ArrayList<>();
 
     public WeekView (double x, double y, double width, double height, Day[] week, EventHandler<ActionEvent> entryClickHandler){
         this.currentWeek = week;
@@ -52,8 +52,10 @@ public class WeekView {
         root.setLayoutX(x);
         root.setLayoutY(y);
         root.setPrefSize(width, height);
-        weekDayNameDisplay.setPrefSize(width, height/7);
+
         resizeWeekDayLabels();
+
+        resizeDays();
     }
     public void changeContents(Day[]week){
         this.currentWeek = week;
@@ -66,8 +68,9 @@ public class WeekView {
         weekDayNameDisplay.getChildren().clear();
         weekDayNameDisplay.getChildren().addAll(getWeekDayLabels());
 
-        root.getChildren().add(days);
         root.getChildren().add(weekDayNameDisplay);
+        resizeWeekDayLabels();
+        root.getChildren().add(days);
     }
     private ArrayList<Label> getWeekDayLabels(){
         ArrayList<Label> labels = new ArrayList<>();
@@ -78,6 +81,7 @@ public class WeekView {
         l.setTextFill(Color.RED);
         l.setAlignment(Pos.CENTER);
         labels.add(l);
+
         l = new Label("Tue");
         if(currentWeek[1] != null){
             l.setText("Tue " + currentWeek[1].getDay());
@@ -85,6 +89,7 @@ public class WeekView {
         l.setTextFill(Color.RED);
         l.setAlignment(Pos.CENTER);
         labels.add(l);
+
         l = new Label("Wed");
         if(currentWeek[2] != null){
             l.setText("Wed " + currentWeek[2].getDay());
@@ -92,6 +97,7 @@ public class WeekView {
         l.setTextFill(Color.RED);
         l.setAlignment(Pos.CENTER);
         labels.add(l);
+
         l = new Label("Thu");
         if(currentWeek[3] != null){
             l.setText("Thu " + currentWeek[3].getDay());
@@ -99,6 +105,7 @@ public class WeekView {
         l.setTextFill(Color.RED);
         l.setAlignment(Pos.CENTER);
         labels.add(l);
+
         l = new Label("Fri");
         if(currentWeek[4] != null){
             l.setText("Fri " + currentWeek[4].getDay());
@@ -106,6 +113,7 @@ public class WeekView {
         l.setTextFill(Color.RED);
         l.setAlignment(Pos.CENTER);
         labels.add(l);
+
         l = new Label("Sat");
         if(currentWeek[5] != null){
             l.setText("Sat " + currentWeek[5].getDay());
@@ -113,6 +121,7 @@ public class WeekView {
         l.setTextFill(Color.RED);
         l.setAlignment(Pos.CENTER);
         labels.add(l);
+
         l = new Label("Sun");
         if(currentWeek[6] != null){
             l.setText("Sun " + currentWeek[6].getDay());
@@ -123,21 +132,34 @@ public class WeekView {
         return labels;
     }
     private void resizeWeekDayLabels(){
+        weekDayNameDisplay.setPrefSize(width, height/7);
         for(Node n : weekDayNameDisplay.getChildren()){
             ((Label)n).setPrefSize(width/7, height/7);
+            ((Label) n).setFont(new Font("Arial", (double) 15 /500 * height));
         }
     }
     private ArrayList<Node> getDays(){
         ArrayList<Node> days = new ArrayList<>();
         for(int i = 0; i < currentWeek.length; ++i){
             if(currentWeek[i] == null){
-                days.add(new Rectangle(width/7, height));
+                days.add(new Rectangle(width/7, height - height/7 * 2, Color.valueOf(MainApplication.backgroundColor)));
             }else{
-                dWVs.add(new DayInWeekView(width/7, height, currentWeek[i], entryClickHandler));
-                days.add(dWVs.get(i).getRoot());
+                days.add(new DayInWeekView(width/7, height - height/7 * 2, currentWeek[i], entryClickHandler));
             }
         }
         return days;
+    }
+    private void resizeDays(){
+        days.setPrefWidth(width);
+        days.setPrefHeight((height/7) * 6);
+        for(Node node : days.getChildren()){
+            if(node instanceof  Rectangle){
+                ((Rectangle) node).setWidth(width/7);
+                ((Rectangle) node).setHeight(height - height/7 * 2);
+            }else{
+                node.resize(width/7, height - height/7 * 2);
+            }
+        }
     }
 
     public VBox getRoot() {

@@ -50,4 +50,8 @@ public class Day implements Serializable {
     public String getDay(){
         return "" + date.getDate();
     }
+
+    public Date getDate() {
+        return date;
+    }
 }

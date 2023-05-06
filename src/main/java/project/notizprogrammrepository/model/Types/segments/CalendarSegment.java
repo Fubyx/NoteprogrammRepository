@@ -104,4 +104,7 @@ public class CalendarSegment extends Segment{
         }
     }
 
+    public boolean isWeekViewActive() {
+        return weekViewActive;
+    }
 }

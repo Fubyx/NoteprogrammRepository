@@ -9,7 +9,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import project.notizprogrammrepository.MainApplication;
 
-public class TodoSegmentView extends SegmentView{
+public class TodoSegmentView{
     private float width = 800;
     private float height = 500;
     private final Group background = new Group();
