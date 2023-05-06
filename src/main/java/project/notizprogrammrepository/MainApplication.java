@@ -13,6 +13,7 @@ import project.notizprogrammrepository.view.Calendar.CalendarEntryView;
 import project.notizprogrammrepository.view.Calendar.CalendarSegmentView;
 
 import java.util.Date;
+import project.notizprogrammrepository.view.KalenderView;
 
 import static javafx.application.Application.launch;
 
@@ -60,6 +61,11 @@ For each Button of a Entry a right click opens a dropdown with for now 1 option 
 public class MainApplication extends Application {
 
     public static final String backgroundColor = "#283747";
+    private final KalenderView kalenderView = new KalenderView();
+    private final Group view = new Group();
+    private final HBox leftHbox = new HBox();
+    private final float width = 800;
+    private final float height = 500;
 
     private final Controller controller = new Controller();
     private CalendarSegmentView calendarSegmentView;
