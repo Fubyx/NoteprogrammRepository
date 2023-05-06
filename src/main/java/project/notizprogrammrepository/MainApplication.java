@@ -2,13 +2,15 @@ package project.notizprogrammrepository;
 
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.application.Application;
 import project.notizprogrammrepository.model.Types.segments.CalendarSegment;
-import project.notizprogrammrepository.view.CalendarView;
+import project.notizprogrammrepository.controller.Controller;
+import project.notizprogrammrepository.view.Calendar.CalendarEntryView;
+import project.notizprogrammrepository.view.Calendar.CalendarSegmentView;
 
 import java.util.Date;
 
@@ -54,59 +56,64 @@ PopUp:
 For each Button of a Entry a right click opens a dropdown with for now 1 option to delete
  */
 
+//03.05.2023 Fabian: changed HBox to VBox, added Controller
 public class MainApplication extends Application {
 
-    private final CalendarView calendarView = new CalendarView();
-    private final Group view = new Group();
-    private final HBox leftHbox = new HBox();
-    private float width = 800;
-    private float height = 500;
+    public static final String backgroundColor = "#283747";
+
+    private final Controller controller = new Controller();
+    private CalendarSegmentView calendarSegmentView;
+    private CalendarEntryView calendarEntryView; //View for the Editor of a CalendarEntry
+    private final Group root = new Group();
+    private final VBox leftTrayVbox = new VBox();
+    private double width = 800;
+    private double height = 500;
 
 
-    Rectangle background = new Rectangle();
-    Rectangle hBoxBackground = new Rectangle();
+    private Rectangle background = new Rectangle();
+    private Rectangle leftTrayBackground = new Rectangle();
 
     public void setBackground(){
-        background.setFill(Paint.valueOf("#283747"));
+        background.setFill(Paint.valueOf(backgroundColor));
         background.setHeight(height);
         background.setWidth(width);
     }
-    public void setLeftHBox(){
-        leftHbox.prefHeight(height);
-        leftHbox.prefWidth(width / 10);
+    public void setLeftTrayVBox(){
+        leftTrayVbox.prefHeight(height);
+        leftTrayVbox.prefWidth(width / 10);
 
-        hBoxBackground.setFill(Paint.valueOf("#222843"));
-        hBoxBackground.setWidth(width / 10);
-        hBoxBackground.setHeight(height);
-        leftHbox.getChildren().add(hBoxBackground);
+        leftTrayBackground.setFill(Paint.valueOf("#222843"));
+        leftTrayBackground.setWidth(width / 10);
+        leftTrayBackground.setHeight(height);
+        leftTrayVbox.getChildren().add(leftTrayBackground);
     }
     public void addElements(){
-        view.getChildren().addAll(background, leftHbox, calendarView.getView());
+        root.getChildren().addAll(background, leftTrayVbox, calendarSegmentView.getView());
     }
 
     @Override
     public void start(Stage stage){
+        calendarSegmentView = new CalendarSegmentView(width/10, 0, width - width/10, height, controller.switchToCalendar(), controller);
         setBackground();
-        setLeftHBox();
-        calendarView.sethBox();
-        calendarView.setSwitchViewButton();
+        setLeftTrayVBox();
 
-        calendarView.addElements();
         addElements();
 
-        Scene scene = new Scene(view, width, height);
+        Scene scene = new Scene(root, width, height);
         stage.setTitle("A");
         stage.setScene(scene);
         stage.show();
     }
 
     public static void main(String[] args) {
-        //launch();
+        launch();
 
         //03.05.2023 Miguel: testing the Windows-Notifications
+        /*
         Date date = new Date();
         CalendarSegment cs = new CalendarSegment(date);
         cs.throwInfo();
+        //*/
     }
 
 

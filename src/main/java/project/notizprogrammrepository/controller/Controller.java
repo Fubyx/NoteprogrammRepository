@@ -43,6 +43,7 @@ closeApplication() --> saves the application into the specified file and returns
 
  */
 //30.04.2023 Fabian: switchToCalendar, switchToNotes, switchToTodo, switchToCollectionMode, switchToWeekView, switchToMonthView, changeEntry, getCollection
+//03.05.2023 Fabian: editCollection
 public class Controller {
     private Application application;
     private final String saveFileName = "C:\\Users\\Public\\NoteApplication\\noteApplicationSave.ser";
@@ -93,7 +94,7 @@ public class Controller {
         application.switchMode(Mode.COLLECTIONS);
         return ((NoteSegment)application.getSegment(Mode.NOTE)).getCollectionTitles();
     }
-    public Day[]switchTodWeekView(){
+    public Day[]switchToWeekView(){
         CalendarSegment calendarSegment = (CalendarSegment) application.getSegment(application.getCurrentMode());
         calendarSegment.switchView();
         return calendarSegment.getCurrentWeek();
@@ -121,5 +122,13 @@ public class Controller {
     public NoteCollection getCollection(String title){
         NoteSegment noteSegment = (NoteSegment) application.getSegment(Mode.NOTE);
         return noteSegment.getCollection(title);
+    }
+    public void editCollection(String text){
+        String [] parts = text.split("\n\n");
+        getCollection(parts[0]).editText(text);
+    }
+
+    public Application getApplication() {
+        return application;
     }
 }

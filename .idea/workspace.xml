@@ -4,12 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6502bfbe-216c-46b9-afe6-28e7a06cce3d" name="Changes" comment="">
+    <list default="true" id="6502bfbe-216c-46b9-afe6-28e7a06cce3d" name="Changes" comment="changed names to english + changed width and height to non-final">
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Calendar/CalendarEntryView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Calendar/CalendarSegmentView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Calendar/Day/CalendarEntryButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Calendar/Day/DayInMonthView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Calendar/Day/DayInWeekView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Calendar/Month/MonthView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Calendar/Week/WeekView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/EntryView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/CalendarSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/CalendarSegment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/project/notizprogrammrepository/model/Types/segments/CalendarSegmentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/project/notizprogrammrepository/model/Types/segments/CalendarSegmentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/Dates/Calendar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/Dates/Calendar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/Dates/Day.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/Dates/Day.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/CalendarView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Types/NoteCollectionView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Types/entries/CalendarEntryView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Types/entries/EntryView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Types/entries/NoteView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Types/entries/TodoEntryView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Types/segments/CalendarSegmentView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Types/segments/NoteSegmentView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Types/segments/SegmentView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Types/segments/TodoSegmentView.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,11 +67,10 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "last_directory_selection": "C:/Users/Fabian/Desktop/Oberschule/4AT/Informatik/Projekt/Info/Repository/NotizprogrammRepository/src/main/tests/project",
-    "last_opened_file_path": "C:/Users/Fabian/Desktop/Oberschule/4AT/Informatik/Java/adventure_game",
+    "last_opened_file_path": "C:/Users/Fabian/Desktop/Oberschule/4AT/Informatik/Projekt/Info/Testing/testingProject",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.37356323",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler"
+    "project.structure.side.proportion": "0.37356323"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -91,18 +108,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CalendarSegmentTest.throwInfoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ApplicationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="NotizprogrammRepository" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="project.notizprogrammrepository.model.Types.segments.*" />
+          <option name="PATTERN" value="project.notizprogrammrepository.model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="project.notizprogrammrepository.model.Types.segments" />
-      <option name="MAIN_CLASS_NAME" value="project.notizprogrammrepository.model.Types.segments.CalendarSegmentTest" />
-      <option name="METHOD_NAME" value="throwInfoTest" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="project.notizprogrammrepository.model" />
+      <option name="MAIN_CLASS_NAME" value="project.notizprogrammrepository.model.ApplicationTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -149,10 +165,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.MainApplication" />
-        <item itemvalue="JUnit.CalendarSegmentTest.throwInfoTest" />
         <item itemvalue="JUnit.test in NotizprogrammRepository" />
         <item itemvalue="JUnit.NoteCollectionTest.testEditText" />
         <item itemvalue="JUnit.ControllerTest" />
+        <item itemvalue="JUnit.ApplicationTest" />
       </list>
     </recent_temporary>
   </component>
@@ -293,7 +309,21 @@
       <option name="project" value="LOCAL" />
       <updated>1682887995994</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="addon to Plan in MainApplication">
+      <created>1683093523390</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1683093523390</updated>
+    </task>
+    <task id="LOCAL-00018" summary="changed names to english + changed width and height to non-final">
+      <created>1683093830746</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1683093830746</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -325,6 +355,19 @@
     <MESSAGE value="TodoSegment done" />
     <MESSAGE value="Application, CalendarSegment added reminderDate, CalenderEntry added utils for reminderDate" />
     <MESSAGE value="Application: removeEntry, editEntry + saving and loading&#10;NoteCollection: editEntry" />
-    <option name="LAST_COMMIT_MESSAGE" value="Application: removeEntry, editEntry + saving and loading&#10;NoteCollection: editEntry" />
+    <MESSAGE value="addon to Plan in MainApplication" />
+    <MESSAGE value="changed names to english + changed width and height to non-final" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed names to english + changed width and height to non-final" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Calendar/Day/DayInWeekView.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

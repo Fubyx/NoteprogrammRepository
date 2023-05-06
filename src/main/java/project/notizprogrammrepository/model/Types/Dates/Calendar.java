@@ -67,7 +67,7 @@ public class Calendar implements Serializable {
             }catch(IndexOutOfBoundsException i){
                 int month = months.get(currentMonthIndex - 1).getMonthNumber() - 1;
                 int year = months.get(currentMonthIndex - 1).getYear();
-                if(month == -1){
+                if(month == 0){
                     month = 12;
                     --year;
                 }

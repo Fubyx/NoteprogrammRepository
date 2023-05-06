@@ -47,4 +47,7 @@ public class Day implements Serializable {
     public ArrayList<Entry> getEntries() {
         return entries;
     }
+    public String getDay(){
+        return "" + date.getDate();
+    }
 }
