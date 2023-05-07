@@ -4,6 +4,7 @@ import project.notizprogrammrepository.model.Types.entries.Entry;
 import java.io.Serializable;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 
 /*
@@ -11,6 +12,7 @@ import java.util.Date;
  */
 //19.04.2023 Fabian: Constructor, isOnSameDay
 //25.04.2023 Fabian: addEntry, amountOfEntries
+//07.05.2023 Fabian: sort entries by Date before returning them
 public class Day implements Serializable {
     private Date date;
     private ArrayList<Entry> entries = new ArrayList<>();
@@ -45,6 +47,12 @@ public class Day implements Serializable {
     }
 
     public ArrayList<Entry> getEntries() {
+        entries.sort(new Comparator<Entry>() {
+            @Override
+            public int compare(Entry o1, Entry o2) {
+                return o1.getDate().compareTo(o2.getDate());
+            }
+        });
         return entries;
     }
     public String getDay(){

@@ -2,8 +2,11 @@ package project.notizprogrammrepository;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
@@ -15,6 +18,9 @@ import project.notizprogrammrepository.view.Calendar.CalendarEntryView;
 import project.notizprogrammrepository.view.Calendar.CalendarSegmentView;
 
 import java.util.Date;
+
+import project.notizprogrammrepository.view.Note.Collections.CollectionSegmentView;
+import project.notizprogrammrepository.view.Note.NoteSegmentView;
 import project.notizprogrammrepository.view.Types.segments.TodoSegmentView;
 
 
@@ -68,6 +74,8 @@ public class MainApplication extends Application {
     private final Controller controller = new Controller();
     private CalendarSegmentView calendarSegmentView;
     private final TodoSegmentView todoSegmentView = new TodoSegmentView();
+    private NoteSegmentView noteSegmentView;
+    private CollectionSegmentView collectionSegmentView;
     private final Group root = new Group();
     private final VBox leftTrayVbox = new VBox();
     private double width = 800;
@@ -75,6 +83,9 @@ public class MainApplication extends Application {
 
     private Rectangle background = new Rectangle();
     private Rectangle leftTrayBackground = new Rectangle();
+    private Button calendarSegmentButton;
+    private Button noteSegmentButton;
+    private Button todoSegmentButton;
 
     public void setBackground(){
         background.setFill(Paint.valueOf(backgroundColor));
@@ -88,24 +99,30 @@ public class MainApplication extends Application {
         leftTrayBackground.setFill(Paint.valueOf("#222843"));
         leftTrayBackground.setWidth(width / 10);
         leftTrayBackground.setHeight(height);
-        leftTrayVbox.getChildren().add(leftTrayBackground);
     }
     public void addElements(){
         root.getChildren().addAll(
-                background, leftTrayVbox, //*
-                calendarSegmentView.getView()
-                //*/
-                /*
-                todoSegmentView.getTodoView()
-                //*/
+                background, leftTrayBackground, leftTrayVbox,
+                calendarSegmentView.getView(),
+                todoSegmentView.getTodoView(),
+                noteSegmentView.getView(),
+                collectionSegmentView.getRoot()
         );
+        todoSegmentView.getTodoView().setVisible(false);
+        noteSegmentView.getView().setVisible(false);
+
+        leftTrayVbox.getChildren().addAll(noteSegmentButton, todoSegmentButton, calendarSegmentButton);
     }
     private void resize(double width, double height){
         this.width = width;
         this.height = height;
         background.setWidth(width);
         background.setHeight(height);
+
         calendarSegmentView.resize(width/10, 0, width - width/10, height);
+        noteSegmentView.resize(width/10, 0, width - width/10, height);
+        collectionSegmentView.resize(width/10, 0, width - width/10, height);
+
         leftTrayVbox.setPrefSize(width/10, height);
         leftTrayBackground.setWidth(width/10);
         leftTrayBackground.setHeight(height);
@@ -113,13 +130,58 @@ public class MainApplication extends Application {
 
     @Override
     public void start(Stage stage){
-        calendarSegmentView = new CalendarSegmentView(width/10, 0, width - width/10, height, controller.switchToCalendar(), controller);
         setBackground();
         setLeftTrayVBox();
+
+        calendarSegmentView = new CalendarSegmentView(width/10, 0, width - width/10, height, controller.switchToCalendar(), controller);
+
+        collectionSegmentView = new CollectionSegmentView(width/10, 0, width - width/10, height, controller);
+
+        noteSegmentView = new NoteSegmentView(width/10, 0, width - width/10, height, controller.switchToNote(), controller, collectionSegmentView);
+
 
         todoSegmentView.list();
         todoSegmentView.display();
         todoSegmentView.addElements();
+
+        calendarSegmentButton = new Button("Calendar");
+        calendarSegmentButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                todoSegmentView.getTodoView().setVisible(false);
+                noteSegmentView.getView().setVisible(false);
+                calendarSegmentView.getView().setVisible(true);
+                collectionSegmentView.getRoot().setVisible(false);
+                calendarSegmentView.refresh();
+            }
+        });
+        calendarSegmentButton.setPrefSize(width/10, height/10);
+
+        noteSegmentButton = new Button("Notes");
+        noteSegmentButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                todoSegmentView.getTodoView().setVisible(false);
+                noteSegmentView.getView().setVisible(true);
+                calendarSegmentView.getView().setVisible(false);
+                collectionSegmentView.getRoot().setVisible(false);
+                noteSegmentView.refresh();
+            }
+        });
+        noteSegmentButton.setPrefSize(width/10, height/10);
+
+        todoSegmentButton = new Button("Todo");
+        todoSegmentButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                todoSegmentView.getTodoView().setVisible(true);
+                noteSegmentView.getView().setVisible(false);
+                calendarSegmentView.getView().setVisible(false);
+                collectionSegmentView.getRoot().setVisible(false);
+                //Todo: refresh
+            }
+        });
+        todoSegmentButton.setPrefSize(width/10, height/10);
 
         addElements();
 

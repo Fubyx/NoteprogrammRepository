@@ -1,10 +1,11 @@
-package project.notizprogrammrepository.view.Calendar;
+package project.notizprogrammrepository.view.Note;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -15,18 +16,16 @@ import project.notizprogrammrepository.controller.Controller;
 import project.notizprogrammrepository.model.Types.Dates.Day;
 import project.notizprogrammrepository.model.Types.Dates.Month;
 import project.notizprogrammrepository.model.Types.Mode;
-import project.notizprogrammrepository.model.Types.entries.CalendarEntry;
+import project.notizprogrammrepository.model.Types.entries.Note;
 import project.notizprogrammrepository.model.Types.segments.CalendarSegment;
 import project.notizprogrammrepository.view.Calendar.Day.CalendarEntryButton;
 import project.notizprogrammrepository.view.Calendar.Day.DayInMonthView;
 import project.notizprogrammrepository.view.Calendar.Day.DayInWeekView;
 import project.notizprogrammrepository.view.Calendar.Month.MonthView;
 import project.notizprogrammrepository.view.Calendar.Week.WeekView;
-import project.notizprogrammrepository.view.ViewUtils.SwitchButton;
+import project.notizprogrammrepository.view.Note.Collections.CollectionSegmentView;
 
-import java.util.Date;
-
-public class CalendarSegmentView {
+public class NoteSegmentView {
     private final Group view;
     private final VBox vBox;
     private final Rectangle vBoxBackground = new Rectangle();
@@ -34,6 +33,8 @@ public class CalendarSegmentView {
     private final Label yearLabel;
     private final Rectangle distance_switch_to_month;
     private final Label monthLabel;
+    private final Rectangle distance_month_to_collections;
+    private final Button collectionViewButton;
     private final Rectangle leftButton;
     private final Rectangle rightButton;
     private Month currentMonth;
@@ -41,8 +42,8 @@ public class CalendarSegmentView {
     private MonthView monthView;
     private WeekView weekView;
     private Controller controller;
-    private final CalendarEntryView calendarEntryView;
-    public CalendarSegmentView(double x, double y, double width, double height, Month month, Controller controller){
+    private final NoteView noteView;
+    public NoteSegmentView(double x, double y, double width, double height, Month month, Controller controller, CollectionSegmentView collectionSegmentView){
         this.currentMonth = month;
         this.controller = controller;
         view = new Group();
@@ -58,13 +59,13 @@ public class CalendarSegmentView {
             public void handle(ActionEvent actionEvent) {
                 if(currentMonth != null){
                     currentMonth = null;
-                    currentWeek = controller.switchToWeekView(Mode.CALENDAR);
+                    currentWeek = controller.switchToWeekView(Mode.NOTE);
                     weekView.changeContents(currentWeek);
                     monthView.getRoot().setVisible(false);
                     weekView.getRoot().setVisible(true);
                 }else{
                     currentWeek = null;
-                    currentMonth = controller.switchToMonthView(Mode.CALENDAR);
+                    currentMonth = controller.switchToMonthView(Mode.NOTE);
                     monthView.changeContents(currentMonth);
                     weekView.getRoot().setVisible(false);
                     monthView.getRoot().setVisible(true);
@@ -86,17 +87,29 @@ public class CalendarSegmentView {
         yearLabel.setAlignment(Pos.CENTER);
         vBox.getChildren().add(yearLabel);
 
+        distance_month_to_collections = new Rectangle(width/5,height/10, Paint.valueOf("#2E4053"));
+        vBox.getChildren().add(distance_month_to_collections);
 
+        collectionViewButton = new Button("CollectionView");
+        collectionViewButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                collectionSegmentView.refresh();
+                view.setVisible(false);
+                collectionSegmentView.getRoot().setVisible(true);
+            }
+        });
+        vBox.getChildren().add(collectionViewButton);
 
         EventHandler<ActionEvent> calendarEntryHandler = new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 if(actionEvent.getSource() instanceof CalendarEntryButton){
-                    calendarEntryView.display((CalendarEntry) ((CalendarEntryButton) actionEvent.getSource()).getEntry());
+                    noteView.display((Note) ((CalendarEntryButton) actionEvent.getSource()).getEntry());
                 } else if(actionEvent.getSource() instanceof DayInMonthView){
-                    calendarEntryView.display(((DayInMonthView) actionEvent.getSource()).getDay().getDate());
+                    noteView.display(((DayInMonthView) actionEvent.getSource()).getDay().getDate());
                 }else if(actionEvent.getSource() instanceof DayInWeekView){
-                    calendarEntryView.display(((DayInWeekView) actionEvent.getSource()).getDay().getDate());
+                    noteView.display(((DayInWeekView) actionEvent.getSource()).getDay().getDate());
                 }
             }
         };
@@ -107,8 +120,6 @@ public class CalendarSegmentView {
         this.weekView = new WeekView(width/5 + width/20, 0, width - width/5 - width/10, height, month.getWeek(1), calendarEntryHandler);
         weekView.getRoot().setVisible(false);
         view.getChildren().add(weekView.getRoot());
-
-
 
         EventHandler<MouseEvent> handleMonthSwitch = new EventHandler<MouseEvent>() {
             @Override
@@ -121,7 +132,7 @@ public class CalendarSegmentView {
                     return;
                 }
                 if(currentMonth == null){
-                    currentWeek = controller.switchToWeekView(Mode.CALENDAR);
+                    currentWeek = controller.switchToWeekView(Mode.NOTE);
                     weekView.changeContents(currentWeek);
                     for(Day d : currentWeek){
                         if(d != null){
@@ -131,7 +142,7 @@ public class CalendarSegmentView {
                     }
                     monthLabel.setText(getMonthLabelText());
                 }else {
-                    currentMonth = controller.switchToMonthView(Mode.CALENDAR);
+                    currentMonth = controller.switchToMonthView(Mode.NOTE);
                     monthView.changeContents(currentMonth);
                     yearLabel.setText(String.valueOf(currentMonth.getYear()));
                     monthLabel.setText(getMonthLabelText());
@@ -146,8 +157,10 @@ public class CalendarSegmentView {
         rightButton.setOnMouseClicked(handleMonthSwitch);
         view.getChildren().add(rightButton);
 
-        calendarEntryView = new CalendarEntryView(width/2 - width/6, height/10, width/3, height/10 * 8, controller, CalendarSegmentView.this);
-        view.getChildren().add(calendarEntryView.getRoot());
+        noteView = new NoteView(0,0, width, height, controller, NoteSegmentView.this);
+        view.getChildren().add(noteView.getRoot());
+
+
         resize(x, y, width, height);
     }
     public Group getView() {
@@ -179,6 +192,13 @@ public class CalendarSegmentView {
         yearLabel.setPrefHeight(height /10);
         yearLabel.setFont(new Font("Arial", (double) 15 /500 * height));
 
+        distance_month_to_collections.setWidth(width/5);
+        distance_month_to_collections.setHeight(height/10);
+
+        collectionViewButton.setPrefWidth(width/5);
+        collectionViewButton.setPrefHeight(height/10);
+        collectionViewButton.setFont(new Font("Arial", (double) 15 /500 * height));
+
         leftButton.setX(width/5);
         leftButton.setY(height/2 - height/8);
         leftButton.setWidth(width/20);
@@ -193,7 +213,7 @@ public class CalendarSegmentView {
 
         weekView.resize(width /5 + width /20, 0, width - width /5 - 2 * width /20, height);
 
-        calendarEntryView.resize(width /2 - width /6, height /10, width /3, height /10 * 8);
+        noteView.resize(0, 0, width, height);
     }
     private String getMonthLabelText(){
         int number = 0;
@@ -249,10 +269,10 @@ public class CalendarSegmentView {
     }
     public void refresh(){
         if(currentMonth != null){
-            currentMonth = controller.switchToMonthView(Mode.CALENDAR);
+            currentMonth = controller.switchToMonthView(Mode.NOTE);
             monthView.changeContents(currentMonth);
         }else{
-            currentWeek = controller.switchToWeekView(Mode.CALENDAR);
+            currentWeek = controller.switchToWeekView(Mode.NOTE);
             weekView.changeContents(currentWeek);
         }
     }

@@ -9,8 +9,6 @@ import javafx.scene.shape.Rectangle;
 import javafx.util.converter.LocalTimeStringConverter;
 import project.notizprogrammrepository.controller.Controller;
 import project.notizprogrammrepository.model.Types.entries.CalendarEntry;
-import project.notizprogrammrepository.model.Types.entries.Entry;
-import project.notizprogrammrepository.view.EntryView;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

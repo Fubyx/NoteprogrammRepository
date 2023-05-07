@@ -64,17 +64,25 @@ public class NoteCollection implements Serializable {
         }
         return s;
     }
+    public String getText(){
+        String s = "";
+        ArrayList<Date> dates = new ArrayList<>(notes.keySet().stream().toList());
+        for (Date d:dates) {
+            s = s.concat(notes.get(d).getText() + "\n\n");
+        }
+        return s;
+    }
     public boolean isEmpty(){
         return notes.isEmpty();
     }
 
     public void editText(String text){
         String [] partsNew = text.split("\n\n");
-        String [] partsOld = this.toString().split("\n\n");
+        String [] partsOld = this.getText().split("\n\n");
         ArrayList<Date> set = new ArrayList<>(notes.keySet().stream().toList());
-        for(int i = 1; i < partsOld.length; ++i){
+        for(int i = 0; i < partsOld.length; ++i){
             if(!partsOld[i].equals(partsNew[i])){
-                notes.get(set.get(i - 1)).setText(partsNew[i]);
+                notes.get(set.get(i)).setText(partsNew[i]);
             }
         }
 

@@ -94,14 +94,14 @@ public class Controller {
         application.switchMode(Mode.COLLECTIONS);
         return ((NoteSegment)application.getSegment(Mode.NOTE)).getCollectionTitles();
     }
-    public Day[]switchToWeekView(){
-        CalendarSegment calendarSegment = (CalendarSegment) application.getSegment(application.getCurrentMode());
+    public Day[]switchToWeekView(Mode mode){
+        CalendarSegment calendarSegment = (CalendarSegment) application.getSegment(mode);
         if(!calendarSegment.isWeekViewActive())
             calendarSegment.switchView();
         return calendarSegment.getCurrentWeek();
     }
-    public Month switchToMonthView(){
-        CalendarSegment calendarSegment = (CalendarSegment) application.getSegment(application.getCurrentMode());
+    public Month switchToMonthView(Mode mode){
+        CalendarSegment calendarSegment = (CalendarSegment) application.getSegment(mode);
         if(calendarSegment.isWeekViewActive())
             calendarSegment.switchView();
         return calendarSegment.getMonth();

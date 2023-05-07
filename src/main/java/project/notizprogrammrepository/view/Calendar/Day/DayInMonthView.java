@@ -55,7 +55,6 @@ public class DayInMonthView extends Group{
         changeContents(day);
         entryScrollPane.setContent(entryVBox);
         entryScrollPane.setStyle("-fx-background-insets: 1, 1, 1");
-
         entryScrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         entryScrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 
