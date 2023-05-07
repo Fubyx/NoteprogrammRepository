@@ -1,13 +1,13 @@
-package project.notizprogrammrepository.view.Calendar.Day;
+package project.notizprogrammrepository.view.ViewUtils;
 
 import javafx.scene.control.Button;
 import project.notizprogrammrepository.model.Types.entries.Entry;
 
-public class CalendarEntryButton extends Button {
+public class EntryButton extends Button {
 
     private Entry entry;
 
-    public CalendarEntryButton(String s) {
+    public EntryButton(String s) {
         super(s);
     }
 

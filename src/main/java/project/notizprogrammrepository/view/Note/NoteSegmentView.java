@@ -18,7 +18,7 @@ import project.notizprogrammrepository.model.Types.Dates.Month;
 import project.notizprogrammrepository.model.Types.Mode;
 import project.notizprogrammrepository.model.Types.entries.Note;
 import project.notizprogrammrepository.model.Types.segments.CalendarSegment;
-import project.notizprogrammrepository.view.Calendar.Day.CalendarEntryButton;
+import project.notizprogrammrepository.view.ViewUtils.EntryButton;
 import project.notizprogrammrepository.view.Calendar.Day.DayInMonthView;
 import project.notizprogrammrepository.view.Calendar.Day.DayInWeekView;
 import project.notizprogrammrepository.view.Calendar.Month.MonthView;
@@ -104,8 +104,8 @@ public class NoteSegmentView {
         EventHandler<ActionEvent> calendarEntryHandler = new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                if(actionEvent.getSource() instanceof CalendarEntryButton){
-                    noteView.display((Note) ((CalendarEntryButton) actionEvent.getSource()).getEntry());
+                if(actionEvent.getSource() instanceof EntryButton){
+                    noteView.display((Note) ((EntryButton) actionEvent.getSource()).getEntry());
                 } else if(actionEvent.getSource() instanceof DayInMonthView){
                     noteView.display(((DayInMonthView) actionEvent.getSource()).getDay().getDate());
                 }else if(actionEvent.getSource() instanceof DayInWeekView){

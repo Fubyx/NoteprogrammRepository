@@ -11,6 +11,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import project.notizprogrammrepository.model.Types.Dates.Day;
 import project.notizprogrammrepository.model.Types.entries.Entry;
+import project.notizprogrammrepository.view.ViewUtils.EntryButton;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -57,7 +58,7 @@ public class DayInWeekView extends Group {
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
         ArrayList<Button> buttons = new ArrayList<>();
         for(Entry e: currentDay.getEntries()){
-            CalendarEntryButton button = new CalendarEntryButton(e.getTitle().substring(0, Math.min(10, e.getTitle().length())) + "  " + sdf.format(e.getDate()));
+            EntryButton button = new EntryButton(e.getTitle().substring(0, Math.min(10, e.getTitle().length())) + "  " + sdf.format(e.getDate()));
             button.setEntry(e);
             button.setOnAction(buttonClickHandler);
             buttons.add(button);

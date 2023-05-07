@@ -17,14 +17,11 @@ import project.notizprogrammrepository.model.Types.Dates.Month;
 import project.notizprogrammrepository.model.Types.Mode;
 import project.notizprogrammrepository.model.Types.entries.CalendarEntry;
 import project.notizprogrammrepository.model.Types.segments.CalendarSegment;
-import project.notizprogrammrepository.view.Calendar.Day.CalendarEntryButton;
+import project.notizprogrammrepository.view.ViewUtils.EntryButton;
 import project.notizprogrammrepository.view.Calendar.Day.DayInMonthView;
 import project.notizprogrammrepository.view.Calendar.Day.DayInWeekView;
 import project.notizprogrammrepository.view.Calendar.Month.MonthView;
 import project.notizprogrammrepository.view.Calendar.Week.WeekView;
-import project.notizprogrammrepository.view.ViewUtils.SwitchButton;
-
-import java.util.Date;
 
 public class CalendarSegmentView {
     private final Group view;
@@ -91,8 +88,8 @@ public class CalendarSegmentView {
         EventHandler<ActionEvent> calendarEntryHandler = new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                if(actionEvent.getSource() instanceof CalendarEntryButton){
-                    calendarEntryView.display((CalendarEntry) ((CalendarEntryButton) actionEvent.getSource()).getEntry());
+                if(actionEvent.getSource() instanceof EntryButton){
+                    calendarEntryView.display((CalendarEntry) ((EntryButton) actionEvent.getSource()).getEntry());
                 } else if(actionEvent.getSource() instanceof DayInMonthView){
                     calendarEntryView.display(((DayInMonthView) actionEvent.getSource()).getDay().getDate());
                 }else if(actionEvent.getSource() instanceof DayInWeekView){
