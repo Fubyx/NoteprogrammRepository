@@ -1,24 +1,29 @@
 package project.notizprogrammrepository;
 
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.application.Application;
+import javafx.stage.WindowEvent;
 import project.notizprogrammrepository.controller.Controller;
 import project.notizprogrammrepository.view.Calendar.CalendarSegmentView;
 
 import project.notizprogrammrepository.view.Note.Collections.CollectionSegmentView;
 import project.notizprogrammrepository.view.Note.NoteSegmentView;
 import project.notizprogrammrepository.view.Todo.TodoSegmentView;
-
+import project.notizprogrammrepository.view.ViewUtils.EntryButton;
 
 import java.util.Objects;
 
@@ -66,7 +71,6 @@ For each Button of a Entry a right click opens a dropdown with for now 1 option 
 
 //03.05.2023 Fabian: changed HBox to VBox, added Controller
 public class MainApplication extends Application {
-
     public static final String backgroundColor = "#283747";
     private final Controller controller = new Controller();
     private CalendarSegmentView calendarSegmentView;
@@ -82,7 +86,6 @@ public class MainApplication extends Application {
     private Button calendarSegmentButton;
     private Button noteSegmentButton;
     private Button todoSegmentButton;
-
     public void setBackground(){
         background.setFill(Paint.valueOf(backgroundColor));
         background.setHeight(height);
@@ -131,7 +134,6 @@ public class MainApplication extends Application {
 
         todoSegmentButton.setPrefSize(width/10, height/10);
     }
-
     @Override
     public void start(Stage stage){
         setBackground();
@@ -181,6 +183,7 @@ public class MainApplication extends Application {
             }
         });
 
+
         addElements();
 
         resize(width, height);
@@ -197,8 +200,15 @@ public class MainApplication extends Application {
         stage.setTitle("A");
         stage.setScene(scene);
         stage.show();
-    }
 
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent windowEvent) {
+                controller.closeApplication();
+                Platform.exit();
+            }
+        });
+    }
     public static void main(String[] args) {
         launch();
 
@@ -209,6 +219,4 @@ public class MainApplication extends Application {
         cs.throwInfo();
         //*/
     }
-
-
 }

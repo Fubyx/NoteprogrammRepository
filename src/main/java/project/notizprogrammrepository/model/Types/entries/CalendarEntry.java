@@ -1,10 +1,11 @@
 package project.notizprogrammrepository.model.Types.entries;
 
+import java.io.Serializable;
 import java.util.Date;
 
 //30.04.2023 Fabian: Add getter + setter + constructors for reminderDate
 
-public class CalendarEntry extends Entry{
+public class CalendarEntry extends Entry implements Serializable {
     private Date reminderDate;
 
     public CalendarEntry(String title, Date date) {

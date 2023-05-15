@@ -15,7 +15,6 @@ If Month-view is switched, new month gets generated, old month gets deleted, if 
 public class Calendar implements Serializable {
     private LinkedList<Month> months = new LinkedList<>();
     private int currentMonthIndex = 1; //the index of the month that is currently displayed
-
     public Calendar (Date date){
         int year = date.getYear() + 1900;
         int month = date.getMonth() + 1;
@@ -36,7 +35,6 @@ public class Calendar implements Serializable {
     public int getCurrentMonthIndex() {
         return currentMonthIndex;
     }
-
     //shifts the current month to the right or left
     public void shiftCalendar(boolean rightShift){
         if(rightShift){
@@ -82,19 +80,16 @@ public class Calendar implements Serializable {
             }
         }
     }
-
     public void addEntry(Entry e){
         months.get(currentMonthIndex).addEntry(e);
     }
     public void remove(Entry e){
         months.get(currentMonthIndex).remove(e);
     }
-
     //returns the entry for the specified date or null if there is no entry with that date in the current month
     public Entry getEntry(Date date){
         return months.get(currentMonthIndex).getEntry(date);
     }
-
     public Day getDay(Date date){
         return months.get(currentMonthIndex).getDay(date);
     }

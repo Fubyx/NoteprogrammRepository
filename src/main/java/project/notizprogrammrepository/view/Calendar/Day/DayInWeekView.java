@@ -9,8 +9,10 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
+import project.notizprogrammrepository.controller.Controller;
 import project.notizprogrammrepository.model.Types.Dates.Day;
 import project.notizprogrammrepository.model.Types.entries.Entry;
+import project.notizprogrammrepository.view.SegmentView;
 import project.notizprogrammrepository.view.ViewUtils.EntryButton;
 
 import java.text.SimpleDateFormat;
@@ -25,14 +27,15 @@ public class DayInWeekView extends Group {
     private final VBox entryVBox;
     private final Day currentDay;
     private final EventHandler<ActionEvent> buttonClickHandler;
-    private double width;
-    private double height;
-    public DayInWeekView (double width, double height, Day day, EventHandler<ActionEvent> buttonClickHandler){
+    private Controller controller;
+    private SegmentView segmentView;
+    public DayInWeekView (double width, double height, Day day, EventHandler<ActionEvent> buttonClickHandler, Controller controller, SegmentView segmentView){
         this.currentDay = day;
         this.buttonClickHandler = buttonClickHandler;
-        this.width = width;
-        this.height = height;
         this.root = new ScrollPane();
+        this.controller = controller;
+        this.segmentView = segmentView;
+
 
         entryVBox = new VBox();
         entryVBox.getChildren().addAll(generateButtons());
@@ -58,7 +61,7 @@ public class DayInWeekView extends Group {
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
         ArrayList<Button> buttons = new ArrayList<>();
         for(Entry e: currentDay.getEntries()){
-            EntryButton button = new EntryButton(e.getTitle().substring(0, Math.min(10, e.getTitle().length())) + "  " + sdf.format(e.getDate()));
+            EntryButton button = new EntryButton(e.getTitle().substring(0, Math.min(10, e.getTitle().length())) + "  " + sdf.format(e.getDate()), controller, segmentView);
             button.setEntry(e);
             button.setOnAction(buttonClickHandler);
             buttons.add(button);
@@ -66,8 +69,6 @@ public class DayInWeekView extends Group {
         return buttons;
     }
     public void resize(double width, double height){
-        this.width = width;
-        this.height = height;
         root.setPrefSize(width, height);
         for(Node b : entryVBox.getChildren()){
             ((Button)b).setPrefSize(width, height/10);

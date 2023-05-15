@@ -17,13 +17,14 @@ import project.notizprogrammrepository.model.Types.Dates.Month;
 import project.notizprogrammrepository.model.Types.Mode;
 import project.notizprogrammrepository.model.Types.entries.CalendarEntry;
 import project.notizprogrammrepository.model.Types.segments.CalendarSegment;
+import project.notizprogrammrepository.view.SegmentView;
 import project.notizprogrammrepository.view.ViewUtils.EntryButton;
 import project.notizprogrammrepository.view.Calendar.Day.DayInMonthView;
 import project.notizprogrammrepository.view.Calendar.Day.DayInWeekView;
 import project.notizprogrammrepository.view.Calendar.Month.MonthView;
 import project.notizprogrammrepository.view.Calendar.Week.WeekView;
 
-public class CalendarSegmentView {
+public class CalendarSegmentView extends SegmentView {
     private final Group view;
     private final VBox vBox;
     private final Rectangle vBoxBackground = new Rectangle();
@@ -83,30 +84,6 @@ public class CalendarSegmentView {
         yearLabel.setAlignment(Pos.CENTER);
         vBox.getChildren().add(yearLabel);
 
-
-
-        EventHandler<ActionEvent> calendarEntryHandler = new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                if(actionEvent.getSource() instanceof EntryButton){
-                    calendarEntryView.display((CalendarEntry) ((EntryButton) actionEvent.getSource()).getEntry());
-                } else if(actionEvent.getSource() instanceof DayInMonthView){
-                    calendarEntryView.display(((DayInMonthView) actionEvent.getSource()).getDay().getDate());
-                }else if(actionEvent.getSource() instanceof DayInWeekView){
-                    calendarEntryView.display(((DayInWeekView) actionEvent.getSource()).getDay().getDate());
-                }
-            }
-        };
-
-        this.monthView = new MonthView(width/5 + width/20, 0, width - width/5 -  width/10, height, month, calendarEntryHandler);
-        view.getChildren().add(monthView.getRoot());
-
-        this.weekView = new WeekView(width/5 + width/20, 0, width - width/5 - width/10, height, month.getWeek(1), calendarEntryHandler);
-        weekView.getRoot().setVisible(false);
-        view.getChildren().add(weekView.getRoot());
-
-
-
         EventHandler<MouseEvent> handleMonthSwitch = new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
@@ -143,8 +120,31 @@ public class CalendarSegmentView {
         rightButton.setOnMouseClicked(handleMonthSwitch);
         view.getChildren().add(rightButton);
 
+        EventHandler<ActionEvent> calendarEntryHandler = new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                if(actionEvent.getSource() instanceof EntryButton){
+                    calendarEntryView.display((CalendarEntry) ((EntryButton) actionEvent.getSource()).getEntry());
+                } else if(actionEvent.getSource() instanceof DayInMonthView){
+                    calendarEntryView.display(((DayInMonthView) actionEvent.getSource()).getDay().getDate());
+                }else if(actionEvent.getSource() instanceof DayInWeekView){
+                    calendarEntryView.display(((DayInWeekView) actionEvent.getSource()).getDay().getDate());
+                }
+            }
+        };
+
+        this.monthView = new MonthView(width/5 + width/20, 0, width - width/5 -  width/10, height, month, calendarEntryHandler, controller, CalendarSegmentView.this);
+        view.getChildren().add(monthView.getRoot());
+
+        this.weekView = new WeekView(width/5 + width/20, 0, width - width/5 - width/10, height, month.getWeek(1), calendarEntryHandler, controller, CalendarSegmentView.this);
+        weekView.getRoot().setVisible(false);
+        view.getChildren().add(weekView.getRoot());
+
         calendarEntryView = new CalendarEntryView(width/2 - width/6, height/10, width/3, height/10 * 8, controller, CalendarSegmentView.this);
         view.getChildren().add(calendarEntryView.getRoot());
+
+
+
         resize(x, y, width, height);
     }
     public Group getView() {
@@ -181,7 +181,7 @@ public class CalendarSegmentView {
         leftButton.setWidth(width/20);
         leftButton.setHeight(height/4);
 
-        rightButton.setX(width - width/20);
+        rightButton.setX(width/5 + width/20 + (width - width /5 - 2 * width /20));
         rightButton.setY(height/2 - height/8);
         rightButton.setWidth(width/20);
         rightButton.setHeight(height/4);

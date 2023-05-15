@@ -1,12 +1,13 @@
 package project.notizprogrammrepository.model.Types.entries;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /*
 Plan:
 Add id
  */
-public class TodoEntry extends Entry{
+public class TodoEntry extends Entry implements Serializable {
     private int priority;//0 - 10
     private long id = 0;
 

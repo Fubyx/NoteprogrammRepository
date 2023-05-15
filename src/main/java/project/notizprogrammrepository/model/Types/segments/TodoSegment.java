@@ -4,10 +4,11 @@ import project.notizprogrammrepository.model.Types.entries.Entry;
 import project.notizprogrammrepository.model.Types.entries.Note;
 import project.notizprogrammrepository.model.Types.entries.TodoEntry;
 
+import java.io.Serializable;
 import java.util.*;
 
 //28.04.2023 Fabian: add-, remove-, editEntry
-public class TodoSegment extends Segment{
+public class TodoSegment extends Segment implements Serializable {
     private int nextEmptyId = Integer.MIN_VALUE;
     private ArrayList<TodoEntry> entries = new ArrayList<>();
     public void addEntry(Entry entry) {

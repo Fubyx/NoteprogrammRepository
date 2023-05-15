@@ -14,6 +14,7 @@ import javafx.util.converter.LocalTimeStringConverter;
 import project.notizprogrammrepository.controller.Controller;
 import project.notizprogrammrepository.model.Types.entries.Note;
 import project.notizprogrammrepository.model.Types.entries.TodoEntry;
+import project.notizprogrammrepository.view.SegmentView;
 import project.notizprogrammrepository.view.ViewUtils.EntryButton;
 
 import java.time.LocalDateTime;
@@ -49,12 +50,11 @@ rest textArea
 /20
  */
 
-public class TodoSegmentView{
+public class TodoSegmentView extends SegmentView {
     private final Group root;
     private final Label todoLabel;
     private final ScrollPane scrollPane = new ScrollPane();
     private final VBox todoEntries;
-    private final Group display = new Group();
     private final TextField titleTextField;
     private final Label dueDateLabel;
     private final DatePicker dueDate;
@@ -243,7 +243,7 @@ public class TodoSegmentView{
     public void setList(){
         ArrayList<TodoEntry> entries = controller.switchToTodo();
         for(TodoEntry entry : entries){
-            EntryButton b = new EntryButton(entry.getTitle());
+            EntryButton b = new EntryButton(entry.getTitle(), controller, TodoSegmentView.this);
             b.setEntry(entry);
             b.setOnAction(new EventHandler<ActionEvent>() {
                 @Override

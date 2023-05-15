@@ -1,5 +1,6 @@
 package project.notizprogrammrepository.model.Types;
 
+import project.notizprogrammrepository.model.Types.Dates.DateComparator;
 import project.notizprogrammrepository.model.Types.entries.Note;
 import project.notizprogrammrepository.model.Types.entries.Subject;
 
@@ -10,12 +11,7 @@ import java.util.*;
 //18.04.2023 Fabian: Added changing to Title and Subject, remove, toString
 //30.04.2023 Fabian: Added editText
 public class NoteCollection implements Serializable {
-    private TreeMap<Date, Note> notes = new TreeMap<>(new Comparator<Date>() {
-        @Override
-        public int compare(Date o1, Date o2) {
-            return o1.compareTo(o2);
-        }
-    });
+    private TreeMap<Date, Note> notes = new TreeMap<>(new DateComparator());
     private String title;
     private Subject subject;
     public NoteCollection (String title){
@@ -57,10 +53,10 @@ public class NoteCollection implements Serializable {
     @Override
     public String toString() {
         String s = title;
-        s = s.concat("\n\n");
+        s = s.concat("\n\t\n");
         ArrayList<Date> dates = new ArrayList<>(notes.keySet().stream().toList());
         for (Date d:dates) {
-            s = s.concat(notes.get(d).getText() + "\n\n");
+            s = s.concat(notes.get(d).getText() + "\n\t\n");
         }
         return s;
     }
@@ -68,7 +64,7 @@ public class NoteCollection implements Serializable {
         String s = "";
         ArrayList<Date> dates = new ArrayList<>(notes.keySet().stream().toList());
         for (Date d:dates) {
-            s = s.concat(notes.get(d).getText() + "\n\n");
+            s = s.concat(notes.get(d).getText() + "\n\t\n");
         }
         return s;
     }
@@ -77,8 +73,8 @@ public class NoteCollection implements Serializable {
     }
 
     public void editText(String text){
-        String [] partsNew = text.split("\n\n");
-        String [] partsOld = this.getText().split("\n\n");
+        String [] partsNew = text.split("\n\t\n");
+        String [] partsOld = this.getText().split("\n\t\n");
         ArrayList<Date> set = new ArrayList<>(notes.keySet().stream().toList());
         for(int i = 0; i < partsOld.length; ++i){
             if(!partsOld[i].equals(partsNew[i])){

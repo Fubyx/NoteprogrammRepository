@@ -5,18 +5,16 @@ import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import project.notizprogrammrepository.MainApplication;
+import project.notizprogrammrepository.controller.Controller;
 import project.notizprogrammrepository.model.Types.Dates.Day;
-import project.notizprogrammrepository.model.Types.Dates.Month;
-import project.notizprogrammrepository.view.Calendar.Day.DayInMonthView;
 import project.notizprogrammrepository.view.Calendar.Day.DayInWeekView;
+import project.notizprogrammrepository.view.SegmentView;
 
 import java.util.ArrayList;
 
@@ -28,12 +26,16 @@ public class WeekView {
     private HBox days;
     private Day[] currentWeek;
     private EventHandler<ActionEvent> entryClickHandler;
+    private Controller controller;
+    private SegmentView segmentView;
 
-    public WeekView (double x, double y, double width, double height, Day[] week, EventHandler<ActionEvent> entryClickHandler){
+    public WeekView (double x, double y, double width, double height, Day[] week, EventHandler<ActionEvent> entryClickHandler, Controller controller, SegmentView segmentView){
         this.currentWeek = week;
         this.entryClickHandler = entryClickHandler;
         this.width = width;
         this.height = height;
+        this.segmentView = segmentView;
+        this.controller = controller;
         root = new VBox();
 
         weekDayNameDisplay = new HBox();
@@ -144,7 +146,7 @@ public class WeekView {
             if(currentWeek[i] == null){
                 days.add(new Rectangle(width/7, height - height/7 * 2, Color.valueOf(MainApplication.backgroundColor)));
             }else{
-                days.add(new DayInWeekView(width/7, height - height/7 * 2, currentWeek[i], entryClickHandler));
+                days.add(new DayInWeekView(width/7, height - height/7 * 2, currentWeek[i], entryClickHandler, controller, segmentView));
             }
         }
         return days;
