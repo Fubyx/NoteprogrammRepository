@@ -122,6 +122,9 @@ public class TodoSegmentView{
         root.getChildren().add(textArea);
 
         cancelButton  = new Button("Cancel");
+        //cancelButton.setId("buttonLeftTray");
+        //cancelButton.getStyleClass().add("button-64");
+
         cancelButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {

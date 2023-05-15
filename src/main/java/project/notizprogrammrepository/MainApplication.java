@@ -20,6 +20,7 @@ import project.notizprogrammrepository.view.Note.NoteSegmentView;
 import project.notizprogrammrepository.view.Todo.TodoSegmentView;
 
 
+import java.util.Objects;
 
 import static javafx.application.Application.launch;
 
@@ -76,7 +77,6 @@ public class MainApplication extends Application {
     private final VBox leftTrayVbox = new VBox();
     private double width = 800;
     private double height = 500;
-
     private Rectangle background = new Rectangle();
     private Rectangle leftTrayBackground = new Rectangle();
     private Button calendarSegmentButton;
