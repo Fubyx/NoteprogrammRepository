@@ -1,13 +1,12 @@
 package project.notizprogrammrepository.model.Types.entries;
 
-import java.io.Serializable;
 import java.util.Date;
 
 /*
 Plan:
 Add id
  */
-public class TodoEntry extends Entry implements Serializable {
+public class TodoEntry extends Entry {
     private int priority;//0 - 10
     private long id = 0;
 
@@ -23,15 +22,6 @@ public class TodoEntry extends Entry implements Serializable {
         super(title, dueDate);
         this.priority = 10;
     }
-    public TodoEntry(String title, Date dueDate, int priority) {
-        super(title, dueDate);
-        this.priority = priority;
-    }
-
-    public TodoEntry(String title, String text, Date dueDate) {
-        super(title, text, dueDate);
-        this.priority = 10;
-    }
     public TodoEntry(String title, String text, Date dueDate, int priority) {
         super(title, text, dueDate);
         this.priority = priority;
@@ -44,10 +34,7 @@ public class TodoEntry extends Entry implements Serializable {
     public void setPriority(int priority) {
         if(priority < 0)
             this.priority = 0;
-        else if(priority > 10)
-            this.priority = 10;
-        else
-            this.priority = priority;
+        else this.priority = Math.min(priority, 10);
     }
 
     public void setId(long id){

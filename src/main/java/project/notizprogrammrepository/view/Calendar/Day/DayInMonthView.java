@@ -6,7 +6,6 @@ import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
@@ -17,7 +16,6 @@ import project.notizprogrammrepository.controller.Controller;
 import project.notizprogrammrepository.model.Types.Dates.Day;
 import project.notizprogrammrepository.model.Types.entries.Entry;
 import project.notizprogrammrepository.view.SegmentView;
-import project.notizprogrammrepository.view.ViewUtils.CustomContextMenu;
 import project.notizprogrammrepository.view.ViewUtils.EntryButton;
 
 import java.text.SimpleDateFormat;
@@ -33,29 +31,18 @@ Group:
  */
 //03.05.2023 Fabian: constructor, generateButton, resize, changeContents
 public class DayInMonthView extends Group{
-    private ScrollPane entryScrollPane;
-    private VBox entryVBox;
-    private double width;
-    private double height;
-    private Label numberOfDayLabel;
+    private final ScrollPane entryScrollPane;
+    private final VBox entryVBox;
+    private final Label numberOfDayLabel;
     private Day currentDay;
-    private EventHandler<ActionEvent> buttonClickHandler;
-    private Controller controller;
-    private SegmentView segmentView;
+    private final EventHandler<ActionEvent> buttonClickHandler;
+    private final Controller controller;
+    private final SegmentView segmentView;
     public DayInMonthView(double width, double height, Day day, EventHandler<ActionEvent> buttonClickHandler, Controller controller, SegmentView segmentView){
-        this.width = width;
-        this.height = height;
         this.buttonClickHandler = buttonClickHandler;
-        this.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                buttonClickHandler.handle(new ActionEvent(DayInMonthView.this, null));
-            }
-        });
+        this.setOnMouseClicked(mouseEvent -> buttonClickHandler.handle(new ActionEvent(DayInMonthView.this, null)));
         this.controller = controller;
         this.segmentView = segmentView;
-
-
 
         entryScrollPane = new ScrollPane();
         entryVBox = new VBox();
@@ -87,18 +74,15 @@ public class DayInMonthView extends Group{
     }
 
     public void resize(double newWidth, double newHeight){
-        this.width = newWidth;
-        this.height = newHeight;
-
         entryScrollPane.setPrefSize(newWidth, newHeight);
         entryScrollPane.setMaxSize(newWidth, newHeight);
         for(Node b : entryVBox.getChildren()){
             ((Button)b).setPrefSize(newWidth, newHeight/4);
-            ((Button) b).setFont(new Font("Arial", (double) 15 /100 * height));
+            ((Button) b).setFont(new Font("Arial", (double) 15 /100 * newHeight));
         }
         numberOfDayLabel.setPrefWidth(newWidth/4);
         numberOfDayLabel.setPrefHeight(newHeight/4);
-        numberOfDayLabel.setFont(new Font("Arial", (double) 15 /100 * height));
+        numberOfDayLabel.setFont(new Font("Arial", (double) 15 /100 * newHeight));
     }
     public void changeContents(Day day){
         currentDay = day;

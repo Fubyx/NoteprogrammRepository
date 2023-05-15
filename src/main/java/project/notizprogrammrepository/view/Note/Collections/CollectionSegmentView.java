@@ -1,7 +1,5 @@
 package project.notizprogrammrepository.view.Note.Collections;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -13,11 +11,9 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import project.notizprogrammrepository.controller.Controller;
 import project.notizprogrammrepository.model.Types.entries.Subject;
-import project.notizprogrammrepository.view.Calendar.CalendarSegmentView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /*
 Plan:
@@ -37,7 +33,7 @@ public class CollectionSegmentView {
     private final Label subjects;
     private final ScrollPane subjectsScrollPane;
     private final VBox subjectsVBox;
-    private CollectionView collectionView;
+    private final CollectionView collectionView;
     private final Controller controller;
 
     public CollectionSegmentView(double x, double y, double width, double height, Controller controller){
@@ -85,13 +81,9 @@ public class CollectionSegmentView {
         ArrayList<String> strings = controller.switchToCollectionMode();
         for(String s : strings){
             Button b = new Button(s);
-            b.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent actionEvent) {
-                    //root.setVisible(false);
-                    setVisible(false);
-                    collectionView.display(b.getText());
-                }
+            b.setOnAction(actionEvent -> {
+                setVisible(false);
+                collectionView.display(b.getText());
             });
             if(isSubject(s)){
                 subjectsVBox.getChildren().add(b);

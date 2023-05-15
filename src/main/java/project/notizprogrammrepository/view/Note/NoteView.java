@@ -1,7 +1,5 @@
 package project.notizprogrammrepository.view.Note;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
@@ -9,35 +7,31 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.util.converter.LocalTimeStringConverter;
 import project.notizprogrammrepository.controller.Controller;
-import project.notizprogrammrepository.model.Types.entries.CalendarEntry;
 import project.notizprogrammrepository.model.Types.entries.Note;
 import project.notizprogrammrepository.model.Types.entries.Subject;
 import project.notizprogrammrepository.view.ViewUtils.SwitchButton;
 
-import java.awt.*;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
 import java.util.Date;
 
 public class NoteView {
-    private Group root;
-    private Rectangle background;
-    private TextField titleInput;
-    private Label collectLabel;
-    private SwitchButton collectSwitch;
-    private ComboBox<Subject> subjectSelector;
-    private DatePicker datePicker;
-    private Spinner<LocalTime> timePicker;
-    private TextArea textArea;
-    private Button saveButton;
-    private Button cancelButton;
+    private final Group root;
+    private final Rectangle background;
+    private final TextField titleInput;
+    private final Label collectLabel;
+    private final SwitchButton collectSwitch;
+    private final ComboBox<Subject> subjectSelector;
+    private final DatePicker datePicker;
+    private final Spinner<LocalTime> timePicker;
+    private final TextArea textArea;
+    private final Button saveButton;
+    private final Button cancelButton;
     private Note currentNote = null;
 
     public NoteView(double x, double y, double width, double height, Controller controller, NoteSegmentView noteSegmentView){
@@ -67,15 +61,17 @@ public class NoteView {
         root.getChildren().add(datePicker);
 
         timePicker = new Spinner<>();
-        timePicker.setValueFactory(new SpinnerValueFactory<LocalTime>() {
+        timePicker.setValueFactory(new SpinnerValueFactory<>() {
             {
                 setConverter(new LocalTimeStringConverter(DateTimeFormatter.ofPattern("HH:mm:ss"), null));
                 setValue(LocalTime.now());
             }
+
             @Override
             public void decrement(int steps) {
                 setValue(getValue().minusMinutes(steps));
             }
+
             @Override
             public void increment(int steps) {
                 setValue(getValue().plusMinutes(steps));
@@ -87,28 +83,22 @@ public class NoteView {
         root.getChildren().add(textArea);
 
         cancelButton = new Button("Cancel");
-        cancelButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                root.setVisible(false);
-                resetValues();
-            }
+        cancelButton.setOnAction(actionEvent -> {
+            root.setVisible(false);
+            resetValues();
         });
         root.getChildren().add(cancelButton);
 
         saveButton = new Button("Save");
-        saveButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                if(titleInput.getText().equals("Title") || textArea.getText().equals("Text..."))
-                    return;
-                LocalDateTime lDT = LocalDateTime.of(datePicker.getValue(), timePicker.getValue());
-                Note note = new Note(titleInput.getText(), textArea.getText(), Date.from(lDT.atZone(ZoneId.systemDefault()).toInstant()), collectSwitch.isState(), subjectSelector.getValue());
-                controller.changeEntry(currentNote, note, true);
-                root.setVisible(false);
-                resetValues();
-                noteSegmentView.refresh();
-            }
+        saveButton.setOnAction(actionEvent -> {
+            if(titleInput.getText().equals("Title") || textArea.getText().equals("Text..."))
+                return;
+            LocalDateTime lDT = LocalDateTime.of(datePicker.getValue(), timePicker.getValue());
+            Note note = new Note(titleInput.getText(), textArea.getText(), Date.from(lDT.atZone(ZoneId.systemDefault()).toInstant()), collectSwitch.isState(), subjectSelector.getValue());
+            controller.changeEntry(currentNote, note, true);
+            root.setVisible(false);
+            resetValues();
+            noteSegmentView.refresh();
         });
         root.getChildren().add(saveButton);
 

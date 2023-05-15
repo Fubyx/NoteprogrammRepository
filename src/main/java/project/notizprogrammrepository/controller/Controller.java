@@ -6,15 +6,12 @@ import project.notizprogrammrepository.model.Types.Dates.Month;
 import project.notizprogrammrepository.model.Types.Mode;
 import project.notizprogrammrepository.model.Types.NoteCollection;
 import project.notizprogrammrepository.model.Types.entries.Entry;
-import project.notizprogrammrepository.model.Types.entries.Note;
 import project.notizprogrammrepository.model.Types.entries.TodoEntry;
 import project.notizprogrammrepository.model.Types.segments.CalendarSegment;
 import project.notizprogrammrepository.model.Types.segments.NoteSegment;
-import project.notizprogrammrepository.model.Types.segments.TodoSegment;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Objects;
 
 /*
 Plan:
@@ -63,7 +60,7 @@ public class Controller {
             application = new Application();
         }
     }
-    public boolean closeApplication(){
+    public void closeApplication(){
         try{
             FileOutputStream fileOut = new FileOutputStream(saveFileName);
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -72,11 +69,9 @@ public class Controller {
 
             out.close();
             fileOut.close();
-            return true;
         } catch (IOException e) {
             System.out.println(e.fillInStackTrace());
             System.err.println("Save failed");
-            return false;
         }
     }
     public Month switchToCalendar(){

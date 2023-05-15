@@ -1,16 +1,14 @@
 package project.notizprogrammrepository.model.Types.segments;
 
 import project.notizprogrammrepository.model.Types.entries.Entry;
-import project.notizprogrammrepository.model.Types.entries.Note;
 import project.notizprogrammrepository.model.Types.entries.TodoEntry;
 
-import java.io.Serializable;
 import java.util.*;
 
 //28.04.2023 Fabian: add-, remove-, editEntry
-public class TodoSegment extends Segment implements Serializable {
+public class TodoSegment extends Segment {
     private int nextEmptyId = Integer.MIN_VALUE;
-    private ArrayList<TodoEntry> entries = new ArrayList<>();
+    private final ArrayList<TodoEntry> entries = new ArrayList<>();
     public void addEntry(Entry entry) {
         TodoEntry t = (TodoEntry)entry;
         t.setId(nextEmptyId);
@@ -38,17 +36,15 @@ public class TodoSegment extends Segment implements Serializable {
         }catch (NullPointerException n){}
     }
     private TodoEntry getEntry(long id){
-         Iterator<TodoEntry> it = entries.iterator();
-         while (it.hasNext()){
-             TodoEntry next = it.next();
-             if(next.getId() == id){
-                 return next;
-             }
-         }
+        for (TodoEntry next : entries) {
+            if (next.getId() == id) {
+                return next;
+            }
+        }
          return null;
     }
     public ArrayList<TodoEntry> getEntries() {
-        entries.sort((todoEntry1, todoEntry2) -> Integer.compare(todoEntry1.getPriority(), todoEntry2.getPriority()));
+        entries.sort(Comparator.comparingInt(TodoEntry::getPriority));
         return entries;
     }
 }

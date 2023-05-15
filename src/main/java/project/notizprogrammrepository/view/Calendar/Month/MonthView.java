@@ -4,11 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
@@ -18,7 +15,6 @@ import project.notizprogrammrepository.MainApplication;
 import project.notizprogrammrepository.controller.Controller;
 import project.notizprogrammrepository.model.Types.Dates.Day;
 import project.notizprogrammrepository.model.Types.Dates.Month;
-import project.notizprogrammrepository.model.Types.entries.Entry;
 import project.notizprogrammrepository.view.Calendar.Day.DayInMonthView;
 import project.notizprogrammrepository.view.SegmentView;
 
@@ -39,14 +35,14 @@ Contains:
 public class MonthView {
     private double width;
     private double height;
-    private VBox root;
-    private HBox weekDayNameDisplay;
-    private VBox table;
-    private ArrayList<DayInMonthView> dMVs = new ArrayList<>();
+    private final VBox root;
+    private final HBox weekDayNameDisplay;
+    private final VBox table;
+    private final ArrayList<DayInMonthView> dMVs = new ArrayList<>();
     private Month currentMonth;
-    private EventHandler<ActionEvent> entryClickHandler;
-    private Controller controller;
-    private SegmentView segmentView;
+    private final EventHandler<ActionEvent> entryClickHandler;
+    private final Controller controller;
+    private final SegmentView segmentView;
 
     public MonthView (double x, double y, double width, double height, Month month, EventHandler<ActionEvent> entryClickHandler, Controller controller, SegmentView segmentView){
         this.currentMonth = month;

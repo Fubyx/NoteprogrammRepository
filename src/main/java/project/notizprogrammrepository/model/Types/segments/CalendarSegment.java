@@ -6,10 +6,7 @@ import project.notizprogrammrepository.model.Types.Dates.Month;
 import project.notizprogrammrepository.model.Types.entries.CalendarEntry;
 
 import java.awt.*;
-import java.awt.event.*;
 import java.awt.TrayIcon.MessageType;
-import java.io.Serializable;
-import java.net.MalformedURLException;
 
 import java.util.Date;
 
@@ -17,8 +14,8 @@ import java.util.Date;
 //29.04.2023 Fabian: set default value of currentWeek fixing an error with getCurrentWeek
 //26.04.2023 Miguel: removeCalendarEntry ( remove the Entry from Calendar), addCalendarEntry ( add an Entry to Calendar ) , editCalendarEntry ( edit an Entry in Calendar )
 //30.04.2023 Fabian: added reminderDate to editCalendarEntry
-public class CalendarSegment extends Segment implements Serializable {
-    private Calendar calendar;
+public class CalendarSegment extends Segment {
+    private final Calendar calendar;
     private boolean weekViewActive = false;
     private int currentWeek;
     public CalendarSegment (Date date){
@@ -83,7 +80,7 @@ public class CalendarSegment extends Segment implements Serializable {
         return (CalendarEntry)getCalendar().getEntry(date);
     }
 
-// 03.05.2023 Miguel: throwInfo -> displays a Windows-Notification
+    // 03.05.2023 Miguel: throwInfo -> displays a Windows-Notification
     public void throwInfo(){
         try{
             SystemTray tray = SystemTray.getSystemTray();
