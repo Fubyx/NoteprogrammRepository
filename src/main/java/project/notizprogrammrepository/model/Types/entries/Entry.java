@@ -7,7 +7,6 @@ public abstract class Entry implements Serializable {
     private String title;
     private String text;
     private Date date;
-
     public Entry(String title){
         this.title = title;
     }

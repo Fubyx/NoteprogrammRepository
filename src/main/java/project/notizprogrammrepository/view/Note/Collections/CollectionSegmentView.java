@@ -13,11 +13,9 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import project.notizprogrammrepository.controller.Controller;
 import project.notizprogrammrepository.model.Types.entries.Subject;
-import project.notizprogrammrepository.view.Calendar.CalendarSegmentView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /*
 Plan:
@@ -37,7 +35,7 @@ public class CollectionSegmentView {
     private final Label subjects;
     private final ScrollPane subjectsScrollPane;
     private final VBox subjectsVBox;
-    private CollectionView collectionView;
+    private final CollectionView collectionView;
     private final Controller controller;
 
     public CollectionSegmentView(double x, double y, double width, double height, Controller controller){

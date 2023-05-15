@@ -9,9 +9,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import project.notizprogrammrepository.controller.Controller;
-import project.notizprogrammrepository.model.Types.Mode;
-import project.notizprogrammrepository.model.Types.segments.NoteSegment;
-import project.notizprogrammrepository.view.Note.NoteSegmentView;
 
 
 /*
@@ -21,12 +18,12 @@ top row: Label with the title; cancel- and saveButton
 rest: textArea for the CollectionText
  */
 public class CollectionView {
-    private Group root;
-    private Label title;
-    private Button cancelButton;
-    private Button saveButton;
-    private TextArea textArea;
-    private Controller controller;
+    private final Group root;
+    private final Label title;
+    private final Button cancelButton;
+    private final Button saveButton;
+    private final TextArea textArea;
+    private final Controller controller;
     public CollectionView(double x, double y, double width, double height, Controller controller, CollectionSegmentView collectionSegmentView){
         this.controller = controller;
 
@@ -37,21 +34,18 @@ public class CollectionView {
         root.getChildren().add(title);
 
         cancelButton = new Button("Cancel");
-        cancelButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                root.setVisible(false);
-                collectionSegmentView.setVisible(true);
-                collectionSegmentView.refresh();
-            }
+        cancelButton.setOnAction(actionEvent -> {
+            root.setVisible(false);
+            collectionSegmentView.setVisible(true);
+            collectionSegmentView.refresh();
         });
         root.getChildren().add(cancelButton);
 
         saveButton = new Button("Save");
-        saveButton.setOnAction(new EventHandler<ActionEvent>() {
+        saveButton.setOnAction(new EventHandler<>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                if(controller.getCollection(title.getText()) != null)//Just a precaution
+                if (controller.getCollection(title.getText()) != null)//Just a precaution
                     controller.getCollection(title.getText()).editText(textArea.getText());
                 root.setVisible(false);
                 collectionSegmentView.setVisible(true);

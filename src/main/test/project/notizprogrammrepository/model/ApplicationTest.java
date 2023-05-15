@@ -10,8 +10,6 @@ import project.notizprogrammrepository.model.Types.segments.CalendarSegment;
 import project.notizprogrammrepository.model.Types.segments.NoteSegment;
 import project.notizprogrammrepository.model.Types.segments.TodoSegment;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -32,23 +30,24 @@ public class ApplicationTest {
     }
 
     @Test
-    public void addEntryTest() throws ParseException {
+    public void addEntryTest()  {
         Application app = new Application();
         app.addEntry(new TodoEntry("srtdfd", new Date()));
         assertEquals(1, app.getTodoList().size());
-        Note n = new Note("stdfatwd", "§twfdtwdf", new SimpleDateFormat("dd.MM.yyyy").parse("29.04.2023"), true);
+        Note n = new Note("stdfatwd", "§twfdtwdf", new Date(), true);
         app.addEntry(n);
         app.switchMode(Mode.NOTE);
         NoteSegment nS = (NoteSegment) app.getSegment(Mode.NOTE);
+        assertEquals(n, nS.getNote(n.getDate()));
         assertEquals(n, nS.getCalendar().getEntry(n.getDate()));
         assertEquals(n, app.getMonth().getEntry(n.getDate()));
         Day [] days = app.getWeek();
         assertEquals(7, days.length);
         boolean contained = false;
-        for(int i = 0; i < days.length; ++i){
-            if(days[i] != null){
-                Entry e = days[i].getEntry(n.getDate());
-                if(e == null || !e.equals(n))
+        for (Day day : days) {
+            if (day != null) {
+                Entry e = day.getEntry(n.getDate());
+                if (e == null || !e.equals(n))
                     continue;
                 contained = true;
                 break;
@@ -64,11 +63,10 @@ public class ApplicationTest {
 
         days = app.getWeek();
         assertEquals(7, days.length);
-        contained = false;
-        for(int i = 0; i < days.length; ++i){
-            if(days[i] != null){
-                Entry e = days[i].getEntry(n.getDate());
-                if(e == null || !e.equals(n))
+        for (Day day : days) {
+            if (day != null) {
+                Entry e = day.getEntry(n.getDate());
+                if (e == null || !e.equals(n))
                     continue;
                 contained = true;
                 break;

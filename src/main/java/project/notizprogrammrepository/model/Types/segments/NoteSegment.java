@@ -6,13 +6,12 @@ import project.notizprogrammrepository.model.Types.entries.Entry;
 import project.notizprogrammrepository.model.Types.entries.Note;
 import project.notizprogrammrepository.model.Types.entries.Subject;
 
-import java.io.Serializable;
 import java.util.*;
 
 //19.04.2023 Fabian: Empty constructor, removeAll (remove all notes of a certain day), addEntry
 //24.04.2023 Fabian: getCollection; editEntry; removeEntry (remove from collections); addEntry (add to collections); collectByTitle, collectBySubject, removeAll (remove from collections), removeFromCollections
 //25.04.2023 Fabian: Updated all methods to use the calendar instead of entries and not to use id
-public class NoteSegment extends CalendarSegment implements Serializable {
+public class NoteSegment extends CalendarSegment {
     private final TreeMap<String, NoteCollection> collections = new TreeMap<>();
     public NoteSegment(Date date){
         super(date);

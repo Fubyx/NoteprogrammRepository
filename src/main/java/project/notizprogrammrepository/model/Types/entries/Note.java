@@ -1,13 +1,11 @@
 package project.notizprogrammrepository.model.Types.entries;
 
-import java.io.Serializable;
 import java.util.Date;
-import java.util.Objects;
 
 //17.04.2023 Fabian: Override equals
 //24.04.2023 Fabian: Fix to constructor
 //25.04.2023 Fabian: removed id, changed equals to compare date
-public class Note extends Entry implements Serializable {
+public class Note extends Entry {
     private Subject subject;
     private boolean collectByTitle;
     public Note(String title, String text, Date date, boolean collectByTitle) {
