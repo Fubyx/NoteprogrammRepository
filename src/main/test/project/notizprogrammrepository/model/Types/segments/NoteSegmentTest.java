@@ -30,7 +30,7 @@ class NoteSegmentTest {
         noteSegment.removeAll(sdf.parse("19.04.2023 13:45:23"), true);
 
         assertEquals(n, noteSegment.getNote(n.getDate()));
-        assertEquals("tdtwd\n\nzgaezvaez\n\n", noteSegment.getCollection(n.getTitle()).toString());
+        assertEquals("zgaezvaez\n\t\n", noteSegment.getCollection(n.getTitle()).getText());
         noteSegment.deleteCollection(n.getTitle());
         assertNull(noteSegment.getCollection(n.getTitle()));
 
@@ -47,10 +47,10 @@ class NoteSegmentTest {
         noteSegment.addNote(n);
         noteSegment.addNote(new Note("tdtwd", "zgezvaez", sdf.parse("19.04.2023 00:00:00"),  true));
 
-        assertEquals("tdtwd\n\nzgezvaez\n\nzgaezvez\n\nzgaezaez\n\nzgaezvaez\n\n", noteSegment.getCollection(n.getTitle()).toString());
+        assertEquals("zgezvaez\n\t\nzgaezvez\n\t\nzgaezaez\n\t\nzgaezvaez\n\t\n", noteSegment.getCollection(n.getTitle()).getText());
         noteSegment.editNote(new Note("tgwfdtwfd", n.getText(), n.getDate(), n.isCollectByTitle()));
-        assertEquals("tdtwd\n\nzgezvaez\n\nzgaezvez\n\nzgaezaez\n\n", noteSegment.getCollection("tdtwd").toString());
-        assertEquals("tgwfdtwfd\n\nzgaezvaez\n\n", noteSegment.getCollection(n.getTitle()).toString());
+        assertEquals("zgezvaez\n\t\nzgaezvez\n\t\nzgaezaez\n\t\n", noteSegment.getCollection("tdtwd").getText());
+        assertEquals("zgaezvaez\n\t\n", noteSegment.getCollection(n.getTitle()).getText());
         noteSegment.removeNote(n, true);
         assertNull(noteSegment.getCollection(n.getTitle()));
 

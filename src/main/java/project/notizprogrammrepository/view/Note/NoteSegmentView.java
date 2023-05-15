@@ -18,6 +18,7 @@ import project.notizprogrammrepository.model.Types.Dates.Month;
 import project.notizprogrammrepository.model.Types.Mode;
 import project.notizprogrammrepository.model.Types.entries.Note;
 import project.notizprogrammrepository.model.Types.segments.CalendarSegment;
+import project.notizprogrammrepository.view.SegmentView;
 import project.notizprogrammrepository.view.ViewUtils.EntryButton;
 import project.notizprogrammrepository.view.Calendar.Day.DayInMonthView;
 import project.notizprogrammrepository.view.Calendar.Day.DayInWeekView;
@@ -25,7 +26,7 @@ import project.notizprogrammrepository.view.Calendar.Month.MonthView;
 import project.notizprogrammrepository.view.Calendar.Week.WeekView;
 import project.notizprogrammrepository.view.Note.Collections.CollectionSegmentView;
 
-public class NoteSegmentView {
+public class NoteSegmentView extends SegmentView {
     private final Group view;
     private final VBox vBox;
     private final Rectangle vBoxBackground = new Rectangle();
@@ -114,10 +115,10 @@ public class NoteSegmentView {
             }
         };
 
-        this.monthView = new MonthView(width/5 + width/20, 0, width - width/5 -  width/10, height, month, calendarEntryHandler);
+        this.monthView = new MonthView(width/5 + width/20, 0, width - width/5 -  width/10, height, month, calendarEntryHandler, controller, NoteSegmentView.this);
         view.getChildren().add(monthView.getRoot());
 
-        this.weekView = new WeekView(width/5 + width/20, 0, width - width/5 - width/10, height, month.getWeek(1), calendarEntryHandler);
+        this.weekView = new WeekView(width/5 + width/20, 0, width - width/5 - width/10, height, month.getWeek(1), calendarEntryHandler, controller, NoteSegmentView.this);
         weekView.getRoot().setVisible(false);
         view.getChildren().add(weekView.getRoot());
 
@@ -125,9 +126,9 @@ public class NoteSegmentView {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 if(mouseEvent.getSource().equals(leftButton)){
-                    ((CalendarSegment)controller.getApplication().getSegment(Mode.CALENDAR)).shiftView(false);
+                    ((CalendarSegment)controller.getApplication().getSegment(Mode.NOTE)).shiftView(false);
                 } else if (mouseEvent.getSource().equals(rightButton)) {
-                    ((CalendarSegment)controller.getApplication().getSegment(Mode.CALENDAR)).shiftView(true);
+                    ((CalendarSegment)controller.getApplication().getSegment(Mode.NOTE)).shiftView(true);
                 }else{
                     return;
                 }

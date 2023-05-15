@@ -47,13 +47,13 @@ class NoteCollectionTest {
         assertEquals(-1, n1.getDate().compareTo(n2.getDate()));
         NoteCollection noteCollection = new NoteCollection("Title");
         noteCollection.add(n);
-        assertEquals("Title\n\nAuto\n\n", noteCollection.toString());
+        assertEquals("Auto\n\t\n", noteCollection.getText());
         noteCollection.add(n1);
-        assertEquals("Title\n\nAuto\n\nTttest\n\n", noteCollection.toString());
+        assertEquals("Auto\n\t\nTttest\n\t\n", noteCollection.getText());
         noteCollection.add(n2);
-        assertEquals("Title\n\nAuto\n\nTttest\n\nAlex\n\n", noteCollection.toString());
-        noteCollection.editText("Title\n\nHallo\n\nTttest\n\nAxel\n\n");
-        assertEquals("Title\n\nHallo\n\nTttest\n\nAxel\n\n", noteCollection.toString());
+        assertEquals("Auto\n\t\nTttest\n\t\nAlex\n\t\n", noteCollection.getText());
+        noteCollection.editText("Hallo\n\t\nTttest\n\t\nAxel\n\t\n");
+        assertEquals("Hallo\n\t\nTttest\n\t\nAxel\n\t\n", noteCollection.getText());
         assertEquals("Hallo", n.getText());
         assertEquals("Tttest", n1.getText());
         assertEquals("Axel", n2.getText());

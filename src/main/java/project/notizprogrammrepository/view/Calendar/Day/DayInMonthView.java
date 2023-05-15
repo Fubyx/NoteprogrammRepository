@@ -5,9 +5,7 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -15,8 +13,11 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import project.notizprogrammrepository.controller.Controller;
 import project.notizprogrammrepository.model.Types.Dates.Day;
 import project.notizprogrammrepository.model.Types.entries.Entry;
+import project.notizprogrammrepository.view.SegmentView;
+import project.notizprogrammrepository.view.ViewUtils.CustomContextMenu;
 import project.notizprogrammrepository.view.ViewUtils.EntryButton;
 
 import java.text.SimpleDateFormat;
@@ -39,7 +40,9 @@ public class DayInMonthView extends Group{
     private Label numberOfDayLabel;
     private Day currentDay;
     private EventHandler<ActionEvent> buttonClickHandler;
-    public DayInMonthView(double width, double height, Day day, EventHandler<ActionEvent> buttonClickHandler){
+    private Controller controller;
+    private SegmentView segmentView;
+    public DayInMonthView(double width, double height, Day day, EventHandler<ActionEvent> buttonClickHandler, Controller controller, SegmentView segmentView){
         this.width = width;
         this.height = height;
         this.buttonClickHandler = buttonClickHandler;
@@ -49,6 +52,10 @@ public class DayInMonthView extends Group{
                 buttonClickHandler.handle(new ActionEvent(DayInMonthView.this, null));
             }
         });
+        this.controller = controller;
+        this.segmentView = segmentView;
+
+
 
         entryScrollPane = new ScrollPane();
         entryVBox = new VBox();
@@ -69,7 +76,7 @@ public class DayInMonthView extends Group{
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
         ArrayList<Button> buttons = new ArrayList<>();
         for(Entry e: currentDay.getEntries()){
-            EntryButton button = new EntryButton(e.getTitle().substring(0, Math.min(10, e.getTitle().length())) + "  " + sdf.format(e.getDate()));
+            EntryButton button = new EntryButton(e.getTitle().substring(0, Math.min(10, e.getTitle().length())) + "  " + sdf.format(e.getDate()), controller, segmentView);
             button.setEntry(e);
             buttons.add(button);
         }

@@ -15,10 +15,12 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import project.notizprogrammrepository.MainApplication;
+import project.notizprogrammrepository.controller.Controller;
 import project.notizprogrammrepository.model.Types.Dates.Day;
 import project.notizprogrammrepository.model.Types.Dates.Month;
 import project.notizprogrammrepository.model.Types.entries.Entry;
 import project.notizprogrammrepository.view.Calendar.Day.DayInMonthView;
+import project.notizprogrammrepository.view.SegmentView;
 
 import java.util.ArrayList;
 
@@ -43,12 +45,16 @@ public class MonthView {
     private ArrayList<DayInMonthView> dMVs = new ArrayList<>();
     private Month currentMonth;
     private EventHandler<ActionEvent> entryClickHandler;
+    private Controller controller;
+    private SegmentView segmentView;
 
-    public MonthView (double x, double y, double width, double height, Month month, EventHandler<ActionEvent> entryClickHandler){
+    public MonthView (double x, double y, double width, double height, Month month, EventHandler<ActionEvent> entryClickHandler, Controller controller, SegmentView segmentView){
         this.currentMonth = month;
         this.entryClickHandler = entryClickHandler;
         this.width = width;
         this.height = height;
+        this.controller = controller;
+        this.segmentView = segmentView;
         root = new VBox();
 
         weekDayNameDisplay = new HBox();
@@ -128,7 +134,7 @@ public class MonthView {
                     if(d == null){
                         box.getChildren().add(new Rectangle(width/7, height/7, Paint.valueOf(MainApplication.backgroundColor)));
                     }else{
-                        DayInMonthView dMV = new DayInMonthView(width/7, height/7, d, entryClickHandler);
+                        DayInMonthView dMV = new DayInMonthView(width/7, height/7, d, entryClickHandler, controller, segmentView);
                         box.getChildren().add(dMV);
                         dMVs.add(dMV);
                     }

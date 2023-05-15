@@ -74,7 +74,8 @@ public class Controller {
             fileOut.close();
             return true;
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            System.out.println(e.fillInStackTrace());
+            System.err.println("Save failed");
             return false;
         }
     }
@@ -125,11 +126,6 @@ public class Controller {
         NoteSegment noteSegment = (NoteSegment) application.getSegment(Mode.NOTE);
         return noteSegment.getCollection(title);
     }
-    public void editCollection(String text){
-        String [] parts = text.split("\n\n");
-        getCollection(parts[0]).editText(text);
-    }
-
     public Application getApplication() {
         return application;
     }
