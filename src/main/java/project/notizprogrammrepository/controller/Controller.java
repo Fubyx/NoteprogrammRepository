@@ -60,7 +60,7 @@ public class Controller {
             application = new Application();
         }
     }
-    public boolean closeApplication(){
+    public void closeApplication(){
         try{
             FileOutputStream fileOut = new FileOutputStream(saveFileName);
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -69,11 +69,9 @@ public class Controller {
 
             out.close();
             fileOut.close();
-            return true;
         } catch (IOException e) {
             System.out.println(e.fillInStackTrace());
             System.err.println("Save failed");
-            return false;
         }
     }
     public Month switchToCalendar(){

@@ -98,15 +98,17 @@ public class TodoSegmentView extends SegmentView {
         root.getChildren().add(dueDate);
 
         timePicker = new Spinner<>();
-        timePicker.setValueFactory(new SpinnerValueFactory<LocalTime>() {
+        timePicker.setValueFactory(new SpinnerValueFactory<>() {
             {
                 setConverter(new LocalTimeStringConverter(DateTimeFormatter.ofPattern("HH:mm"), null));
                 setValue(LocalTime.of(0, 0));
             }
+
             @Override
             public void decrement(int steps) {
                 setValue(getValue().minusMinutes(steps));
             }
+
             @Override
             public void increment(int steps) {
                 setValue(getValue().plusMinutes(steps));
@@ -118,31 +120,23 @@ public class TodoSegmentView extends SegmentView {
         root.getChildren().add(textArea);
 
         cancelButton  = new Button("Cancel");
-        cancelButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                resetValues();
-            }
-        });
+        cancelButton.setOnAction(actionEvent -> resetValues());
         root.getChildren().add(cancelButton);
 
         saveButton = new Button("Save");
-        saveButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                LocalDateTime lDT;
-                TodoEntry todoEntry;
-                int priority = priorityBox.getValue() == null ? 10:priorityBox.getValue();
-                if(dueDate.getValue() != null) {
-                    lDT = LocalDateTime.of(dueDate.getValue(), timePicker.getValue());
-                    todoEntry = new TodoEntry(titleTextField.getText(), textArea.getText(), Date.from(lDT.atZone(ZoneId.systemDefault()).toInstant()), priority);
-                }else{
-                    todoEntry = new TodoEntry(titleTextField.getText(), textArea.getText(), null, priority);
-                }
-                controller.changeEntry(currentEntry, todoEntry, false);
-                resetValues();
-                refresh();
+        saveButton.setOnAction(actionEvent -> {
+            LocalDateTime lDT;
+            TodoEntry todoEntry;
+            int priority = priorityBox.getValue() == null ? 10:priorityBox.getValue();
+            if(dueDate.getValue() != null) {
+                lDT = LocalDateTime.of(dueDate.getValue(), timePicker.getValue());
+                todoEntry = new TodoEntry(titleTextField.getText(), textArea.getText(), Date.from(lDT.atZone(ZoneId.systemDefault()).toInstant()), priority);
+            }else{
+                todoEntry = new TodoEntry(titleTextField.getText(), textArea.getText(), null, priority);
             }
+            controller.changeEntry(currentEntry, todoEntry, false);
+            resetValues();
+            refresh();
         });
         root.getChildren().add(saveButton);
 
@@ -238,12 +232,7 @@ public class TodoSegmentView extends SegmentView {
         for(TodoEntry entry : entries){
             EntryButton b = new EntryButton(entry.getTitle(), controller, TodoSegmentView.this);
             b.setEntry(entry);
-            b.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent actionEvent) {
-                    setValues((TodoEntry) ((EntryButton)actionEvent.getSource()).getEntry());
-                }
-            });
+            b.setOnAction(actionEvent -> setValues((TodoEntry) ((EntryButton)actionEvent.getSource()).getEntry()));
             todoEntries.getChildren().add(b);
         }
     }

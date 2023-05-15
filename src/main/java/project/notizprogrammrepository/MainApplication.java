@@ -74,8 +74,8 @@ public class MainApplication extends Application {
     private final VBox leftTrayVbox = new VBox();
     private double width = 800;
     private double height = 500;
-    private Rectangle background = new Rectangle();
-    private Rectangle leftTrayBackground = new Rectangle();
+    private final Rectangle background = new Rectangle();
+    private final Rectangle leftTrayBackground = new Rectangle();
     private Button calendarSegmentButton;
     private Button noteSegmentButton;
     private Button todoSegmentButton;
@@ -141,39 +141,30 @@ public class MainApplication extends Application {
         todoSegmentView  = new TodoSegmentView(width/10, 0, width - width/10, height, controller);
 
         calendarSegmentButton = new Button("Calendar");
-        calendarSegmentButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                todoSegmentView.getTodoView().setVisible(false);
-                noteSegmentView.getView().setVisible(false);
-                calendarSegmentView.getView().setVisible(true);
-                collectionSegmentView.getRoot().setVisible(false);
-                calendarSegmentView.refresh();
-            }
+        calendarSegmentButton.setOnAction(actionEvent -> {
+            todoSegmentView.getTodoView().setVisible(false);
+            noteSegmentView.getView().setVisible(false);
+            calendarSegmentView.getView().setVisible(true);
+            collectionSegmentView.getRoot().setVisible(false);
+            calendarSegmentView.refresh();
         });
 
         noteSegmentButton = new Button("Notes");
-        noteSegmentButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                todoSegmentView.getTodoView().setVisible(false);
-                noteSegmentView.getView().setVisible(true);
-                calendarSegmentView.getView().setVisible(false);
-                collectionSegmentView.getRoot().setVisible(false);
-                noteSegmentView.refresh();
-            }
+        noteSegmentButton.setOnAction(actionEvent -> {
+            todoSegmentView.getTodoView().setVisible(false);
+            noteSegmentView.getView().setVisible(true);
+            calendarSegmentView.getView().setVisible(false);
+            collectionSegmentView.getRoot().setVisible(false);
+            noteSegmentView.refresh();
         });
 
         todoSegmentButton = new Button("Todo");
-        todoSegmentButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                todoSegmentView.getTodoView().setVisible(true);
-                noteSegmentView.getView().setVisible(false);
-                calendarSegmentView.getView().setVisible(false);
-                collectionSegmentView.getRoot().setVisible(false);
-                todoSegmentView.refresh();
-            }
+        todoSegmentButton.setOnAction(actionEvent -> {
+            todoSegmentView.getTodoView().setVisible(true);
+            noteSegmentView.getView().setVisible(false);
+            calendarSegmentView.getView().setVisible(false);
+            collectionSegmentView.getRoot().setVisible(false);
+            todoSegmentView.refresh();
         });
 
 
@@ -182,24 +173,16 @@ public class MainApplication extends Application {
         resize(width, height);
         Scene scene = new Scene(root, width, height);
 
-        ChangeListener<Number> resizeListener = new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-                resize(scene.getWidth(), scene.getHeight());
-            }
-        };
+        ChangeListener<Number> resizeListener = (observableValue, number, t1) -> resize(scene.getWidth(), scene.getHeight());
         scene.widthProperty().addListener(resizeListener);
         scene.heightProperty().addListener(resizeListener);
         stage.setTitle("A");
         stage.setScene(scene);
         stage.show();
 
-        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent windowEvent) {
-                controller.closeApplication();
-                Platform.exit();
-            }
+        stage.setOnCloseRequest(windowEvent -> {
+            controller.closeApplication();
+            Platform.exit();
         });
     }
     public static void main(String[] args) {

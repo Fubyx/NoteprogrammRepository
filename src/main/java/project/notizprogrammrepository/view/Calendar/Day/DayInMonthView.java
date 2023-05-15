@@ -41,12 +41,7 @@ public class DayInMonthView extends Group{
     private final SegmentView segmentView;
     public DayInMonthView(double width, double height, Day day, EventHandler<ActionEvent> buttonClickHandler, Controller controller, SegmentView segmentView){
         this.buttonClickHandler = buttonClickHandler;
-        this.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                buttonClickHandler.handle(new ActionEvent(DayInMonthView.this, null));
-            }
-        });
+        this.setOnMouseClicked(mouseEvent -> buttonClickHandler.handle(new ActionEvent(DayInMonthView.this, null)));
         this.controller = controller;
         this.segmentView = segmentView;
 

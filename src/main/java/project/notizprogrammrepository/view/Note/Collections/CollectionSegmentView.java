@@ -83,13 +83,9 @@ public class CollectionSegmentView {
         ArrayList<String> strings = controller.switchToCollectionMode();
         for(String s : strings){
             Button b = new Button(s);
-            b.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent actionEvent) {
-                    //root.setVisible(false);
-                    setVisible(false);
-                    collectionView.display(b.getText());
-                }
+            b.setOnAction(actionEvent -> {
+                setVisible(false);
+                collectionView.display(b.getText());
             });
             if(isSubject(s)){
                 subjectsVBox.getChildren().add(b);
