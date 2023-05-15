@@ -1,7 +1,5 @@
 package project.notizprogrammrepository.view.Note.Collections;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Button;

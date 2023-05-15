@@ -2,9 +2,6 @@ package project.notizprogrammrepository;
 
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -13,7 +10,6 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.application.Application;
-import javafx.stage.WindowEvent;
 import project.notizprogrammrepository.controller.Controller;
 import project.notizprogrammrepository.view.Calendar.CalendarSegmentView;
 
