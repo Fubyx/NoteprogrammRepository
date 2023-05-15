@@ -51,6 +51,7 @@ public class CalendarSegmentView extends SegmentView {
         view.getChildren().add(vBox);
 
         switchViewButton.setText("Switch View");
+        switchViewButton.getStyleClass().add("switchViewButton");
         switchViewButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {

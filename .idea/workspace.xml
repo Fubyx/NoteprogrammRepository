@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6502bfbe-216c-46b9-afe6-28e7a06cce3d" name="Changes" comment="NoteSegmentView + CollectionSegmentView">
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/styles.css" afterDir="false" />
+    <list default="true" id="6502bfbe-216c-46b9-afe6-28e7a06cce3d" name="Changes" comment="temp">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Calendar/CalendarEntryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Calendar/CalendarEntryView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Calendar/CalendarSegmentView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Calendar/CalendarSegmentView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Todo/TodoSegmentView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Todo/TodoSegmentView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/project/notizprogrammrepository/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/project/notizprogrammrepository/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,22 +42,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_directory_selection": "C:/Users/Fabian/Desktop/Oberschule/4AT/Informatik/Projekt/Info/Repository/NotizprogrammRepository/src/main/tests/project",
-    "last_opened_file_path": "C:/Users/Fabian/Desktop/Oberschule/4AT/Informatik/Java/pruefen_2_semester_Fabian_Reifer",
-    "list.type.of.created.stylesheet": "CSS",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.37356323"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/Fabian/Desktop/Oberschule/4AT/Informatik/Projekt/Info/Repository/NotizprogrammRepository/src/main/tests/project&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Fabian/Desktop/Oberschule/4AT/Informatik/Java/pruefen_2_semester_Fabian_Reifer&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.37356323&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Fabian\Desktop\Oberschule\4AT\Informatik\Projekt\Info\Repository\NotizprogrammRepository\src\tests" />
@@ -180,7 +181,7 @@
       <workItem from="1682347958961" duration="954000" />
       <workItem from="1682348929148" duration="118000" />
       <workItem from="1682349062051" duration="68000" />
-      <workItem from="1684155924335" duration="1382000" />
+      <workItem from="1684155924335" duration="5691000" />
     </task>
     <task id="LOCAL-00001" summary="initial classes">
       <created>1681652549881</created>
@@ -329,7 +330,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683463947517</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="temp">
+      <created>1684157582265</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1684157582265</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -366,6 +374,7 @@
     <MESSAGE value="big part of CalendarSegmentView + all subviews except CalendarEntryView" />
     <MESSAGE value="CalendarSegmentView with all necessary changes" />
     <MESSAGE value="NoteSegmentView + CollectionSegmentView" />
-    <option name="LAST_COMMIT_MESSAGE" value="NoteSegmentView + CollectionSegmentView" />
+    <MESSAGE value="temp" />
+    <option name="LAST_COMMIT_MESSAGE" value="temp" />
   </component>
 </project>

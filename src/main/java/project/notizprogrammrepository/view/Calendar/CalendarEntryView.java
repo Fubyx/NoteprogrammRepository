@@ -96,6 +96,7 @@ public class CalendarEntryView {
         root.getChildren().add(textArea);
 
         cancelButton = new Button("Cancel");
+        cancelButton.getStyleClass().add("cancelbutton");
         cancelButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -106,6 +107,7 @@ public class CalendarEntryView {
         root.getChildren().add(cancelButton);
 
         saveButton = new Button("Save");
+        saveButton.getStyleClass().add("savebutton");
         saveButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {

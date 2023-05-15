@@ -122,6 +122,7 @@ public class TodoSegmentView extends SegmentView {
         root.getChildren().add(textArea);
 
         cancelButton  = new Button("Cancel");
+        cancelButton.getStyleClass().add("cancelbutton");
         //cancelButton.setId("buttonLeftTray");
         //cancelButton.getStyleClass().add("button-64");
 
@@ -134,6 +135,7 @@ public class TodoSegmentView extends SegmentView {
         root.getChildren().add(cancelButton);
 
         saveButton = new Button("Save");
+        saveButton.getStyleClass().add("savebutton");
         saveButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {

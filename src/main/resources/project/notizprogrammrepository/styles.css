@@ -1,0 +1,102 @@
+.savebutton {
+    -fx-appearance: none;
+    -fx-background-color: #27ae60;
+    -fx-background-radius: 24px;
+    -fx-border-style: none;
+    -fx-box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+    -fx-color: #fff;
+    -fx-cursor: hand;
+    -fx-font-family: "Inter", -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+    -fx-letter-spacing: normal;
+    -fx-line-height: 1.5;
+    -fx-padding: 13px 20px;
+    -fx-text-align: center;
+    -fx-text-decoration: none;
+    -fx-translate-z: 0;
+    -fx-transition: all .3s;
+    -fx-user-select: none;
+    -fx-touch-action: manipulation;
+    -fx-vertical-align: top;
+    -fx-white-space: nowrap;
+}
+
+.savebutton:hover {
+    -fx-background-color: #1e8449;
+    -fx-opacity: 1;
+    -fx-translate-y: 0;
+    -fx-transition-duration: .35s;
+}
+
+.savebutton:pressed {
+    -fx-translate-y: 2px;
+    -fx-transition-duration: .35s;
+}
+
+.savebutton:hover {
+    -fx-box-shadow: rgba(39, 174, 96, .2) 0 6px 12px;
+}
+
+
+.cancelbutton {
+    -fx-appearance: none;
+    -fx-background-color: #ff0303;
+    -fx-background-radius: 24px;
+    -fx-border-style: none;
+    -fx-box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+    -fx-color: #fff;
+    -fx-cursor: hand;
+    -fx-font-family: "Inter", -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+    -fx-letter-spacing: normal;
+    -fx-line-height: 1.5;
+    -fx-padding: 13px 20px;
+    -fx-text-align: center;
+    -fx-text-decoration: none;
+    -fx-translate-z: 0;
+    -fx-transition: all .3s;
+    -fx-user-select: none;
+    -fx-touch-action: manipulation;
+    -fx-vertical-align: top;
+    -fx-white-space: nowrap;
+}
+
+.cancelbutton:hover {
+    -fx-background-color: #bf1717;
+    -fx-opacity: 1;
+    -fx-translate-y: 0;
+    -fx-transition-duration: .35s;
+}
+
+.cancelbutton:pressed {
+    -fx-translate-y: 2px;
+    -fx-transition-duration: .35s;
+}
+
+.cancelbutton:hover {
+    -fx-box-shadow: rgba(39, 174, 96, .2) 0 6px 12px;
+}
+
+.mainButtons {
+    -fx-background-color: linear-gradient(to bottom left, #239c9c, #6cb8b8);
+    -fx-background-radius: 30 0 0 30;
+    -fx-text-fill: WHITE;
+}
+
+.mainButtons:hover {
+    -fx-background-color: #12c4c4;
+    -fx-background-radius: 30 0 0 30;
+}
+
+.mainButtons:pressed {
+    -fx-background-color: #239c9c;
+    -fx-background-radius: 30 0 0 30;
+}
+
+.switchViewButton{
+    -fx-background-color: linear-gradient(to bottom left, #f78361, #f54b64);
+}
+
+

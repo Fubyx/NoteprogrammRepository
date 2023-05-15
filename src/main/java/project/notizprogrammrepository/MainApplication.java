@@ -148,6 +148,7 @@ public class MainApplication extends Application {
         todoSegmentView  = new TodoSegmentView(width/10, 0, width - width/10, height, controller);
 
         calendarSegmentButton = new Button("Calendar");
+        calendarSegmentButton.getStyleClass().add("mainButtons");
         calendarSegmentButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -160,6 +161,7 @@ public class MainApplication extends Application {
         });
 
         noteSegmentButton = new Button("Notes");
+        noteSegmentButton.getStyleClass().add("mainButtons");
         noteSegmentButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -172,6 +174,7 @@ public class MainApplication extends Application {
         });
 
         todoSegmentButton = new Button("Todo");
+        todoSegmentButton.getStyleClass().add("mainButtons");
         todoSegmentButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -188,6 +191,8 @@ public class MainApplication extends Application {
 
         resize(width, height);
         Scene scene = new Scene(root, width, height);
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("styles.css")).toExternalForm());
+
 
         ChangeListener<Number> resizeListener = new ChangeListener<Number>() {
             @Override
