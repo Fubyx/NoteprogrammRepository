@@ -1,12 +1,18 @@
 package project.notizprogrammrepository.view.Todo;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import javafx.util.converter.LocalTimeStringConverter;
 import project.notizprogrammrepository.controller.Controller;
+import project.notizprogrammrepository.model.Types.entries.Note;
 import project.notizprogrammrepository.model.Types.entries.TodoEntry;
 import project.notizprogrammrepository.view.SegmentView;
 import project.notizprogrammrepository.view.ViewUtils.EntryButton;
@@ -96,17 +102,15 @@ public class TodoSegmentView extends SegmentView {
         root.getChildren().add(dueDate);
 
         timePicker = new Spinner<>();
-        timePicker.setValueFactory(new SpinnerValueFactory<>() {
+        timePicker.setValueFactory(new SpinnerValueFactory<LocalTime>() {
             {
                 setConverter(new LocalTimeStringConverter(DateTimeFormatter.ofPattern("HH:mm"), null));
                 setValue(LocalTime.of(0, 0));
             }
-
             @Override
             public void decrement(int steps) {
                 setValue(getValue().minusMinutes(steps));
             }
-
             @Override
             public void increment(int steps) {
                 setValue(getValue().plusMinutes(steps));
@@ -118,23 +122,36 @@ public class TodoSegmentView extends SegmentView {
         root.getChildren().add(textArea);
 
         cancelButton  = new Button("Cancel");
-        cancelButton.setOnAction(actionEvent -> resetValues());
+        cancelButton.getStyleClass().add("cancelbutton");
+        //cancelButton.setId("buttonLeftTray");
+        //cancelButton.getStyleClass().add("button-64");
+
+        cancelButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                resetValues();
+            }
+        });
         root.getChildren().add(cancelButton);
 
         saveButton = new Button("Save");
-        saveButton.setOnAction(actionEvent -> {
-            LocalDateTime lDT;
-            TodoEntry todoEntry;
-            int priority = priorityBox.getValue() == null ? 10:priorityBox.getValue();
-            if(dueDate.getValue() != null) {
-                lDT = LocalDateTime.of(dueDate.getValue(), timePicker.getValue());
-                todoEntry = new TodoEntry(titleTextField.getText(), textArea.getText(), Date.from(lDT.atZone(ZoneId.systemDefault()).toInstant()), priority);
-            }else{
-                todoEntry = new TodoEntry(titleTextField.getText(), textArea.getText(), null, priority);
+        saveButton.getStyleClass().add("savebutton");
+        saveButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                LocalDateTime lDT;
+                TodoEntry todoEntry;
+                int priority = priorityBox.getValue() == null ? 10:priorityBox.getValue();
+                if(dueDate.getValue() != null) {
+                    lDT = LocalDateTime.of(dueDate.getValue(), timePicker.getValue());
+                    todoEntry = new TodoEntry(titleTextField.getText(), textArea.getText(), Date.from(lDT.atZone(ZoneId.systemDefault()).toInstant()), priority);
+                }else{
+                    todoEntry = new TodoEntry(titleTextField.getText(), textArea.getText(), null, priority);
+                }
+                controller.changeEntry(currentEntry, todoEntry, false);
+                resetValues();
+                refresh();
             }
-            controller.changeEntry(currentEntry, todoEntry, false);
-            resetValues();
-            refresh();
         });
         root.getChildren().add(saveButton);
 
@@ -230,7 +247,12 @@ public class TodoSegmentView extends SegmentView {
         for(TodoEntry entry : entries){
             EntryButton b = new EntryButton(entry.getTitle(), controller, TodoSegmentView.this);
             b.setEntry(entry);
-            b.setOnAction(actionEvent -> setValues((TodoEntry) ((EntryButton)actionEvent.getSource()).getEntry()));
+            b.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    setValues((TodoEntry) ((EntryButton)actionEvent.getSource()).getEntry());
+                }
+            });
             todoEntries.getChildren().add(b);
         }
     }
