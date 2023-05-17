@@ -41,11 +41,30 @@ closeApplication() --> saves the application into the specified file and returns
  */
 //30.04.2023 Fabian: switchToCalendar, switchToNotes, switchToTodo, switchToCollectionMode, switchToWeekView, switchToMonthView, changeEntry, getCollection
 //03.05.2023 Fabian: editCollection
+
+/**
+ * The Controller creates and provides the data stored in the Application.
+ * Furthermore, it manages saving and loading of data to the users device.
+ * @author Fabian Reifer
+ */
 public class Controller {
+    /**
+     * The main component of the application containing all data.
+     */
     private Application application;
-    private final String saveFileName = "C:\\Users\\Public\\NoteApplication\\noteApplicationSave.ser";
+    /**
+     * The name of the save file.
+     */
+    private final String saveFileName = "noteApplicationSave.ser";
+    /**
+     * The path to the directory containing the save file.
+     */
+    private final String saveDirectoryPath = "C:\\Users\\Public\\NoteApplication";
+    /**
+     * Loads the saved data or creates a new Application if no save file is found.
+     */
     public Controller(){
-        File f = new File(saveFileName);
+        File f = new File(saveDirectoryPath + "\\" + saveFileName);
         if(f.exists()){
             try {
                 FileInputStream fileIn = new FileInputStream(saveFileName);
@@ -60,9 +79,20 @@ public class Controller {
             application = new Application();
         }
     }
+    /**
+     * Saves the data of the Application into the specified file.
+     */
     public void closeApplication(){
         try{
-            FileOutputStream fileOut = new FileOutputStream(saveFileName);
+            // create a File object with the directory path
+            File directory = new File(saveDirectoryPath);
+
+            // check if the directory exists
+            if (!directory.exists()) {
+                // create the directory if it doesn't exist
+                directory.mkdirs();
+            }
+            FileOutputStream fileOut = new FileOutputStream(saveDirectoryPath + "\\" + saveFileName);
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
 
             out.writeObject(application);
@@ -74,18 +104,37 @@ public class Controller {
             System.err.println("Save failed");
         }
     }
+
+    /**
+     * Changes the mode to calendarMode and returns the current month.
+     * @return The month active when last opening the calendar or the current month.
+     */
     public Month switchToCalendar(){
         application.switchMode(Mode.CALENDAR);
         return application.getMonth();
     }
+    /**
+     * Changes the mode to noteMode and returns the current month.
+     * @return The month active when last opening the calendar or the current month.
+     */
     public Month switchToNote(){
         application.switchMode(Mode.NOTE);
         return application.getMonth();
     }
+
+    /**
+     * Changes mode to todoMode and returns the todolist.
+     * @return An ArrayList of TodoEntries containing the todolist.
+     */
     public ArrayList<TodoEntry> switchToTodo(){
         application.switchMode(Mode.TODO);
         return application.getTodoList();
     }
+
+    /**
+     * Changes mode to collectionMode and returns a list of the titles of currently active collections.
+     * @return
+     */
     public ArrayList<String> switchToCollectionMode(){
         application.switchMode(Mode.COLLECTIONS);
         return ((NoteSegment)application.getSegment(Mode.NOTE)).getCollectionTitles();

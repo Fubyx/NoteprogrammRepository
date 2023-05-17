@@ -4,27 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6502bfbe-216c-46b9-afe6-28e7a06cce3d" name="Changes" comment="fixed Applicationtest">
+    <list default="true" id="6502bfbe-216c-46b9-afe6-28e7a06cce3d" name="Changes" comment="fixed final warnings">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/MainApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/Dates/Day.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/Dates/Day.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/CalendarEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/CalendarEntry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/Entry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/Entry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/Note.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/Note.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/TodoEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/TodoEntry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/CalendarSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/CalendarSegment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/NoteSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/NoteSegment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/TodoSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/segments/TodoSegment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/ApplicationView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Calendar/Day/DayInMonthView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Calendar/Day/DayInMonthView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Calendar/Month/MonthView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Calendar/Month/MonthView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Note/Collections/CollectionSegmentView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Note/Collections/CollectionSegmentView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Note/Collections/CollectionView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Note/Collections/CollectionView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Note/NoteView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Note/NoteView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Todo/TodoSegmentView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Todo/TodoSegmentView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/ViewUtils/SwitchButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/ViewUtils/SwitchButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/project/notizprogrammrepository/model/ApplicationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/project/notizprogrammrepository/model/ApplicationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -356,7 +338,28 @@
       <option name="project" value="LOCAL" />
       <updated>1684145049609</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="fixed most warnings">
+      <created>1684160151543</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1684160151543</updated>
+    </task>
+    <task id="LOCAL-00025" summary="fixed additional warnings">
+      <created>1684160346606</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1684160346606</updated>
+    </task>
+    <task id="LOCAL-00026" summary="fixed final warnings">
+      <created>1684160402352</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1684160402352</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -374,7 +377,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="initial classes" />
     <MESSAGE value="initial classes v2" />
     <MESSAGE value="few fixes to initial commit" />
     <MESSAGE value="Attributes and methods from class diagramm" />
@@ -397,6 +399,9 @@
     <MESSAGE value="TodoSegmentView + fixes" />
     <MESSAGE value="minor fixes" />
     <MESSAGE value="fixed Applicationtest" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed Applicationtest" />
+    <MESSAGE value="fixed most warnings" />
+    <MESSAGE value="fixed additional warnings" />
+    <MESSAGE value="fixed final warnings" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed final warnings" />
   </component>
 </project>
