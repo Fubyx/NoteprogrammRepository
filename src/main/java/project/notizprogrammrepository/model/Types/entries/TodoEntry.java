@@ -6,8 +6,18 @@ import java.util.Date;
 Plan:
 Add id
  */
+
+/**
+ * An Entry to a todolist.
+ */
 public class TodoEntry extends Entry {
+    /**
+     * The priority of the Entry ranging from 0 to ten where 0 is the top priority.
+     */
     private int priority;//0 - 10
+    /**
+     * The id of the Entry used for comparison between 2 entries.
+     */
     private long id = 0;
 
     public TodoEntry(String title) {

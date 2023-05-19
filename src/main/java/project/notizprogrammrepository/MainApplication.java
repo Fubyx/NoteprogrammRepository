@@ -66,7 +66,7 @@ PopUp:
     A Switch for the collectionByTitle.
     A DateSelection for the Date.
     A multi-line-TextField covering the rest of the Screen for the Text.
-For each Button of a Entry a right click opens a dropdown with for now 1 option to delete
+For each Button of an Entry a right click opens a dropdown with for now 1 option to delete
  */
 
 //03.05.2023 Fabian: changed HBox to VBox, added Controller

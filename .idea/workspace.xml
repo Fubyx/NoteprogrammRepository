@@ -4,9 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6502bfbe-216c-46b9-afe6-28e7a06cce3d" name="Changes" comment="fixed final warnings">
+    <list default="true" id="6502bfbe-216c-46b9-afe6-28e7a06cce3d" name="Changes" comment="started javadoc on Controller">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/MainApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/Dates/Calendar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/Dates/Calendar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/Dates/DateComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/Dates/DateComparator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/Dates/DateUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/Dates/Day.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/Dates/Day.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/Dates/Month.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/Dates/Month.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/CalendarEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/CalendarEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/Entry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/Entry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/Note.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/Note.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/model/Types/entries/Subject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/test/project/notizprogrammrepository/model/ApplicationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/project/notizprogrammrepository/model/ApplicationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/test/project/notizprogrammrepository/model/Types/Dates/DateUtilsTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,8 +157,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.MainApplication" />
-        <item itemvalue="JUnit.ApplicationTest.addEntryTest" />
         <item itemvalue="JUnit.test in NotizprogrammRepository" />
+        <item itemvalue="JUnit.ApplicationTest.addEntryTest" />
         <item itemvalue="JUnit.NoteCollectionTest.testEditText" />
         <item itemvalue="JUnit.ControllerTest" />
       </list>
@@ -359,7 +371,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684160402352</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="started javadoc on Controller">
+      <created>1684337130924</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1684337130924</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -377,7 +396,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="initial classes v2" />
     <MESSAGE value="few fixes to initial commit" />
     <MESSAGE value="Attributes and methods from class diagramm" />
     <MESSAGE value="Test-folder" />
@@ -402,6 +420,7 @@
     <MESSAGE value="fixed most warnings" />
     <MESSAGE value="fixed additional warnings" />
     <MESSAGE value="fixed final warnings" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed final warnings" />
+    <MESSAGE value="started javadoc on Controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="started javadoc on Controller" />
   </component>
 </project>

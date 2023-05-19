@@ -67,12 +67,13 @@ public class Controller {
         File f = new File(saveDirectoryPath + "\\" + saveFileName);
         if(f.exists()){
             try {
-                FileInputStream fileIn = new FileInputStream(saveFileName);
+                FileInputStream fileIn = new FileInputStream(saveDirectoryPath + "\\" + saveFileName);
                 ObjectInputStream in = new ObjectInputStream(fileIn);
                 application = (Application) in.readObject();
                 in.close();
                 fileIn.close();
             } catch (IOException | ClassNotFoundException e) {
+                e.printStackTrace();
                 application = new Application();
             }
         }else {
@@ -96,7 +97,6 @@ public class Controller {
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
 
             out.writeObject(application);
-
             out.close();
             fileOut.close();
         } catch (IOException e) {
@@ -133,24 +133,46 @@ public class Controller {
 
     /**
      * Changes mode to collectionMode and returns a list of the titles of currently active collections.
-     * @return
+     * @return An ArrayList of strings containing the titles of all collections which can then be used to get the collection using "getCollection".
      */
     public ArrayList<String> switchToCollectionMode(){
         application.switchMode(Mode.COLLECTIONS);
         return ((NoteSegment)application.getSegment(Mode.NOTE)).getCollectionTitles();
     }
+
+    /**
+     * Switches to weekView if necessary and returns the current week.
+     * @param mode The mode from which the week is requested.
+     * @return The current week of the specified mode.
+     * @throws ClassCastException if mode == Subject.TODO
+     */
     public Day[]switchToWeekView(Mode mode){
         CalendarSegment calendarSegment = (CalendarSegment) application.getSegment(mode);
         if(!calendarSegment.isWeekViewActive())
             calendarSegment.switchView();
         return calendarSegment.getCurrentWeek();
     }
+    /**
+     * Switches to monthView if necessary and returns the current month.
+     * @param mode The mode from which the month is requested.
+     * @return The current month of the specified mode.
+     * @throws ClassCastException if mode == Subject.TODO
+     */
     public Month switchToMonthView(Mode mode){
         CalendarSegment calendarSegment = (CalendarSegment) application.getSegment(mode);
         if(calendarSegment.isWeekViewActive())
             calendarSegment.switchView();
         return calendarSegment.getMonth();
     }
+
+    /**
+     * Changes the contents of the oldEntry to the contents of the newEntry.
+     * If oldEntry is null newEntry is simply added.
+     * If newEntry is null the oldEntry is removed.
+     * @param oldEntry The Entry to be changed or null for adding newEntry.
+     * @param newEntry A new Entry Object containing the data to be put into oldEntry or null for removing oldEntry.
+     * @param absolute A flag used for Notes only, defining whether they will be removed from collections on deletion.
+     */
     public void changeEntry(Entry oldEntry, Entry newEntry, boolean absolute/*Used for removal of Notes*/){
         if(oldEntry == null){
             application.addEntry(newEntry);
@@ -166,10 +188,21 @@ public class Controller {
             }
         }
     }
+
+    /**
+     * Gets the Collection of the specified title.
+     * @param title The title of the collection.
+     * @return The desired Collection or null if there is no Collection with the specified title.
+     */
     public NoteCollection getCollection(String title){
         NoteSegment noteSegment = (NoteSegment) application.getSegment(Mode.NOTE);
         return noteSegment.getCollection(title);
     }
+
+    /**
+     * Returns the currently running Application.
+     * @return The Application-object currently in use.
+     */
     public Application getApplication() {
         return application;
     }

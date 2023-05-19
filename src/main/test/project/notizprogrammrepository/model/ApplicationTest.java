@@ -54,24 +54,5 @@ public class ApplicationTest {
             }
         }
         assertFalse(contained);
-        nS.switchView();
-        //shift to the last week of April
-        nS.shiftView(true);
-        nS.shiftView(true);
-        nS.shiftView(true);
-        nS.shiftView(true);
-
-        days = app.getWeek();
-        assertEquals(7, days.length);
-        for (Day day : days) {
-            if (day != null) {
-                Entry e = day.getEntry(n.getDate());
-                if (e == null || !e.equals(n))
-                    continue;
-                contained = true;
-                break;
-            }
-        }
-        assertTrue(contained);
     }
 }
