@@ -76,7 +76,7 @@ public class TodoSegmentView extends SegmentView {
         setList();
 
         todoLabel = new Label("TODO:");
-        todoLabel.setTextFill(Color.RED);
+        todoLabel.getStyleClass().add("labels");
         root.getChildren().add(todoLabel);
 
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
@@ -95,7 +95,7 @@ public class TodoSegmentView extends SegmentView {
         root.getChildren().add(priorityBox);
 
         dueDateLabel = new Label("DueDate:");
-        dueDateLabel.setTextFill(Color.GREEN);
+        dueDateLabel.getStyleClass().add("labels2");
         root.getChildren().add(dueDateLabel);
 
         dueDate = new DatePicker();
@@ -246,6 +246,7 @@ public class TodoSegmentView extends SegmentView {
         ArrayList<TodoEntry> entries = controller.switchToTodo();
         for(TodoEntry entry : entries){
             EntryButton b = new EntryButton(entry.getTitle(), controller, TodoSegmentView.this);
+            b.getStyleClass().add("switchViewButton");
             b.setEntry(entry);
             b.setOnAction(new EventHandler<ActionEvent>() {
                 @Override

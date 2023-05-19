@@ -30,10 +30,11 @@ public class CollectionView {
         root = new Group();
 
         title = new Label("Title");
-        title.setTextFill(Color.GREEN);
+        title.getStyleClass().add("labels");
         root.getChildren().add(title);
 
         cancelButton = new Button("Cancel");
+        cancelButton.getStyleClass().add("cancelbutton");
         cancelButton.setOnAction(actionEvent -> {
             root.setVisible(false);
             collectionSegmentView.setVisible(true);
@@ -42,6 +43,7 @@ public class CollectionView {
         root.getChildren().add(cancelButton);
 
         saveButton = new Button("Save");
+        saveButton.getStyleClass().add("savebutton");
         saveButton.setOnAction(new EventHandler<>() {
             @Override
             public void handle(ActionEvent actionEvent) {

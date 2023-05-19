@@ -9,8 +9,10 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
@@ -25,6 +27,7 @@ import project.notizprogrammrepository.view.Note.NoteSegmentView;
 import project.notizprogrammrepository.view.Todo.TodoSegmentView;
 import project.notizprogrammrepository.view.ViewUtils.EntryButton;
 
+import java.awt.*;
 import java.util.Objects;
 
 import static javafx.application.Application.launch;
