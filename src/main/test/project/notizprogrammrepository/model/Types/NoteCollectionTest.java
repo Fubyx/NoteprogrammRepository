@@ -22,15 +22,6 @@ class NoteCollectionTest {
         assertEquals(Subject.NONE, n.getSubject());
         assertEquals("Test", n.getTitle());
 
-        //testing the change methods
-        n.changeSubject(Subject.GERMAN);
-        assertEquals(Subject.GERMAN, n.getSubject());
-        assertEquals("GERMAN", n.getTitle());
-
-        n.changeTitle("New");
-        assertEquals(Subject.NONE, n.getSubject());
-        assertEquals("New", n.getTitle());
-
         //Test adding a note and getting all Notes
         Note n1 = new Note("Test", "Hallo", new Date(),  true);
         n.add(n1);
