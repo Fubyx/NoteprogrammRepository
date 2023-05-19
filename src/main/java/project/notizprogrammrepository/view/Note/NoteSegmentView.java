@@ -55,6 +55,7 @@ public class NoteSegmentView extends SegmentView {
         view.getChildren().add(vBox);
 
         switchViewButton.setText("Switch View");
+        switchViewButton.getStyleClass().add("switchViewButton");
         switchViewButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -79,19 +80,19 @@ public class NoteSegmentView extends SegmentView {
         vBox.getChildren().add(distance_switch_to_month);
 
         monthLabel = new Label(getMonthLabelText());
-        monthLabel.setTextFill(Color.LIGHTGREEN);
-        monthLabel.setAlignment(Pos.CENTER);
+        monthLabel.getStyleClass().add("labels");
         vBox.getChildren().add(monthLabel);
 
         yearLabel = new Label(String.valueOf(month.getYear()));
-        yearLabel.setTextFill(Color.LIGHTGREEN);
-        yearLabel.setAlignment(Pos.CENTER);
+        yearLabel.getStyleClass().add("labels");
         vBox.getChildren().add(yearLabel);
 
         distance_month_to_collections = new Rectangle(width/5,height/10, Paint.valueOf("#2E4053"));
         vBox.getChildren().add(distance_month_to_collections);
 
+
         collectionViewButton = new Button("CollectionView");
+        collectionViewButton.getStyleClass().add("switchViewButton");
         collectionViewButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -152,10 +153,12 @@ public class NoteSegmentView extends SegmentView {
         };
         leftButton = new Rectangle(width/5, height/2 - height/8, width/20, height/4);
         leftButton.setOnMouseClicked(handleMonthSwitch);
+        leftButton.getStyleClass().add("rectangle");
         view.getChildren().add(leftButton);
 
         rightButton = new Rectangle(width - width/20, height/2 - height/8, width/20, height/4);
         rightButton.setOnMouseClicked(handleMonthSwitch);
+        rightButton.getStyleClass().add("rectangle");
         view.getChildren().add(rightButton);
 
         noteView = new NoteView(0,0, width, height, controller, NoteSegmentView.this);

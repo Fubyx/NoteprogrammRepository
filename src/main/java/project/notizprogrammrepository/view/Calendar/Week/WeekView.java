@@ -80,56 +80,49 @@ public class WeekView {
         if(currentWeek[0] != null){
             l.setText("Mon " + currentWeek[0].getDay());
         }
-        l.setTextFill(Color.RED);
-        l.setAlignment(Pos.CENTER);
+        l.getStyleClass().add("labels");
         labels.add(l);
 
         l = new Label("Tue");
         if(currentWeek[1] != null){
             l.setText("Tue " + currentWeek[1].getDay());
         }
-        l.setTextFill(Color.RED);
-        l.setAlignment(Pos.CENTER);
+        l.getStyleClass().add("labels");
         labels.add(l);
 
         l = new Label("Wed");
         if(currentWeek[2] != null){
             l.setText("Wed " + currentWeek[2].getDay());
         }
-        l.setTextFill(Color.RED);
-        l.setAlignment(Pos.CENTER);
+        l.getStyleClass().add("labels");
         labels.add(l);
 
         l = new Label("Thu");
         if(currentWeek[3] != null){
             l.setText("Thu " + currentWeek[3].getDay());
         }
-        l.setTextFill(Color.RED);
-        l.setAlignment(Pos.CENTER);
+        l.getStyleClass().add("labels");
         labels.add(l);
 
         l = new Label("Fri");
         if(currentWeek[4] != null){
             l.setText("Fri " + currentWeek[4].getDay());
         }
-        l.setTextFill(Color.RED);
-        l.setAlignment(Pos.CENTER);
+        l.getStyleClass().add("labels");
         labels.add(l);
 
         l = new Label("Sat");
         if(currentWeek[5] != null){
             l.setText("Sat " + currentWeek[5].getDay());
         }
-        l.setTextFill(Color.RED);
-        l.setAlignment(Pos.CENTER);
+        l.getStyleClass().add("labels");
         labels.add(l);
 
         l = new Label("Sun");
         if(currentWeek[6] != null){
             l.setText("Sun " + currentWeek[6].getDay());
         }
-        l.setTextFill(Color.RED);
-        l.setAlignment(Pos.CENTER);
+        l.getStyleClass().add("labels");
         labels.add(l);
         return labels;
     }

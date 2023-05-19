@@ -35,6 +35,7 @@ public class CollectionSegmentView {
     private final VBox subjectsVBox;
     private final CollectionView collectionView;
     private final Controller controller;
+    private double width;
 
     public CollectionSegmentView(double x, double y, double width, double height, Controller controller){
         this.controller = controller;
@@ -45,11 +46,11 @@ public class CollectionSegmentView {
         root.getChildren().add(divisionLine);
 
         titles = new Label("Collected by Title");
-        titles.setTextFill(Color.GREEN);
+        titles.getStyleClass().add("labels");
         root.getChildren().add(titles);
 
         subjects = new Label("Collected by Subject");
-        subjects.setTextFill(Color.GREEN);
+        subjects.getStyleClass().add("labels");
         root.getChildren().add(subjects);
 
         titlesVBox = new VBox();
@@ -76,11 +77,14 @@ public class CollectionSegmentView {
 
         resize(x, y, width, height);
         root.setVisible(false);
+        this.width = width;
     }
     private void setButtons(){
         ArrayList<String> strings = controller.switchToCollectionMode();
         for(String s : strings){
             Button b = new Button(s);
+            b.setMinWidth(width / 2.53);
+            b.getStyleClass().add("buttons");
             b.setOnAction(actionEvent -> {
                 setVisible(false);
                 collectionView.display(b.getText());

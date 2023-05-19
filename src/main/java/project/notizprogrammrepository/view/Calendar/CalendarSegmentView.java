@@ -76,13 +76,12 @@ public class CalendarSegmentView extends SegmentView {
         vBox.getChildren().add(distance_switch_to_month);
 
         monthLabel = new Label(getMonthLabelText());
-        monthLabel.setTextFill(Color.LIGHTGREEN);
-        monthLabel.setAlignment(Pos.CENTER);
+        monthLabel.getStyleClass().add("labels");
+        monthLabel.getStyleClass().add("monthLabel");
         vBox.getChildren().add(monthLabel);
 
         yearLabel = new Label(String.valueOf(month.getYear()));
-        yearLabel.setTextFill(Color.LIGHTGREEN);
-        yearLabel.setAlignment(Pos.CENTER);
+        yearLabel.getStyleClass().add("labels");
         vBox.getChildren().add(yearLabel);
 
         EventHandler<MouseEvent> handleMonthSwitch = new EventHandler<MouseEvent>() {
@@ -115,10 +114,12 @@ public class CalendarSegmentView extends SegmentView {
         };
         leftButton = new Rectangle(width/5, height/2 - height/8, width/20, height/4);
         leftButton.setOnMouseClicked(handleMonthSwitch);
+        leftButton.getStyleClass().add("rectangle");
         view.getChildren().add(leftButton);
 
         rightButton = new Rectangle(width - width/20, height/2 - height/8, width/20, height/4);
         rightButton.setOnMouseClicked(handleMonthSwitch);
+        rightButton.getStyleClass().add("rectangle");
         view.getChildren().add(rightButton);
 
         EventHandler<ActionEvent> calendarEntryHandler = new EventHandler<ActionEvent>() {

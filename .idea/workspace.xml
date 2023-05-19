@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6502bfbe-216c-46b9-afe6-28e7a06cce3d" name="Changes" comment="temp">
+    <list default="true" id="6502bfbe-216c-46b9-afe6-28e7a06cce3d" name="Changes" comment="Buttons style">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Calendar/CalendarEntryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Calendar/CalendarEntryView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Calendar/CalendarSegmentView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Calendar/CalendarSegmentView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Calendar/Month/MonthView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Calendar/Month/MonthView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Calendar/Week/WeekView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Calendar/Week/WeekView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Note/Collections/CollectionSegmentView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Note/Collections/CollectionSegmentView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Note/Collections/CollectionView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Note/Collections/CollectionView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Note/NoteSegmentView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Note/NoteSegmentView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Note/NoteView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Note/NoteView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Todo/TodoSegmentView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/notizprogrammrepository/view/Todo/TodoSegmentView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/project/notizprogrammrepository/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/project/notizprogrammrepository/styles.css" afterDir="false" />
     </list>
@@ -66,6 +71,7 @@
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Schule_4AT\Info\Java\Projekt\NoteprogrammRepository\src\main\java\project\notizprogrammrepository" />
       <recent name="C:\Users\Fabian\Desktop\Oberschule\4AT\Informatik\Projekt\Info\Repository\NotizprogrammRepository\src\main" />
       <recent name="C:\Users\Fabian\Desktop\Oberschule\4AT\Informatik\Projekt\Info\Repository\NotizprogrammRepository" />
       <recent name="C:\Users\Fabian\Desktop\Oberschule\4AT\Informatik\Projekt\Info\Repository\NotizprogrammRepository\src" />
@@ -181,7 +187,13 @@
       <workItem from="1682347958961" duration="954000" />
       <workItem from="1682348929148" duration="118000" />
       <workItem from="1682349062051" duration="68000" />
-      <workItem from="1684155924335" duration="5691000" />
+      <workItem from="1684155924335" duration="5759000" />
+      <workItem from="1684305112694" duration="49000" />
+      <workItem from="1684400214828" duration="1080000" />
+      <workItem from="1684402397995" duration="596000" />
+      <workItem from="1684482027681" duration="55000" />
+      <workItem from="1684482795280" duration="111000" />
+      <workItem from="1684504109183" duration="5215000" />
     </task>
     <task id="LOCAL-00001" summary="initial classes">
       <created>1681652549881</created>
@@ -337,7 +349,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684157582265</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Buttons style">
+      <created>1684161669636</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1684161669636</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -375,6 +394,7 @@
     <MESSAGE value="CalendarSegmentView with all necessary changes" />
     <MESSAGE value="NoteSegmentView + CollectionSegmentView" />
     <MESSAGE value="temp" />
-    <option name="LAST_COMMIT_MESSAGE" value="temp" />
+    <MESSAGE value="Buttons style" />
+    <option name="LAST_COMMIT_MESSAGE" value="Buttons style" />
   </component>
 </project>

@@ -44,6 +44,7 @@ public class NoteView {
         root.getChildren().add(titleInput);
 
         collectLabel = new Label("Collect: ");
+        collectLabel.getStyleClass().add("labels");
         root.getChildren().add(collectLabel);
 
         collectSwitch = new SwitchButton(width/25 * 9, height/20, width/25 * 3, height/10);
@@ -83,6 +84,7 @@ public class NoteView {
         root.getChildren().add(textArea);
 
         cancelButton = new Button("Cancel");
+        cancelButton.getStyleClass().add("cancelbutton");
         cancelButton.setOnAction(actionEvent -> {
             root.setVisible(false);
             resetValues();
@@ -90,6 +92,7 @@ public class NoteView {
         root.getChildren().add(cancelButton);
 
         saveButton = new Button("Save");
+        saveButton.getStyleClass().add("savebutton");
         saveButton.setOnAction(actionEvent -> {
             if(titleInput.getText().equals("Title") || textArea.getText().equals("Text..."))
                 return;
