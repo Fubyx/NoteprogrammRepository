@@ -103,6 +103,7 @@ public class NoteSegmentView extends SegmentView {
      * @param height The height of the component.
      * @param month The month the component will show first.
      * @param controller The Controller used for access to the data.
+     * @param collectionSegmentView The CollectionSegmentView called by the collectionViewButton.
      */
     public NoteSegmentView(double x, double y, double width, double height, Month month, Controller controller, CollectionSegmentView collectionSegmentView){
         this.currentMonth = month;

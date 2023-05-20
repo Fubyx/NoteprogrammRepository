@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_TEST_SOURCES" value="false" />
+  </component>
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
       <artifact name="NotizprogrammRepository:jar" />
@@ -9,12 +12,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6502bfbe-216c-46b9-afe6-28e7a06cce3d" name="Changes" comment="fixed junit dependency">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/NotizprogrammRepository_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="6502bfbe-216c-46b9-afe6-28e7a06cce3d" name="Changes" comment="fixed pom ad created exe" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -385,7 +383,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684598458058</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="fixed pom ad created exe">
+      <created>1684605088570</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1684605088570</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -403,7 +408,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="initial classes" />
     <MESSAGE value="initial classes v2" />
     <MESSAGE value="few fixes to initial commit" />
     <MESSAGE value="Attributes and methods from class diagramm" />
@@ -428,6 +432,7 @@
     <MESSAGE value="javadoc of view completed" />
     <MESSAGE value="javadoc of MainApplication + checked all warnings and fixed the ones that needed fixing" />
     <MESSAGE value="fixed junit dependency" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed junit dependency" />
+    <MESSAGE value="fixed pom ad created exe" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed pom ad created exe" />
   </component>
 </project>

@@ -52,6 +52,7 @@ public class CollectionView {
      * @param width The width of the component.
      * @param height The height of the component.
      * @param controller The Controller used for access to the data.
+     * @param collectionSegmentView The SegmentView that the CollectionView is a part of.
      */
     public CollectionView(double x, double y, double width, double height, Controller controller, CollectionSegmentView collectionSegmentView){
         this.controller = controller;
