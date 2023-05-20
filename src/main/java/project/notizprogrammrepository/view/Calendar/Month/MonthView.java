@@ -2,12 +2,10 @@ package project.notizprogrammrepository.view.Calendar.Month;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -32,18 +30,63 @@ VBox -> Split into 2 Parts:
 Contains:
 - a CalendarEntryView that gets assigned the Entry before being displayed
  */
+
+/**
+ * A view-component for a month.
+ */
 public class MonthView {
+    /**
+     * The width of the component.
+     */
     private double width;
+    /**
+     * The height of the component.
+     */
     private double height;
+    /**
+     * The root VBox containing all other components.
+     */
     private final VBox root;
+    /**
+     * A HBox containing labels for all weekdays. The weekdays are represented in their shortened form (ex. wed). Each label takes up 1/7 of the width and 1/7 of the height.
+     */
     private final HBox weekDayNameDisplay;
+    /**
+     * A VBox containing 6 HBoxes representing the table like representation of the days of a month, each row containing 7 days. There are six rows because that is the maximum amount of weeks a month can have days in.
+     */
     private final VBox table;
+    /**
+     * An ArrayList of DayInMonthViews containing all DayInMonthViews.
+     */
     private final ArrayList<DayInMonthView> dMVs = new ArrayList<>();
+    /**
+     * The month currently represented by this component.
+     */
     private Month currentMonth;
+    /**
+     * The handler for clicks on EntryButtons in DayInMonthViews.
+     */
     private final EventHandler<ActionEvent> entryClickHandler;
+    /**
+     * The Controller used for access to the data.
+     */
     private final Controller controller;
+    /**
+     * The SegmentView the component is a part of.
+     */
     private final SegmentView segmentView;
 
+    /**
+     * Creates a MonthView of the given size at the given position with the given values.
+     * @param x The x position of the component.
+     * @param y The y position of the component.
+     * @param width The width of the component.
+     * @param height The height of the component.
+     * @param month The month the component represents.
+     * @param entryClickHandler The handler for clicks on EntryButtons in DayInMonthViews.
+     * @param controller The Controller used for access to the data.
+     * @param segmentView The SegmentView the component is a part of.
+     */
     public MonthView (double x, double y, double width, double height, Month month, EventHandler<ActionEvent> entryClickHandler, Controller controller, SegmentView segmentView){
         this.currentMonth = month;
         this.entryClickHandler = entryClickHandler;
@@ -63,6 +106,14 @@ public class MonthView {
         root.getChildren().add(weekDayNameDisplay);
         root.getChildren().add(table);
     }
+
+    /**
+     * Changes the size and position of all components respective to the given values.
+     * @param x The new x position of the component.
+     * @param y The new y position of the component.
+     * @param width The new width of the component.
+     * @param height The new height of the component.
+     */
     public void resize(double x, double y, double width, double height){
         this.width = width;
         this.height = height;
@@ -72,6 +123,11 @@ public class MonthView {
         resizeWeekDayLabels();
         resizeTableRows();
     }
+
+    /**
+     * Changes the tables contents to the values of the given month.
+     * @param month The new month to be represented by the component.
+     */
     public void changeContents(Month month){
         this.currentMonth = month;
         root.getChildren().remove(table);
@@ -79,6 +135,11 @@ public class MonthView {
         table.getChildren().addAll(getTableRows());
         root.getChildren().add(table);
     }
+
+    /**
+     * Returns the labels of the weekdays.
+     * @return The labels of the weekdays.
+     */
     private ArrayList<Label> getWeekDayLabels(){
         ArrayList<Label> labels = new ArrayList<>();
         Label l = new Label("Mon");
@@ -104,6 +165,10 @@ public class MonthView {
         labels.add(l);
         return labels;
     }
+
+    /**
+     * Sets the size of the weekday-labels respective to the components width and height.
+     */
     private void resizeWeekDayLabels(){
         weekDayNameDisplay.setPrefSize(width, height/7);
         for(Node n : weekDayNameDisplay.getChildren()){
@@ -111,6 +176,11 @@ public class MonthView {
             ((Label) n).setFont(new Font("Arial", (double) 15 /500 * height));
         }
     }
+
+    /**
+     * Returns an ArrayList of HBoxes representing the rows of the views table. Each element is either a DayInMonthView or a rectangle with 1/7 of the width and 1/7 of the height in size.
+     * @return An ArrayList of HBoxes representing the rows of the views table.
+     */
     private ArrayList<HBox> getTableRows(){
         ArrayList<HBox>hBoxes = new ArrayList<>();
         for(int i = 0; i < 6; ++i){
@@ -134,6 +204,10 @@ public class MonthView {
         }
         return hBoxes;
     }
+
+    /**
+     * Sets the size of the tableRows respective to the components width and height.
+     */
     private void resizeTableRows(){
         for(Node node: table.getChildren()){
             HBox hBox = (HBox) node;
@@ -153,6 +227,10 @@ public class MonthView {
         }
     }
 
+    /**
+     * Returns the root VBox of the component.
+     * @return The root VBox of the component.
+     */
     public VBox getRoot() {
         return root;
     }

@@ -20,20 +20,67 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
+/**
+ * A view component representing an editor for a Note.
+ */
 public class NoteView {
+    /**
+     * The root Group of the component containing all other elements.
+     */
     private final Group root;
+    /**
+     * The background of the editor.
+     */
     private final Rectangle background;
+    /**
+     * A TextField for the input of the title.
+     */
     private final TextField titleInput;
+    /**
+     * A label with the text "Collect:"
+     */
     private final Label collectLabel;
+    /**
+     * A switch for enabling or disabling collection by title.
+     */
     private final SwitchButton collectSwitch;
+    /**
+     * A ComboBox used for the selection of the subject.
+     */
     private final ComboBox<Subject> subjectSelector;
+    /**
+     * A selector for the date of the Note.
+     */
     private final DatePicker datePicker;
+    /**
+     * A Spinner used for the selection of the time.
+     */
     private final Spinner<LocalTime> timePicker;
+    /**
+     * A TextArea used for displaying and editing the text of the Entry.
+     */
     private final TextArea textArea;
+    /**
+     * A button used to save all changes and close the editor.
+     */
     private final Button saveButton;
+    /**
+     * A button used to discard all changes and close the editor.
+     */
     private final Button cancelButton;
+    /**
+     * The currently displayed Note.
+     */
     private Note currentNote = null;
-
+    /**
+     * Creates a NoteView of the given size at the given position with the given values.
+     * @param x The x position of the component.
+     * @param y The y position of the component.
+     * @param width The width of the component.
+     * @param height The height of the component.
+     * @param controller The controller used for access to the data.
+     * @param noteSegmentView The NoteSegmentView the component is a part of.
+     */
     public NoteView(double x, double y, double width, double height, Controller controller, NoteSegmentView noteSegmentView){
         root = new Group();
 
@@ -108,9 +155,20 @@ public class NoteView {
         resize(x, y, width, height);
         root.setVisible(false);
     }
+    /**
+     * Returns the root Group of the component.
+     * @return The root Group of the component.
+     */
     public Group getRoot() {
         return root;
     }
+    /**
+     * Changes the size and position of all components respective to the given values.
+     * @param x The new x position of the component.
+     * @param y The new y position of the component.
+     * @param width The new width of the component.
+     * @param height The new height of the component.
+     */
     public void resize(double x, double y, double width, double height){
         root.setLayoutX(x);
         root.setLayoutY(y);
@@ -152,6 +210,9 @@ public class NoteView {
         cancelButton.setLayoutY(height - height/20 * 3);
         cancelButton.setPrefSize(width/25 * 3, height/10);
     }
+    /**
+     * Resets all values to their default.
+     */
     private void resetValues(){
         currentNote = null;
         titleInput.setText("Title");
@@ -160,6 +221,10 @@ public class NoteView {
         subjectSelector.setValue(Subject.NONE);
         textArea.setText("Text...");
     }
+    /**
+     * Sets the values of all components to the values of the given Note and displays the component. If note == null nothing happens.
+     * @param note The Note to be shown.
+     */
     public void display(Note note){
         if(note == null){
             return;
@@ -174,6 +239,10 @@ public class NoteView {
         textArea.setText(note.getText());
         root.setVisible(true);
     }
+    /**
+     * Sets the values of the datePicker and timePicker to the values of the given date and displays the component. If date == null no date is shown.
+     * @param date The date for the Note to be created.
+     */
     public void display(Date date){
         if(date != null) {
             datePicker.setValue(date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());

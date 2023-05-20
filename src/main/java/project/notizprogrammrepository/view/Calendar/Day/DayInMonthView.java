@@ -30,14 +30,49 @@ Group:
 - Label with transparent Background
  */
 //03.05.2023 Fabian: constructor, generateButton, resize, changeContents
+
+/**
+ * A view component for a single day in the MonthView of a calendar.
+ */
 public class DayInMonthView extends Group{
+    /**
+     * The ScrollPane used to display all EntryButtons.
+     */
     private final ScrollPane entryScrollPane;
+    /**
+     * A VBox containing all EntryButtons.
+     */
     private final VBox entryVBox;
+    /**
+     * A Label displaying the number of the day.
+     */
     private final Label numberOfDayLabel;
+    /**
+     * A Day object representing the current Day.
+     */
     private Day currentDay;
+    /**
+     * The EventHandler used for the handling of interactions with the EntryButtons.
+     */
     private final EventHandler<ActionEvent> buttonClickHandler;
+    /**
+     * The Controller used for access to the data.
+     */
     private final Controller controller;
+    /**
+     * The SegmentView the component is a part of.
+     */
     private final SegmentView segmentView;
+
+    /**
+     * Creates a new DayInMonthView with the given size and values.
+     * @param width The width of the component.
+     * @param height The height of the component.
+     * @param day The day which the component represents.
+     * @param buttonClickHandler The handler for EntryButtonClicks.
+     * @param controller The controller of the application.
+     * @param segmentView The SegmentView the component is a part of.
+     */
     public DayInMonthView(double width, double height, Day day, EventHandler<ActionEvent> buttonClickHandler, Controller controller, SegmentView segmentView){
         this.buttonClickHandler = buttonClickHandler;
         this.setOnMouseClicked(mouseEvent -> buttonClickHandler.handle(new ActionEvent(DayInMonthView.this, null)));
@@ -59,6 +94,10 @@ public class DayInMonthView extends Group{
         this.getChildren().add(numberOfDayLabel);
     }
 
+    /**
+     * Generates the EntryButtons for all entries of currentDay. Applies the buttonClickHandler to the buttons and then returns them.
+     * @return An ArrayList of EntryButtons each representing one Entry of currentDay.
+     */
     private ArrayList<Button> generateButtons(){
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
         ArrayList<Button> buttons = new ArrayList<>();
@@ -73,6 +112,11 @@ public class DayInMonthView extends Group{
         return buttons;
     }
 
+    /**
+     * Changes the size of all components respective to the given width and height.
+     * @param newWidth The new width of the component.
+     * @param newHeight The new height of the component.
+     */
     public void resize(double newWidth, double newHeight){
         entryScrollPane.setPrefSize(newWidth, newHeight);
         entryScrollPane.setMaxSize(newWidth, newHeight);
@@ -84,11 +128,21 @@ public class DayInMonthView extends Group{
         numberOfDayLabel.setPrefHeight(newHeight/4);
         numberOfDayLabel.setFont(new Font("Arial", (double) 15 /100 * newHeight));
     }
+
+    /**
+     * Changes currentDay to the given day and regenerates the EntryButtons.
+     * @param day The new day.
+     */
     public void changeContents(Day day){
         currentDay = day;
         entryVBox.getChildren().clear();
         entryVBox.getChildren().addAll(generateButtons());
     }
+
+    /**
+     * Returns the day currently represented by this component.
+     * @return The day currently represented by this component.
+     */
     public Day getDay() {
         return currentDay;
     }

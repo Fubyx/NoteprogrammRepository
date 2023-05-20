@@ -6,13 +6,8 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ContentDisplay;
-import javafx.scene.control.ContextMenu;
-import javafx.scene.control.MenuItem;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
@@ -25,9 +20,7 @@ import project.notizprogrammrepository.view.Calendar.CalendarSegmentView;
 import project.notizprogrammrepository.view.Note.Collections.CollectionSegmentView;
 import project.notizprogrammrepository.view.Note.NoteSegmentView;
 import project.notizprogrammrepository.view.Todo.TodoSegmentView;
-import project.notizprogrammrepository.view.ViewUtils.EntryButton;
 
-import java.awt.*;
 import java.util.Objects;
 
 import static javafx.application.Application.launch;
@@ -105,13 +98,13 @@ public class MainApplication extends Application {
     public void addElements(){
         root.getChildren().addAll(
                 background, leftTrayBackground, leftTrayVbox,
-                calendarSegmentView.getView(),
+                calendarSegmentView.getRoot(),
                 todoSegmentView.getTodoView(),
-                noteSegmentView.getView(),
+                noteSegmentView.getRoot(),
                 collectionSegmentView.getRoot()
         );
         todoSegmentView.getTodoView().setVisible(false);
-        noteSegmentView.getView().setVisible(false);
+        noteSegmentView.getRoot().setVisible(false);
 
         leftTrayVbox.getChildren().addAll(noteSegmentButton, todoSegmentButton, calendarSegmentButton);
     }
@@ -156,8 +149,8 @@ public class MainApplication extends Application {
             @Override
             public void handle(ActionEvent actionEvent) {
                 todoSegmentView.getTodoView().setVisible(false);
-                noteSegmentView.getView().setVisible(false);
-                calendarSegmentView.getView().setVisible(true);
+                noteSegmentView.getRoot().setVisible(false);
+                calendarSegmentView.getRoot().setVisible(true);
                 collectionSegmentView.getRoot().setVisible(false);
                 calendarSegmentView.refresh();
             }
@@ -169,8 +162,8 @@ public class MainApplication extends Application {
             @Override
             public void handle(ActionEvent actionEvent) {
                 todoSegmentView.getTodoView().setVisible(false);
-                noteSegmentView.getView().setVisible(true);
-                calendarSegmentView.getView().setVisible(false);
+                noteSegmentView.getRoot().setVisible(true);
+                calendarSegmentView.getRoot().setVisible(false);
                 collectionSegmentView.getRoot().setVisible(false);
                 noteSegmentView.refresh();
             }
@@ -182,8 +175,8 @@ public class MainApplication extends Application {
             @Override
             public void handle(ActionEvent actionEvent) {
                 todoSegmentView.getTodoView().setVisible(true);
-                noteSegmentView.getView().setVisible(false);
-                calendarSegmentView.getView().setVisible(false);
+                noteSegmentView.getRoot().setVisible(false);
+                calendarSegmentView.getRoot().setVisible(false);
                 collectionSegmentView.getRoot().setVisible(false);
                 todoSegmentView.refresh();
             }

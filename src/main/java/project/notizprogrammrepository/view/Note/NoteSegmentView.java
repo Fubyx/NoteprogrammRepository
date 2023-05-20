@@ -2,13 +2,11 @@ package project.notizprogrammrepository.view.Note;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -25,34 +23,96 @@ import project.notizprogrammrepository.view.Calendar.Day.DayInWeekView;
 import project.notizprogrammrepository.view.Calendar.Month.MonthView;
 import project.notizprogrammrepository.view.Calendar.Week.WeekView;
 import project.notizprogrammrepository.view.Note.Collections.CollectionSegmentView;
-
+/**
+ * A view component representing the NoteSegment of the application.
+ */
 public class NoteSegmentView extends SegmentView {
-    private final Group view;
-    private final VBox vBox;
-    private final Rectangle vBoxBackground = new Rectangle();
+    /**
+     * The root Group of the component containing all other elements.
+     */
+    private final Group root;
+    /**
+     * The VBox containing all elements of the tray.
+     */
+    private final VBox trayVBox;
+    /**
+     * The background of the tray.
+     */
+    private final Rectangle trayBackground = new Rectangle();
+    /**
+     * A button of the tray used for switching between week- and monthView.
+     */
     private final Button switchViewButton = new Button();
+    /**
+     * A label of the tray for the year of the currently represented week or month.
+     */
     private final Label yearLabel;
+    /**
+     * The distance between switchViewButton and monthLabel.
+     */
     private final Rectangle distance_switch_to_month;
+    /**
+     * A label of the tray for the name of the currently represented month.
+     */
     private final Label monthLabel;
+    /**
+     * The distance between yearLabel and collectionViewButton.
+     */
     private final Rectangle distance_month_to_collections;
+    /**
+     * A button of the tray used for switching to the collectionView.
+     */
     private final Button collectionViewButton;
+    /**
+     * The button used for shifts of the calendar backwards in time.
+     */
     private final Rectangle leftButton;
+    /**
+     * The button used for shifts of the calendar forward in time.
+     */
     private final Rectangle rightButton;
+    /**
+     * The currently displayed month or null if weekView is active.
+     */
     private Month currentMonth;
+    /**
+     * The currently displayed week or null if monthView is active.
+     */
     private Day[]currentWeek = null;
+    /**
+     * The monthView of the component.
+     */
     private MonthView monthView;
+    /**
+     * The weekView of the component.
+     */
     private WeekView weekView;
+    /**
+     * The Controller used for access to the data.
+     */
     private Controller controller;
+    /**
+     * The editor for Notes.
+     */
     private final NoteView noteView;
+    /**
+     * Creates a new NoteSegmentView of the given size at the given position with the given month.
+     * @param x The x position of the component.
+     * @param y The y position of the component.
+     * @param width The width of the component.
+     * @param height The height of the component.
+     * @param month The month the component will show first.
+     * @param controller The Controller used for access to the data.
+     */
     public NoteSegmentView(double x, double y, double width, double height, Month month, Controller controller, CollectionSegmentView collectionSegmentView){
         this.currentMonth = month;
         this.controller = controller;
-        view = new Group();
+        root = new Group();
 
-        vBox = new VBox();
-        vBoxBackground.setFill(Paint.valueOf("#2E4053"));
-        view.getChildren().add(vBoxBackground);
-        view.getChildren().add(vBox);
+        trayVBox = new VBox();
+        trayBackground.setFill(Paint.valueOf("#2E4053"));
+        root.getChildren().add(trayBackground);
+        root.getChildren().add(trayVBox);
 
         switchViewButton.setText("Switch View");
         switchViewButton.getStyleClass().add("switchViewButton");
@@ -74,21 +134,21 @@ public class NoteSegmentView extends SegmentView {
                 }
             }
         });
-        vBox.getChildren().add(switchViewButton);
+        trayVBox.getChildren().add(switchViewButton);
 
         distance_switch_to_month = new Rectangle(width/5,height/10, Paint.valueOf("#2E4053"));
-        vBox.getChildren().add(distance_switch_to_month);
+        trayVBox.getChildren().add(distance_switch_to_month);
 
         monthLabel = new Label(getMonthLabelText());
         monthLabel.getStyleClass().add("labels");
-        vBox.getChildren().add(monthLabel);
+        trayVBox.getChildren().add(monthLabel);
 
         yearLabel = new Label(String.valueOf(month.getYear()));
         yearLabel.getStyleClass().add("labels");
-        vBox.getChildren().add(yearLabel);
+        trayVBox.getChildren().add(yearLabel);
 
         distance_month_to_collections = new Rectangle(width/5,height/10, Paint.valueOf("#2E4053"));
-        vBox.getChildren().add(distance_month_to_collections);
+        trayVBox.getChildren().add(distance_month_to_collections);
 
 
         collectionViewButton = new Button("CollectionView");
@@ -97,11 +157,11 @@ public class NoteSegmentView extends SegmentView {
             @Override
             public void handle(ActionEvent actionEvent) {
                 collectionSegmentView.refresh();
-                view.setVisible(false);
+                root.setVisible(false);
                 collectionSegmentView.getRoot().setVisible(true);
             }
         });
-        vBox.getChildren().add(collectionViewButton);
+        trayVBox.getChildren().add(collectionViewButton);
 
         EventHandler<ActionEvent> calendarEntryHandler = new EventHandler<ActionEvent>() {
             @Override
@@ -117,11 +177,11 @@ public class NoteSegmentView extends SegmentView {
         };
 
         this.monthView = new MonthView(width/5 + width/20, 0, width - width/5 -  width/10, height, month, calendarEntryHandler, controller, NoteSegmentView.this);
-        view.getChildren().add(monthView.getRoot());
+        root.getChildren().add(monthView.getRoot());
 
         this.weekView = new WeekView(width/5 + width/20, 0, width - width/5 - width/10, height, month.getWeek(1), calendarEntryHandler, controller, NoteSegmentView.this);
         weekView.getRoot().setVisible(false);
-        view.getChildren().add(weekView.getRoot());
+        root.getChildren().add(weekView.getRoot());
 
         EventHandler<MouseEvent> handleMonthSwitch = new EventHandler<MouseEvent>() {
             @Override
@@ -154,32 +214,43 @@ public class NoteSegmentView extends SegmentView {
         leftButton = new Rectangle(width/5, height/2 - height/8, width/20, height/4);
         leftButton.setOnMouseClicked(handleMonthSwitch);
         leftButton.getStyleClass().add("rectangle");
-        view.getChildren().add(leftButton);
+        root.getChildren().add(leftButton);
 
         rightButton = new Rectangle(width - width/20, height/2 - height/8, width/20, height/4);
         rightButton.setOnMouseClicked(handleMonthSwitch);
         rightButton.getStyleClass().add("rectangle");
-        view.getChildren().add(rightButton);
+        root.getChildren().add(rightButton);
 
         noteView = new NoteView(0,0, width, height, controller, NoteSegmentView.this);
-        view.getChildren().add(noteView.getRoot());
+        root.getChildren().add(noteView.getRoot());
 
 
         resize(x, y, width, height);
     }
-    public Group getView() {
-        return view;
+    /**
+     * Returns the root Group of the component.
+     * @return The root Group of the component.
+     */
+    public Group getRoot() {
+        return root;
     }
+    /**
+     * Changes the size and position of all components respective to the given values.
+     * @param x The new x position of the component.
+     * @param y The new y position of the component.
+     * @param width The new width of the component.
+     * @param height The new height of the component.
+     */
     public void resize(double x, double y, double width, double height){
-        view.setLayoutX(x);
-        view.setLayoutY(y);
-        view.prefWidth(width);
-        view.prefHeight(height);
+        root.setLayoutX(x);
+        root.setLayoutY(y);
+        root.prefWidth(width);
+        root.prefHeight(height);
 
-        vBox.prefWidth(width / 5);
-        vBox.prefHeight(height);
-        vBoxBackground.setWidth(width / 5);
-        vBoxBackground.setHeight(height);
+        trayVBox.prefWidth(width / 5);
+        trayVBox.prefHeight(height);
+        trayBackground.setWidth(width / 5);
+        trayBackground.setHeight(height);
 
         switchViewButton.setPrefWidth(width /5);
         switchViewButton.setPrefHeight(height /10);
@@ -219,6 +290,10 @@ public class NoteSegmentView extends SegmentView {
 
         noteView.resize(0, 0, width, height);
     }
+    /**
+     * Returns a String representing the current month. (ex: January)
+     * @return A String representing the current month.
+     */
     private String getMonthLabelText(){
         int number = 0;
         if(currentMonth != null)
@@ -271,6 +346,9 @@ public class NoteSegmentView extends SegmentView {
             }
         }
     }
+    /**
+     * Refreshes the monthView or weekView.
+     */
     public void refresh(){
         if(currentMonth != null){
             currentMonth = controller.switchToMonthView(Mode.NOTE);

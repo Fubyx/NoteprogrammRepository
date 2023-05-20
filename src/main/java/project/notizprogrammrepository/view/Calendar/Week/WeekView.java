@@ -17,18 +17,58 @@ import project.notizprogrammrepository.view.Calendar.Day.DayInWeekView;
 import project.notizprogrammrepository.view.SegmentView;
 
 import java.util.ArrayList;
-
+/**
+ * A view-component for a week.
+ */
 public class WeekView {
+    /**
+     * The width of the component.
+     */
     private double width;
-    private double height;
-    private VBox root;
-    private HBox weekDayNameDisplay;
-    private HBox days;
-    private Day[] currentWeek;
-    private EventHandler<ActionEvent> entryClickHandler;
-    private Controller controller;
-    private SegmentView segmentView;
 
+    /**
+     * The height of the component.
+     */
+    private double height;
+    /**
+     * The root VBox containing all other components.
+     */
+    private final VBox root;
+    /**
+     * A HBox containing labels for all weekdays. The weekdays are represented in their shortened form + the day-number respective to the month(ex. wed 3). Each label takes up 1/7 of the width and 1/7 of the height.
+     */
+    private final HBox weekDayNameDisplay;
+    /**
+     * A HBox containing all dayViews of the represented week.
+     */
+    private final HBox days;
+    /**
+     * The current week.
+     */
+    private Day[] currentWeek;
+    /**
+     * The handler for clicks on EntryButtons in DayInWeekViews.
+     */
+    private final EventHandler<ActionEvent> entryClickHandler;
+    /**
+     * The Controller used for access to the data.
+     */
+    private final Controller controller;
+    /**
+     * The SegmentView the component is a part of.
+     */
+    private final SegmentView segmentView;
+    /**
+     * Creates a WeekView of the given size at the given position with the given values.
+     * @param x The x position of the component.
+     * @param y The y position of the component.
+     * @param width The width of the component.
+     * @param height The height of the component.
+     * @param week The week the component represents.
+     * @param entryClickHandler The handler for clicks on EntryButtons in DayInWeekViews.
+     * @param controller The Controller used for access to the data.
+     * @param segmentView The SegmentView the component is a part of.
+     */
     public WeekView (double x, double y, double width, double height, Day[] week, EventHandler<ActionEvent> entryClickHandler, Controller controller, SegmentView segmentView){
         this.currentWeek = week;
         this.entryClickHandler = entryClickHandler;
@@ -48,6 +88,13 @@ public class WeekView {
         root.getChildren().add(weekDayNameDisplay);
         root.getChildren().add(days);
     }
+    /**
+     * Changes the size and position of all components respective to the given values.
+     * @param x The new x position of the component.
+     * @param y The new y position of the component.
+     * @param width The new width of the component.
+     * @param height The new height of the component.
+     */
     public void resize(double x, double y, double width, double height){
         this.width = width;
         this.height = height;
@@ -59,6 +106,10 @@ public class WeekView {
 
         resizeDays();
     }
+    /**
+     * Changes the days-HBoxes contents to the values of the given week.
+     * @param week The new week to be represented by the component.
+     */
     public void changeContents(Day[]week){
         this.currentWeek = week;
         root.getChildren().remove(days);
@@ -74,6 +125,11 @@ public class WeekView {
         resizeWeekDayLabels();
         root.getChildren().add(days);
     }
+
+    /**
+     * Returns the labels of the weekdays and number of the day in the month.
+     * @return The labels of the weekdays.
+     */
     private ArrayList<Label> getWeekDayLabels(){
         ArrayList<Label> labels = new ArrayList<>();
         Label l = new Label("Mon");
@@ -126,6 +182,9 @@ public class WeekView {
         labels.add(l);
         return labels;
     }
+    /**
+     * Sets the size of the weekday-labels respective to the components width and height.
+     */
     private void resizeWeekDayLabels(){
         weekDayNameDisplay.setPrefSize(width, height/7);
         for(Node n : weekDayNameDisplay.getChildren()){
@@ -133,6 +192,11 @@ public class WeekView {
             ((Label) n).setFont(new Font("Arial", (double) 15 /500 * height));
         }
     }
+
+    /**
+     * Returns an ArrayList of nodes containing a representation for the days of currentWeek. Each of the 7 elements is either a DayInWeekView ora rectangle with 1/7 of the width and 5/7 of the height in size.
+     * @return An ArrayList of nodes containing a representation for the days of currentWeek.
+     */
     private ArrayList<Node> getDays(){
         ArrayList<Node> days = new ArrayList<>();
         for(int i = 0; i < currentWeek.length; ++i){
@@ -144,6 +208,10 @@ public class WeekView {
         }
         return days;
     }
+
+    /**
+     * Sets the size of the days respective to the components width and height.
+     */
     private void resizeDays(){
         days.setPrefWidth(width);
         days.setPrefHeight((height/7) * 6);
@@ -156,7 +224,10 @@ public class WeekView {
             }
         }
     }
-
+    /**
+     * Returns the root VBox of the component.
+     * @return The root VBox of the component.
+     */
     public VBox getRoot() {
         return root;
     }

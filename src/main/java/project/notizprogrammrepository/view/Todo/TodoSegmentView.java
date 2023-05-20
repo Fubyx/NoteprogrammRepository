@@ -50,24 +50,82 @@ rest textArea
 /20
  */
 
+/**
+ * A view component representing the TodoSegmentView of the application.
+ */
 public class TodoSegmentView extends SegmentView {
+    /**
+     * The root Group of the component containing all other elements.
+     */
     private final Group root;
+    /**
+     * A label with the text "TODO_:"
+     */
     private final Label todoLabel;
+    /**
+     * The ScrollPane used to display all EntryButtons representing the todoList.
+     */
     private final ScrollPane scrollPane = new ScrollPane();
+    /**
+     * The VBox containing all EntryButtons representing the todoList.
+     */
     private final VBox todoEntries;
+    /**
+     * A TextField for the input of the title.
+     */
     private final TextField titleTextField;
+    /**
+     * A label with the text "DueDate:"
+     */
     private final Label dueDateLabel;
+    /**
+     * A DatePicker for the dueDate.
+     */
     private final DatePicker dueDate;
+    /**
+     * A TimePicker for the dueDate.
+     */
     private final Spinner<LocalTime> timePicker;
+    /**
+     * A ComboBox for the priority.
+     */
     private final ComboBox<Integer> priorityBox;
+    /**
+     * A TextArea used for displaying and editing the text of the Entry.
+     */
     private final TextArea textArea;
+    /**
+     * A button used to discard all changes and reset the values of the editor to their default.
+     */
     private final Button cancelButton;
+    /**
+     * A button used to save all changes and reset the values of the editor to their default.
+     */
     private final Button saveButton;
+    /**
+     * The Controller used for access to the data.
+     */
     private final Controller controller;
+    /**
+     * The currently displayed TodoEntry.
+     */
     private TodoEntry currentEntry = null;
+    /**
+     * The width of the component,
+     */
     private double width;
+    /**
+     * The height of the component.
+     */
     private double height;
-
+    /**
+     * Creates a new CollectionSegmentView of the given size at the given position.
+     * @param x The x position of the component.
+     * @param y The y position of the component.
+     * @param width The width of the component.
+     * @param height The height of the component.
+     * @param controller The Controller used for access to the data.
+     */
     public TodoSegmentView(double x, double y, double width, double height, Controller controller){
         this.controller = controller;
         root = new Group();
@@ -158,6 +216,13 @@ public class TodoSegmentView extends SegmentView {
         resize(x, y, width, height);
         root.setVisible(false);
     }
+    /**
+     * Changes the size and position of all components respective to the given values.
+     * @param x The new x position of the component.
+     * @param y The new y position of the component.
+     * @param width The new width of the component.
+     * @param height The new height of the component.
+     */
     public void resize(double x, double y, double width, double height){
         this.width = width;
         this.height = height;
@@ -209,11 +274,17 @@ public class TodoSegmentView extends SegmentView {
 
         resizeButtons();
     }
+    /**
+     * Changes the size of all buttons respective to the size of the component..
+     */
     private void resizeButtons(){
         for(Node n : todoEntries.getChildren()){
             ((Button)n).setPrefSize(width/2 - width/20, height/10);
         }
     }
+    /**
+     * Resets all values of the editor to their default.
+     */
     private void resetValues(){
         currentEntry = null;
         titleTextField.setText("Title");
@@ -223,6 +294,10 @@ public class TodoSegmentView extends SegmentView {
         priorityBox.setPromptText("Priority");
         textArea.setText("Text...");
     }
+    /**
+     * Sets all values of the editor to the values of the given TodoEntry.
+     * @param todoEntry The Entry to be displayed.
+     */
     private void setValues(TodoEntry todoEntry){
         if(todoEntry == null)
             return;
@@ -234,14 +309,25 @@ public class TodoSegmentView extends SegmentView {
         priorityBox.setValue(todoEntry.getPriority());
         textArea.setText(todoEntry.getText());
     }
+    /**
+     * Refreshes the todoList.
+     */
     public void refresh(){
         todoEntries.getChildren().clear();
         setList();
         resizeButtons();
     }
+    /**
+     * Returns the root Group of the component.
+     * @return The root Group of the component.
+     */
     public Group getTodoView(){
         return root;
     }
+
+    /**
+     * Generates the EntryButtons for all TodoEntries and adds them to todoEntries.
+     */
     public void setList(){
         ArrayList<TodoEntry> entries = controller.switchToTodo();
         for(TodoEntry entry : entries){

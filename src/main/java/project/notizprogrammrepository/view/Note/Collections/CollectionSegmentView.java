@@ -24,19 +24,63 @@ Each side:
     Label Titles/Subjects
     ScrollPane with Buttons --> Title/Subject of the Collection (+ later date of the latest note)
  */
-public class CollectionSegmentView {
-    private final Group root;
-    private final Rectangle divisionLine;
-    private final Label titles;
-    private final ScrollPane titlesScrollPane;
-    private final VBox titlesVBox;
-    private final Label subjects;
-    private final ScrollPane subjectsScrollPane;
-    private final VBox subjectsVBox;
-    private final CollectionView collectionView;
-    private final Controller controller;
-    private double width;
 
+/**
+ * A view component representing the CollectionSegment of the application.
+ */
+public class CollectionSegmentView {
+    /**
+     * The root Group of the component containing all other elements.
+     */
+    private final Group root;
+    /**
+     * A divisive line between the 2 lists.
+     */
+    private final Rectangle divisionLine;
+    /**
+     * A label with the text "Collect by title"
+     */
+    private final Label titles;
+    /**
+     * The ScrollPane displaying the list of Buttons representing the different collections by title.
+     */
+    private final ScrollPane titlesScrollPane;
+    /**
+     * The VBox containing the list of Buttons representing the different collections bs title.
+     */
+    private final VBox titlesVBox;
+    /**
+     * A label with the text "Collect by subject"
+     */
+    private final Label subjects;
+    /**
+     * The ScrollPane displaying the list of Buttons representing the different collections by subject.
+     */
+    private final ScrollPane subjectsScrollPane;
+    /**
+     * The VBox containing the list of Buttons representing the different collections by subject.
+     */
+    private final VBox subjectsVBox;
+    /**
+     * The Editor for NoteCollections.
+     */
+    private final CollectionView collectionView;
+    /**
+     * The Controller used for access to the data.
+     */
+    private final Controller controller;
+    /**
+     * The width of the component
+     */
+    private double width;
+    /**
+     * Creates a new CollectionSegmentView of the given size at the given position.
+     * @param x The x position of the component.
+     * @param y The y position of the component.
+     * @param width The width of the component.
+     * @param height The height of the component.
+     * @param controller The Controller used for access to the data.
+     */
     public CollectionSegmentView(double x, double y, double width, double height, Controller controller){
         this.controller = controller;
         root = new Group();
@@ -79,6 +123,10 @@ public class CollectionSegmentView {
         root.setVisible(false);
         this.width = width;
     }
+
+    /**
+     * Creates the buttons of all collections and adds them to their respective VBox.
+     */
     private void setButtons(){
         ArrayList<String> strings = controller.switchToCollectionMode();
         for(String s : strings){
@@ -96,6 +144,11 @@ public class CollectionSegmentView {
             }
         }
     }
+
+    /**
+     * Enables or disables the component.
+     * @param visible true if the component is supposed to be visible.
+     */
     public void setVisible(boolean visible){
         divisionLine.setVisible(visible);
         titles.setVisible(visible);
@@ -103,6 +156,12 @@ public class CollectionSegmentView {
         subjectsScrollPane.setVisible(visible);
         titlesScrollPane.setVisible(visible);
     }
+
+    /**
+     * Checks whether the given String corresponds to the result of the toString() method of any of the possible values of subject.
+     * @param s The String to be checked.
+     * @return true if the given String is a subject.
+     */
     private boolean isSubject(String s){
         ArrayList<Subject> subjects = new ArrayList<>(Arrays.stream(Subject.values()).toList());
         ArrayList<String>subjectTitles = new ArrayList<>();
@@ -112,7 +171,15 @@ public class CollectionSegmentView {
         subjects.clear();
         return subjectTitles.contains(s);
     }
+    /**
+     * Changes the size and position of all components respective to the given values.
+     * @param x The new x position of the component.
+     * @param y The new y position of the component.
+     * @param width The new width of the component.
+     * @param height The new height of the component.
+     */
     public void resize(double x, double y, double width, double height){
+        this.width = width;
         root.setLayoutX(x);
         root.setLayoutY(y);
 
@@ -149,12 +216,18 @@ public class CollectionSegmentView {
 
         collectionView.resize(0, 0, width, height);
     }
-
+    /**
+     * Refreshes the collectionLists.
+     */
     public void refresh(){
         titlesVBox.getChildren().clear();
         subjectsVBox.getChildren().clear();
         setButtons();
     }
+    /**
+     * Returns the root Group of the component.
+     * @return The root Group of the component.
+     */
     public Group getRoot() {
         return root;
     }
