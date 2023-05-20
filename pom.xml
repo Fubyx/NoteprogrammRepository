@@ -60,7 +60,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                project.notizprogrammrepository/project.notizprogrammrepository.HelloApplication
+                                project.notizprogrammrepository/project.notizprogrammrepository.MainApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
