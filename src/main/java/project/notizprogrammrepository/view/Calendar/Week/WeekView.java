@@ -2,7 +2,6 @@ package project.notizprogrammrepository.view.Calendar.Week;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
@@ -199,11 +198,11 @@ public class WeekView {
      */
     private ArrayList<Node> getDays(){
         ArrayList<Node> days = new ArrayList<>();
-        for(int i = 0; i < currentWeek.length; ++i){
-            if(currentWeek[i] == null){
-                days.add(new Rectangle(width/7, height - height/7 * 2, Color.valueOf(MainApplication.backgroundColor)));
-            }else{
-                days.add(new DayInWeekView(width/7, height - height/7 * 2, currentWeek[i], entryClickHandler, controller, segmentView));
+        for (Day day : currentWeek) {
+            if (day == null) {
+                days.add(new Rectangle(width / 7, height - height / 7 * 2, Color.valueOf(MainApplication.backgroundColor)));
+            } else {
+                days.add(new DayInWeekView(width / 7, height - height / 7 * 2, day, entryClickHandler, controller, segmentView));
             }
         }
         return days;

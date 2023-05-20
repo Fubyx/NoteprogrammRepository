@@ -73,15 +73,15 @@ public class CalendarSegmentView extends SegmentView {
     /**
      * The monthView of the component.
      */
-    private MonthView monthView;
+    private final MonthView monthView;
     /**
      * The weekView of the component.
      */
-    private WeekView weekView;
+    private final WeekView weekView;
     /**
      * The Controller used for access to the data.
      */
-    private Controller controller;
+    private final Controller controller;
     /**
      * The editor for CalendarEntries.
      */

@@ -51,13 +51,12 @@ public class Calendar implements Serializable {
         return months;
     }
     /**
-     * TODO
-     * @return
+     * Returns the index of the current month.
+     * @return The index of the current month.
      */
     public int getCurrentMonthIndex() {
         return currentMonthIndex;
     }
-    //shifts the current month to the right or left
     /**
      * Shifts the calendar to the left or right according to the given value. If a Month that now ranges out of the 4-month period covered by the Calendar does not have any entries, it is removed.
      * @param rightShift true: shift to the right; false: shift to the left
@@ -120,7 +119,6 @@ public class Calendar implements Serializable {
     public void remove(Entry e){
         months.get(currentMonthIndex).remove(e);
     }
-    //returns the entry for the specified date or null if there is no entry with that date in the current month
     /**
      * Returns the Entry connected to the specified date or null if there is no such Entry in the current month.
      * @param date The date of the Entry.

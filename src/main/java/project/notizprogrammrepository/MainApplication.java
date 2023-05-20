@@ -2,9 +2,6 @@ package project.notizprogrammrepository;
 
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -13,7 +10,6 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.application.Application;
-import javafx.stage.WindowEvent;
 import project.notizprogrammrepository.controller.Controller;
 import project.notizprogrammrepository.view.Calendar.CalendarSegmentView;
 
@@ -22,8 +18,6 @@ import project.notizprogrammrepository.view.Note.NoteSegmentView;
 import project.notizprogrammrepository.view.Todo.TodoSegmentView;
 
 import java.util.Objects;
-
-import static javafx.application.Application.launch;
 
 /*
 Plan:
@@ -66,48 +60,76 @@ For each Button of an Entry a right click opens a dropdown with for now 1 option
  */
 
 //03.05.2023 Fabian: changed HBox to VBox, added Controller
+
+/**
+ * The main class containing all components of the application.
+ */
 public class MainApplication extends Application {
+    /**
+     * The color of the background of the application.
+     */
     public static final String backgroundColor = "#283747";
+    /**
+     * The controller used for access to data.
+     */
     private final Controller controller = new Controller();
+    /**
+     * The view component for the CalendarSegment.
+     */
     private CalendarSegmentView calendarSegmentView;
+    /**
+     * The view component for the TodoSegment.
+     */
     private TodoSegmentView todoSegmentView;
+    /**
+     * The view component for the NoteSegment.
+     */
     private NoteSegmentView noteSegmentView;
+    /**
+     * The view component for the CollectionSegment.
+     */
     private CollectionSegmentView collectionSegmentView;
+    /**
+     * The root component of the application, serving as parent of the scene.
+     */
     private final Group root = new Group();
+    /**
+     * The VBox of the tray on the left of the view.
+     */
     private final VBox leftTrayVbox = new VBox();
+    /**
+     * The width of the view.
+     */
     private double width = 800;
+    /**
+     * The height of the view.
+     */
     private double height = 500;
-    private Rectangle background = new Rectangle();
-    private Rectangle leftTrayBackground = new Rectangle();
+    /**
+     * The background of the view.
+     */
+    private final Rectangle background = new Rectangle();
+    /**
+     * The background of the tray on the left of the view.
+     */
+    private final Rectangle leftTrayBackground = new Rectangle();
+    /**
+     * The button of the left tray used for switching to the calendarSegment.
+     */
     private Button calendarSegmentButton;
+    /**
+     * The button of the left tray used for switching to the noteSegment.
+     */
     private Button noteSegmentButton;
+    /**
+     * The button of the left tray used for switching to the todoSegment.
+     */
     private Button todoSegmentButton;
-    public void setBackground(){
-        background.setFill(Paint.valueOf(backgroundColor));
-        background.setHeight(height);
-        background.setWidth(width);
-    }
-    public void setLeftTrayVBox(){
-        leftTrayVbox.prefHeight(height);
-        leftTrayVbox.prefWidth(width / 10);
-
-        leftTrayBackground.setFill(Paint.valueOf("#222843"));
-        leftTrayBackground.setWidth(width / 10);
-        leftTrayBackground.setHeight(height);
-    }
-    public void addElements(){
-        root.getChildren().addAll(
-                background, leftTrayBackground, leftTrayVbox,
-                calendarSegmentView.getRoot(),
-                todoSegmentView.getTodoView(),
-                noteSegmentView.getRoot(),
-                collectionSegmentView.getRoot()
-        );
-        todoSegmentView.getTodoView().setVisible(false);
-        noteSegmentView.getRoot().setVisible(false);
-
-        leftTrayVbox.getChildren().addAll(noteSegmentButton, todoSegmentButton, calendarSegmentButton);
-    }
+    /**
+     * Changes the size of all components respective to the given values.
+     * @param width The new width of the component.
+     * @param height The new height of the component.
+     */
     private void resize(double width, double height){
         this.width = width;
         this.height = height;
@@ -130,94 +152,93 @@ public class MainApplication extends Application {
 
         todoSegmentButton.setPrefSize(width/10, height/10);
     }
-    @Override
-    public void start(Stage stage){
-        setBackground();
-        setLeftTrayVBox();
+
+    /**
+     * Initializes all components with their designated values.
+     */
+    private void initialize(){
+        background.setFill(Paint.valueOf(backgroundColor));
+        leftTrayBackground.setFill(Paint.valueOf("#222843"));
 
         calendarSegmentView = new CalendarSegmentView(width/10, 0, width - width/10, height, controller.switchToCalendar(), controller);
 
         collectionSegmentView = new CollectionSegmentView(width/10, 0, width - width/10, height, controller);
 
         noteSegmentView = new NoteSegmentView(width/10, 0, width - width/10, height, controller.switchToNote(), controller, collectionSegmentView);
+        noteSegmentView.getRoot().setVisible(false);
 
         todoSegmentView  = new TodoSegmentView(width/10, 0, width - width/10, height, controller);
+        todoSegmentView.getTodoView().setVisible(false);
 
         calendarSegmentButton = new Button("Calendar");
         calendarSegmentButton.getStyleClass().add("mainButtons");
-        calendarSegmentButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                todoSegmentView.getTodoView().setVisible(false);
-                noteSegmentView.getRoot().setVisible(false);
-                calendarSegmentView.getRoot().setVisible(true);
-                collectionSegmentView.getRoot().setVisible(false);
-                calendarSegmentView.refresh();
-            }
+        calendarSegmentButton.setOnAction(actionEvent -> {
+            todoSegmentView.getTodoView().setVisible(false);
+            noteSegmentView.getRoot().setVisible(false);
+            calendarSegmentView.getRoot().setVisible(true);
+            collectionSegmentView.getRoot().setVisible(false);
+            calendarSegmentView.refresh();
         });
 
         noteSegmentButton = new Button("Notes");
         noteSegmentButton.getStyleClass().add("mainButtons");
-        noteSegmentButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                todoSegmentView.getTodoView().setVisible(false);
-                noteSegmentView.getRoot().setVisible(true);
-                calendarSegmentView.getRoot().setVisible(false);
-                collectionSegmentView.getRoot().setVisible(false);
-                noteSegmentView.refresh();
-            }
+        noteSegmentButton.setOnAction(actionEvent -> {
+            todoSegmentView.getTodoView().setVisible(false);
+            noteSegmentView.getRoot().setVisible(true);
+            calendarSegmentView.getRoot().setVisible(false);
+            collectionSegmentView.getRoot().setVisible(false);
+            noteSegmentView.refresh();
         });
 
         todoSegmentButton = new Button("Todo");
         todoSegmentButton.getStyleClass().add("mainButtons");
-        todoSegmentButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                todoSegmentView.getTodoView().setVisible(true);
-                noteSegmentView.getRoot().setVisible(false);
-                calendarSegmentView.getRoot().setVisible(false);
-                collectionSegmentView.getRoot().setVisible(false);
-                todoSegmentView.refresh();
-            }
+        todoSegmentButton.setOnAction(actionEvent -> {
+            todoSegmentView.getTodoView().setVisible(true);
+            noteSegmentView.getRoot().setVisible(false);
+            calendarSegmentView.getRoot().setVisible(false);
+            collectionSegmentView.getRoot().setVisible(false);
+            todoSegmentView.refresh();
         });
 
+        leftTrayVbox.getChildren().addAll(noteSegmentButton, todoSegmentButton, calendarSegmentButton);
 
-        addElements();
+
+        root.getChildren().addAll(
+                background, leftTrayBackground, leftTrayVbox,
+                calendarSegmentView.getRoot(),
+                todoSegmentView.getTodoView(),
+                noteSegmentView.getRoot(),
+                collectionSegmentView.getRoot()
+        );
 
         resize(width, height);
+    }
+
+    /**
+     * Starts the application.
+     * @param stage The stage on which the application is displayed.
+     */
+    @Override
+    public void start(Stage stage){
+        initialize();
+
         Scene scene = new Scene(root, width, height);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("styles.css")).toExternalForm());
 
 
-        ChangeListener<Number> resizeListener = new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-                resize(scene.getWidth(), scene.getHeight());
-            }
-        };
+        ChangeListener<Number> resizeListener = (observableValue, number, t1) -> resize(scene.getWidth(), scene.getHeight());
         scene.widthProperty().addListener(resizeListener);
         scene.heightProperty().addListener(resizeListener);
         stage.setTitle("A");
         stage.setScene(scene);
         stage.show();
 
-        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent windowEvent) {
-                controller.closeApplication();
-                Platform.exit();
-            }
+        stage.setOnCloseRequest(windowEvent -> {
+            controller.closeApplication();
+            Platform.exit();
         });
     }
     public static void main(String[] args) {
         launch();
-
-        //03.05.2023 Miguel: testing the Windows-Notifications
-        /*
-        Date date = new Date();
-        CalendarSegment cs = new CalendarSegment(date);
-        cs.throwInfo();
-        //*/
     }
 }

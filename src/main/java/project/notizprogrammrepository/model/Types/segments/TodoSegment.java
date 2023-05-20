@@ -1,6 +1,5 @@
 package project.notizprogrammrepository.model.Types.segments;
 
-import project.notizprogrammrepository.model.Types.entries.Entry;
 import project.notizprogrammrepository.model.Types.entries.TodoEntry;
 
 import java.util.*;
@@ -47,16 +46,16 @@ public class TodoSegment extends Segment {
             return;
         try {
             oldEntry.setTitle(entry.getTitle());
-        }catch (NullPointerException n){}
+        }catch (NullPointerException ignored){}
         try {
             oldEntry.setText(entry.getText());
-        }catch (NullPointerException n){}
+        }catch (NullPointerException ignored){}
         try {
             oldEntry.setDate(entry.getDate());
-        }catch (NullPointerException n){}
+        }catch (NullPointerException ignored){}
         try {
             oldEntry.setPriority(entry.getPriority());
-        }catch (NullPointerException n){}
+        }catch (NullPointerException ignored){}
     }
 
     /**

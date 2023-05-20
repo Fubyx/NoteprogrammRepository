@@ -22,11 +22,11 @@ public class NoteCollection implements Serializable {
     /**
      * The title of the collection.
      */
-    private String title;
+    private final String title;
     /**
      * The subject of the collection.
      */
-    private Subject subject;
+    private final Subject subject;
 
     /**
      * Creates a NoteCollection with the given title and sets its subject to NONE.

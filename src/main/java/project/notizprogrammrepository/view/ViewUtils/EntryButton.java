@@ -1,7 +1,5 @@
 package project.notizprogrammrepository.view.ViewUtils;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import project.notizprogrammrepository.controller.Controller;
@@ -17,10 +15,6 @@ public class EntryButton extends Button {
      * The Entry connected to the Button.
      */
     private Entry entry;
-    /**
-     * The ContextMenu of the Button.
-     */
-    private CustomContextMenu customContextMenu;
 
     /**
      * Creates a new EntryButton with the given text.
@@ -30,24 +24,18 @@ public class EntryButton extends Button {
      */
     public EntryButton(String s, Controller controller, SegmentView segmentView) {
         super(s);
-        customContextMenu = new CustomContextMenu(EntryButton.this);
+        CustomContextMenu customContextMenu = new CustomContextMenu(EntryButton.this);
         MenuItem delete = new MenuItem("delete");
-        delete.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                controller.changeEntry(((CustomContextMenu)((MenuItem)actionEvent.getSource()).getParentPopup()).getButton().getEntry(), null, false);
-                segmentView.refresh();
-            }
+        delete.setOnAction(actionEvent -> {
+            controller.changeEntry(((CustomContextMenu)((MenuItem)actionEvent.getSource()).getParentPopup()).getButton().getEntry(), null, false);
+            segmentView.refresh();
         });
         customContextMenu.getItems().add(delete);
         if(segmentView instanceof NoteSegmentView){
             MenuItem deleteAbsolute = new MenuItem("delete absolute");
-            deleteAbsolute.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent actionEvent) {
-                    controller.changeEntry(((CustomContextMenu)((MenuItem)actionEvent.getSource()).getParentPopup()).getButton().getEntry(), null, true);
-                    segmentView.refresh();
-                }
+            deleteAbsolute.setOnAction(actionEvent -> {
+                controller.changeEntry(((CustomContextMenu)((MenuItem)actionEvent.getSource()).getParentPopup()).getButton().getEntry(), null, true);
+                segmentView.refresh();
             });
             customContextMenu.getItems().add(deleteAbsolute);
         }

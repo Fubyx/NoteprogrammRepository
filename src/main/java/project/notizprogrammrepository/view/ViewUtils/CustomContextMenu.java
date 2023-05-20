@@ -9,7 +9,7 @@ public class CustomContextMenu extends ContextMenu {
     /**
      * The Button the menu is assigned to.
      */
-    private EntryButton button;
+    private final EntryButton button;
 
     /**
      * Creates a ContextMenu with the given Button.

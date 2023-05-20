@@ -18,7 +18,6 @@ public class Month implements Serializable {
      * A 2-dimensional array of Day objects containing the Days of the month.
      */
     private Day[][] days = new Day[6][7];
-    // 17.04.2023
     // 1.Januar.31 / 2.Februar.28 / 3.März.31 / 4.April.30 / 5.Mai.31 / 6.Juni.30 / 7.Juli.31 / 8.August.31 /
     // 9.September.30 / 10.Oktober.31 / 11.November.30 / 12.Dezember.31
     /**
@@ -53,9 +52,6 @@ public class Month implements Serializable {
     public int getYear() {
         return year;
     }
-
-    //creates the days of the month corresponding to the given information
-
     /**
      * Creates the days of the month and fills the rest of the days array with null.
      * @param year The year of the month.
@@ -114,9 +110,9 @@ public class Month implements Serializable {
      * @return true if any Day of the month has entries.
      */
     public boolean hasEntries(){
-        for(int i = 0; i < days.length; ++i){
-            for(int j = 0; j < days[i].length; ++j){
-                if(days[i][j] != null && days[i][j].amountOfEntries() > 0){
+        for (Day[] day : days) {
+            for (Day value : day) {
+                if (value != null && value.amountOfEntries() > 0) {
                     return true;
                 }
             }
@@ -129,10 +125,10 @@ public class Month implements Serializable {
      * @param e The Entry to be added.
      */
     public void addEntry(Entry e){
-        for(int i = 0; i < days.length; ++i){
-            for(int j = 0; j < days[i].length; ++j){
-                if(days[i][j] != null && days[i][j].isOnSameDay(e.getDate())){
-                    days[i][j].addEntry(e);
+        for (Day[] day : days) {
+            for (Day value : day) {
+                if (value != null && value.isOnSameDay(e.getDate())) {
+                    value.addEntry(e);
                 }
             }
         }
@@ -143,10 +139,10 @@ public class Month implements Serializable {
      * @param e The Entry to be removed.
      */
     public void remove (Entry e){
-        for(int i = 0; i < days.length; ++i){
-            for(int j = 0; j < days[i].length; ++j){
-                if(days[i][j] != null && days[i][j].isOnSameDay(e.getDate())){
-                    days[i][j].remove(e);
+        for (Day[] day : days) {
+            for (Day value : day) {
+                if (value != null && value.isOnSameDay(e.getDate())) {
+                    value.remove(e);
                 }
             }
         }

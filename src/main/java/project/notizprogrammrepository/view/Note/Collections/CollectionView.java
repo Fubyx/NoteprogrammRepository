@@ -6,7 +6,6 @@ import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import project.notizprogrammrepository.controller.Controller;
 

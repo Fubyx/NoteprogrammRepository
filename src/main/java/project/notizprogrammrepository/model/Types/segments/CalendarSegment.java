@@ -5,9 +5,6 @@ import project.notizprogrammrepository.model.Types.Dates.Day;
 import project.notizprogrammrepository.model.Types.Dates.Month;
 import project.notizprogrammrepository.model.Types.entries.CalendarEntry;
 
-import java.awt.*;
-import java.awt.TrayIcon.MessageType;
-
 import java.util.Date;
 
 //25.04.2023 Fabian: calendar, weekViewActive, currentWeek, constructor, getCalendar, shiftView, switchView, getCurrentWeek, getMonth

@@ -29,47 +29,47 @@ public class CalendarEntryView {
     /**
      * The root Group of the component containing all other elements.
      */
-    private Group root;
+    private final Group root;
     /**
      * The background of the editor.
      */
-    private Rectangle background;
+    private final Rectangle background;
     /**
      * A TextField for the input of the title.
      */
-    private TextField titleInput;
+    private final TextField titleInput;
     /**
      * A selector for the date of the Entry.
      */
-    private DatePicker datePicker;
+    private final DatePicker datePicker;
     /**
      * A Spinner used for the selection of the time.
      */
-    private Spinner<LocalTime> timePicker;
+    private final Spinner<LocalTime> timePicker;
     /**
      * A Label containing the text "Reminder:"
      */
-    private Label reminderLabel;
+    private final Label reminderLabel;
     /**
      * A selector for the  reminderDate of the Entry.
      */
-    private DatePicker reminderDatePicker;
+    private final DatePicker reminderDatePicker;
     /**
      * A Spinner used for the selection of the time of the reminder.
      */
-    private Spinner<LocalTime> reminderTimePicker;
+    private final Spinner<LocalTime> reminderTimePicker;
     /**
      * A TextArea used for displaying and editing the text of the Entry.
      */
-    private TextArea textArea;
+    private final TextArea textArea;
     /**
      * A button used to save all changes and close the editor.
      */
-    private Button saveButton;
+    private final Button saveButton;
     /**
      * A button used to discard all changes and close the editor.
      */
-    private Button cancelButton;
+    private final Button cancelButton;
     /**
      * The currently displayed Entry.
      */

@@ -82,15 +82,15 @@ public class NoteSegmentView extends SegmentView {
     /**
      * The monthView of the component.
      */
-    private MonthView monthView;
+    private final MonthView monthView;
     /**
      * The weekView of the component.
      */
-    private WeekView weekView;
+    private final WeekView weekView;
     /**
      * The Controller used for access to the data.
      */
-    private Controller controller;
+    private final Controller controller;
     /**
      * The editor for Notes.
      */
@@ -116,16 +116,16 @@ public class NoteSegmentView extends SegmentView {
 
         switchViewButton.setText("Switch View");
         switchViewButton.getStyleClass().add("switchViewButton");
-        switchViewButton.setOnAction(new EventHandler<ActionEvent>() {
+        switchViewButton.setOnAction(new EventHandler<>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                if(currentMonth != null){
+                if (currentMonth != null) {
                     currentMonth = null;
                     currentWeek = controller.switchToWeekView(Mode.NOTE);
                     weekView.changeContents(currentWeek);
                     monthView.getRoot().setVisible(false);
                     weekView.getRoot().setVisible(true);
-                }else{
+                } else {
                     currentWeek = null;
                     currentMonth = controller.switchToMonthView(Mode.NOTE);
                     monthView.changeContents(currentMonth);
@@ -153,24 +153,21 @@ public class NoteSegmentView extends SegmentView {
 
         collectionViewButton = new Button("CollectionView");
         collectionViewButton.getStyleClass().add("switchViewButton");
-        collectionViewButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                collectionSegmentView.refresh();
-                root.setVisible(false);
-                collectionSegmentView.getRoot().setVisible(true);
-            }
+        collectionViewButton.setOnAction(actionEvent -> {
+            collectionSegmentView.refresh();
+            root.setVisible(false);
+            collectionSegmentView.getRoot().setVisible(true);
         });
         trayVBox.getChildren().add(collectionViewButton);
 
-        EventHandler<ActionEvent> calendarEntryHandler = new EventHandler<ActionEvent>() {
+        EventHandler<ActionEvent> calendarEntryHandler = new EventHandler<>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                if(actionEvent.getSource() instanceof EntryButton){
+                if (actionEvent.getSource() instanceof EntryButton) {
                     noteView.display((Note) ((EntryButton) actionEvent.getSource()).getEntry());
-                } else if(actionEvent.getSource() instanceof DayInMonthView){
+                } else if (actionEvent.getSource() instanceof DayInMonthView) {
                     noteView.display(((DayInMonthView) actionEvent.getSource()).getDay().getDate());
-                }else if(actionEvent.getSource() instanceof DayInWeekView){
+                } else if (actionEvent.getSource() instanceof DayInWeekView) {
                     noteView.display(((DayInWeekView) actionEvent.getSource()).getDay().getDate());
                 }
             }
@@ -183,27 +180,27 @@ public class NoteSegmentView extends SegmentView {
         weekView.getRoot().setVisible(false);
         root.getChildren().add(weekView.getRoot());
 
-        EventHandler<MouseEvent> handleMonthSwitch = new EventHandler<MouseEvent>() {
+        EventHandler<MouseEvent> handleMonthSwitch = new EventHandler<>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                if(mouseEvent.getSource().equals(leftButton)){
-                    ((CalendarSegment)controller.getApplication().getSegment(Mode.NOTE)).shiftView(false);
+                if (mouseEvent.getSource().equals(leftButton)) {
+                    ((CalendarSegment) controller.getApplication().getSegment(Mode.NOTE)).shiftView(false);
                 } else if (mouseEvent.getSource().equals(rightButton)) {
-                    ((CalendarSegment)controller.getApplication().getSegment(Mode.NOTE)).shiftView(true);
-                }else{
+                    ((CalendarSegment) controller.getApplication().getSegment(Mode.NOTE)).shiftView(true);
+                } else {
                     return;
                 }
-                if(currentMonth == null){
+                if (currentMonth == null) {
                     currentWeek = controller.switchToWeekView(Mode.NOTE);
                     weekView.changeContents(currentWeek);
-                    for(Day d : currentWeek){
-                        if(d != null){
+                    for (Day d : currentWeek) {
+                        if (d != null) {
                             yearLabel.setText(String.valueOf(d.getDate().getYear() + 1900));
                             break;
                         }
                     }
                     monthLabel.setText(getMonthLabelText());
-                }else {
+                } else {
                     currentMonth = controller.switchToMonthView(Mode.NOTE);
                     monthView.changeContents(currentMonth);
                     yearLabel.setText(String.valueOf(currentMonth.getYear()));

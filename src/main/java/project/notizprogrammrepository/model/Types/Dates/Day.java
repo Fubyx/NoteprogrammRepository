@@ -6,9 +6,6 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
 
-/*
-
- */
 //19.04.2023 Fabian: Constructor, isOnSameDay
 //25.04.2023 Fabian: addEntry, amountOfEntries
 //07.05.2023 Fabian: sort entries by Date before returning them

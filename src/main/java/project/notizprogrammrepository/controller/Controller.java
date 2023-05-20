@@ -100,7 +100,7 @@ public class Controller {
             out.close();
             fileOut.close();
         } catch (IOException e) {
-            System.out.println(e.fillInStackTrace());
+            e.fillInStackTrace();
             System.err.println("Save failed");
         }
     }
