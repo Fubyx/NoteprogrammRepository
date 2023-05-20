@@ -1,0 +1,17 @@
+module:project.notizprogrammrepository
+project.notizprogrammrepository
+project.notizprogrammrepository.controller
+project.notizprogrammrepository.model
+project.notizprogrammrepository.model.Types
+project.notizprogrammrepository.model.Types.Dates
+project.notizprogrammrepository.model.Types.entries
+project.notizprogrammrepository.model.Types.segments
+project.notizprogrammrepository.view
+project.notizprogrammrepository.view.Calendar
+project.notizprogrammrepository.view.Calendar.Day
+project.notizprogrammrepository.view.Calendar.Month
+project.notizprogrammrepository.view.Calendar.Week
+project.notizprogrammrepository.view.Note
+project.notizprogrammrepository.view.Note.Collections
+project.notizprogrammrepository.view.Todo
+project.notizprogrammrepository.view.ViewUtils
