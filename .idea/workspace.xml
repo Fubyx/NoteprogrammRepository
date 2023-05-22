@@ -12,8 +12,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6502bfbe-216c-46b9-afe6-28e7a06cce3d" name="Changes" comment="generated javadoc">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="6502bfbe-216c-46b9-afe6-28e7a06cce3d" name="Changes" comment="fixed exe">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -406,7 +406,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684606676273</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="fixed exe">
+      <created>1684750138959</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1684750138960</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -424,7 +431,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Attributes and methods from class diagramm" />
     <MESSAGE value="Test-folder" />
     <MESSAGE value="Fix to the JUnit Testing --&gt; Solved by removing dependency's, imports and libraries (project structure) connected to JUnit" />
     <MESSAGE value="Changes indicated above class names by 19.04.2023" />
@@ -449,6 +455,7 @@
     <MESSAGE value="fixed pom ad created exe" />
     <MESSAGE value="added missing javadoc comments" />
     <MESSAGE value="generated javadoc" />
-    <option name="LAST_COMMIT_MESSAGE" value="generated javadoc" />
+    <MESSAGE value="fixed exe" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed exe" />
   </component>
 </project>

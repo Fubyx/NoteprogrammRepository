@@ -1,0 +1,89 @@
+.savebutton {
+    -fx-background-color: #27ae60;
+    -fx-background-radius: 24px;
+    -fx-font-family: "Inter", -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+    -fx-cursor: hand;
+}
+
+.savebutton:hover {
+    -fx-background-color: #1e8449;
+}
+
+
+.cancelbutton {
+    -fx-background-color: #ff0303;
+    -fx-background-radius: 24px;
+    -fx-cursor: hand;
+    -fx-font-family: "Inter", -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+}
+
+.cancelbutton:hover {
+    -fx-background-color: #bf1717;
+}
+
+.mainButtons {
+    -fx-background-color: linear-gradient(to bottom left, #0f8fd9, #db1ad5);
+    -fx-background-radius: 30 0 0 30;
+    -fx-text-fill: WHITE;
+    -fx-cursor: hand;
+    -fx-font-family: "Inter", -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+}
+
+.mainButtons:hover {
+    -fx-background-color: linear-gradient(to bottom left, #0f6191, #91138d);
+    -fx-background-radius: 30 0 0 30;
+}
+
+.switchViewButton{
+    -fx-background-color: linear-gradient(to bottom left, #0f8fd9, #db1ad5);
+    -fx-text-fill: white;
+    -fx-font-family: "Inter", -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+}
+
+.switchViewButton:hover {
+    -fx-background-color: linear-gradient(to bottom left, #0f6191, #91138d);
+}
+
+.labels {
+    -fx-alignment: center;
+    -fx-text-fill: white;
+    -fx-font-family: "Inter", -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 20px;
+    -fx-font-weight: 600;
+}
+
+.rectangle {
+    -fx-fill:  linear-gradient(to bottom left, #0f8fd9, #db1ad5);
+}
+
+.labels2 {
+    -fx-alignment: center;
+    -fx-text-fill: white;
+    -fx-font-family: "Inter", -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 15px;
+    -fx-font-weight: 600;
+}
+
+.buttons{
+    -fx-background-color: linear-gradient(to bottom left, #0f8fd9, #db1ad5);
+    -fx-text-fill: white;
+    -fx-font-family: "Inter", -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+    -fx-border-color: black;
+    -fx-border-width: 1px;
+}
+
+.buttons:hover {
+    -fx-background-color: linear-gradient(to bottom left, #0f6191, #91138d);
+}
