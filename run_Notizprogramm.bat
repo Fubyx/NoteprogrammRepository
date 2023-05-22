@@ -31,4 +31,4 @@
 ::
 ::
 ::978f952a14a936cc963da21a135fa983
-C:\Users\Fabian\Desktop\Oberschule\4AT\Informatik\Projekt\Info\Repository\NotizprogrammRepository\target\app\bin\java --module project.notizprogrammrepository/project.notizprogrammrepository.MainApplication
+.\target\app\bin\java --module project.notizprogrammrepository/project.notizprogrammrepository.MainApplication

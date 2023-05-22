@@ -12,7 +12,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6502bfbe-216c-46b9-afe6-28e7a06cce3d" name="Changes" comment="added missing javadoc comments" />
+    <list default="true" id="6502bfbe-216c-46b9-afe6-28e7a06cce3d" name="Changes" comment="generated javadoc">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -397,7 +399,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684605713721</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="generated javadoc">
+      <created>1684606676273</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1684606676273</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -415,7 +424,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="few fixes to initial commit" />
     <MESSAGE value="Attributes and methods from class diagramm" />
     <MESSAGE value="Test-folder" />
     <MESSAGE value="Fix to the JUnit Testing --&gt; Solved by removing dependency's, imports and libraries (project structure) connected to JUnit" />
@@ -440,6 +448,7 @@
     <MESSAGE value="fixed junit dependency" />
     <MESSAGE value="fixed pom ad created exe" />
     <MESSAGE value="added missing javadoc comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="added missing javadoc comments" />
+    <MESSAGE value="generated javadoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="generated javadoc" />
   </component>
 </project>
